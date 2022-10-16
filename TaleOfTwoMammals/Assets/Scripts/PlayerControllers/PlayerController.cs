@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 // PlayerController class handles the players' inputs
 // Note: 
@@ -21,8 +22,13 @@ public class PlayerController : MonoBehaviour
     protected float MovementVelocity = 5;
     [SerializeField]
     protected float JumpVelocity = 5;
+    [SerializeField]
+    private float smoothInputSpeed = .2f;
 
     #endregion
+
+    private Vector2 currentVector;
+    private Vector2 smoothInputVelocity;
 
     private void Awake()
     {
@@ -44,7 +50,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RB.velocity = new Vector2(HorizontalInput* MovementVelocity, RB.velocity.y);
+        
+        Vector2 input = new Vector2(HorizontalInput * MovementVelocity, RB.velocity.y);
+        currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
+        RB.velocity = new Vector2(currentVector.x, currentVector.y);
     }
 
     #region Subscribe and Unsubscribe
@@ -84,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     protected void OnJumpStarted(InputAction.CallbackContext context)
     {
-        if (IsGrounded() && context.started)
+        if(IsGrounded() && context.started)
             RB.velocity = new Vector2(RB.velocity.x, JumpVelocity);
     }
 
@@ -100,8 +109,9 @@ public class PlayerController : MonoBehaviour
     // Check if player is on the ground or not
     private bool IsGrounded()
     {
-        Collider2D collider = GetComponent<BoxCollider2D>();
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
         RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
+        Debug.Log(raycast.collider);
         return raycast.collider != null;
     }
 
