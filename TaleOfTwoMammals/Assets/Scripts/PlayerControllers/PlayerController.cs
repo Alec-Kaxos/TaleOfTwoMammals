@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour
     {
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
-        Debug.Log(raycast.collider);
         return raycast.collider != null;
     }
 
