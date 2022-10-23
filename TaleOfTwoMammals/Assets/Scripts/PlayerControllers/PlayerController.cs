@@ -99,7 +99,8 @@ public class PlayerController : MonoBehaviour
 
     protected void OnJumpCanceled(InputAction.CallbackContext context)
     {
-        RB.velocity = new Vector2(RB.velocity.x, 0);
+        if(context.started)
+            RB.velocity = new Vector2(RB.velocity.x, 0);
     }
 
     #endregion
