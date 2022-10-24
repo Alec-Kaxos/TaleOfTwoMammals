@@ -1,9 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArmadilloController: PlayerController
 {
+    // False means the Armadillo is in the normal form
+    // True means the Armadillo has transformed into the ball
+    private bool transformed = false;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    [Tooltip("How much more speed you want the Armadillow to have after transforming into a ball?")]
+    [Range(1, 2)]
+    private float speedMultiplier = 1.25f;
+
+    #region Normal Form Components
+
+    [Header("Normal Form Components")]
+    [Tooltip("This stands for the collider when the Armadillo is in its normal form. This should be set to be ACTIVE by default.")]
+    [SerializeField]
+    private BoxCollider2D normalCollider;
+    [Tooltip("This stands for the sprite when the Armadillo is in its normal form.")]
+    [SerializeField]
+    private Sprite normalSprite;
+
+    #endregion
+
+    #region Ball Form Components
+
+    [Header("Ball Form Components")]
+    [Tooltip("This stands for the collider when the Armadillo transforms into the ball. This should be set to be INACTIVE by default.")]
+    [SerializeField]
+    private BoxCollider2D ballCollider;
+    [Tooltip("This stands for the sprite when the Armadillo transforms into the ball.")]
+    [SerializeField]
+    private Sprite ballSprite;
+
+    #endregion
+
     protected override void Subscribe()
     {
         playerInputs.Armadillo.Move.started += OnMoveStarted;
@@ -11,6 +47,8 @@ public class ArmadilloController: PlayerController
 
         playerInputs.Armadillo.Jump.started += OnJumpStarted;
         playerInputs.Armadillo.Jump.canceled += OnJumpCanceled;
+
+        playerInputs.Armadillo.Transform.started += OnTransform;
     }
 
     protected override void Unsubscribe()
@@ -20,5 +58,35 @@ public class ArmadilloController: PlayerController
 
         playerInputs.Armadillo.Jump.started -= OnJumpStarted;
         playerInputs.Armadillo.Jump.canceled -= OnJumpCanceled;
+
+        playerInputs.Armadillo.Transform.started -= OnTransform;
     }
+
+    #region Armadillo Special Methods
+
+    private void toggleTransform()
+    {
+        transformed = !transformed;
+    }
+
+    private void OnTransform(InputAction.CallbackContext context)
+    {
+        toggleTransform();
+        if (transformed)
+        {
+            ballCollider.enabled = true;
+            normalCollider.enabled = false;
+            spriteRenderer.sprite = ballSprite;
+            movementVelocity *= speedMultiplier;
+        }
+        else
+        {
+            ballCollider.enabled = false;
+            normalCollider.enabled = true;
+            spriteRenderer.sprite = normalSprite;
+            movementVelocity /= speedMultiplier;
+        }
+    }
+
+    #endregion
 }

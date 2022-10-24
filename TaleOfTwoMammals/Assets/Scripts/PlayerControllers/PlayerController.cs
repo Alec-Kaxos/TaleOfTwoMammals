@@ -3,9 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 // PlayerController class handles the players' inputs
-// Note: 
-// I intended to make this class an parent class with abstract method,
-// how it is written now is just to show how it will work
 public class PlayerController : MonoBehaviour
 {
     protected PlayerInputs playerInputs;
@@ -17,11 +14,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Variables")]
 
-    protected float HorizontalInput = 0;
+    protected float horizontalInput = 0;
     [SerializeField]
-    protected float MovementVelocity = 5;
+    protected float movementVelocity = 5;
     [SerializeField]
-    protected float JumpVelocity = 5;
+    protected float jumpVelocity = 5;
     [SerializeField]
     private float smoothInputSpeed = .2f;
 
@@ -51,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
-        Vector2 input = new Vector2(HorizontalInput * MovementVelocity, RB.velocity.y);
+        Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
         RB.velocity = new Vector2(currentVector.x, currentVector.y);
     }
@@ -82,19 +79,19 @@ public class PlayerController : MonoBehaviour
     // This method is called when player press the movement key
     protected void OnMoveStarted(InputAction.CallbackContext context)
     {
-        HorizontalInput = context.ReadValue<Vector2>().x;
+        horizontalInput = context.ReadValue<Vector2>().x;
     }
 
     // This method is called when player release the movement key
     protected void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        HorizontalInput = context.ReadValue<Vector2>().x;
+        horizontalInput = context.ReadValue<Vector2>().x;
     }
 
     protected void OnJumpStarted(InputAction.CallbackContext context)
     {
         if(IsGrounded() && context.started)
-            RB.velocity = new Vector2(RB.velocity.x, JumpVelocity);
+            RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
     }
 
     protected void OnJumpCanceled(InputAction.CallbackContext context)

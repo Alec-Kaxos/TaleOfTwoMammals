@@ -180,6 +180,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Transform"",
+                    ""type"": ""Button"",
+                    ""id"": ""3594bc63-a10e-4500-9bf9-f490264c9a23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +301,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""672530a1-583a-4e3f-b84b-9bd128d78d42"",
+                    ""path"": ""<Keyboard>/slash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Transform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -367,6 +387,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Armadillo = asset.FindActionMap("Armadillo", throwIfNotFound: true);
         m_Armadillo_Move = m_Armadillo.FindAction("Move", throwIfNotFound: true);
         m_Armadillo_Jump = m_Armadillo.FindAction("Jump", throwIfNotFound: true);
+        m_Armadillo_Transform = m_Armadillo.FindAction("Transform", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -469,12 +490,14 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private IArmadilloActions m_ArmadilloActionsCallbackInterface;
     private readonly InputAction m_Armadillo_Move;
     private readonly InputAction m_Armadillo_Jump;
+    private readonly InputAction m_Armadillo_Transform;
     public struct ArmadilloActions
     {
         private @PlayerInputs m_Wrapper;
         public ArmadilloActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Armadillo_Move;
         public InputAction @Jump => m_Wrapper.m_Armadillo_Jump;
+        public InputAction @Transform => m_Wrapper.m_Armadillo_Transform;
         public InputActionMap Get() { return m_Wrapper.m_Armadillo; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -490,6 +513,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnJump;
+                @Transform.started -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnTransform;
+                @Transform.performed -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnTransform;
+                @Transform.canceled -= m_Wrapper.m_ArmadilloActionsCallbackInterface.OnTransform;
             }
             m_Wrapper.m_ArmadilloActionsCallbackInterface = instance;
             if (instance != null)
@@ -500,6 +526,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Transform.started += instance.OnTransform;
+                @Transform.performed += instance.OnTransform;
+                @Transform.canceled += instance.OnTransform;
             }
         }
     }
@@ -558,5 +587,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnTransform(InputAction.CallbackContext context);
     }
 }
