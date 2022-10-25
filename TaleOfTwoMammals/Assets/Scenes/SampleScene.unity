@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 52054187}
   - component: {fileID: 52054186}
   - component: {fileID: 52054188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,6 +365,9 @@ MonoBehaviour:
   smoothInputSpeed: 0.01
   spriteRenderer: {fileID: 287722969}
   speedMultiplier: 1.25
+  tunnelLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   normalCollider: {fileID: 287722967}
   normalSprite: {fileID: 21300000, guid: 0e7b91fe092b3d24d8bee066fe1ffd78, type: 3}
   ballCollider: {fileID: 287722971}

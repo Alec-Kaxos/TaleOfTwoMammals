@@ -16,6 +16,9 @@ public class ArmadilloController: PlayerController
     [Range(1, 2)]
     private float speedMultiplier = 1.25f;
 
+    [SerializeField]
+    private LayerMask tunnelLayerMask;
+
     #region Normal Form Components
 
     [Header("Normal Form Components")]
@@ -81,11 +84,26 @@ public class ArmadilloController: PlayerController
         }
         else
         {
+            if (IsInTunnel())
+            {
+                toggleTransform();
+                return;
+            }
             ballCollider.enabled = false;
             normalCollider.enabled = true;
             spriteRenderer.sprite = normalSprite;
             movementVelocity /= speedMultiplier;
         }
+    }
+
+    #endregion
+
+    #region Utilities
+
+    private bool IsInTunnel()
+    {
+        RaycastHit2D raycast = Physics2D.BoxCast(ballCollider.bounds.center, ballCollider.bounds.size, 0f, Vector2.up, 0.1f, tunnelLayerMask);
+        return raycast.collider != null;
     }
 
     #endregion
