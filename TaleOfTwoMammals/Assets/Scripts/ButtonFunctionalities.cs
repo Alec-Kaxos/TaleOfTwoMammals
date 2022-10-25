@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctionalities : MonoBehaviour
 {
+#region Start Menu Button Functionalities
+
     public void OnStartButtonPressed()
     {
         // Good enough for now
@@ -15,4 +17,6 @@ public class ButtonFunctionalities : MonoBehaviour
     {
         Application.Quit();
     }
+
+#endregion
 }

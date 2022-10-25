@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     protected LayerMask GroundLayerMask;
 
-    #region Movement Variables
+#region Movement Variables
 
     [Header("Movement Variables")]
 
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float smoothInputSpeed = .2f;
 
-    #endregion
+#endregion
 
     private Vector2 currentVector;
     private Vector2 smoothInputVelocity;
@@ -47,21 +47,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
         RB.velocity = new Vector2(currentVector.x, currentVector.y);
     }
 
-    #region Subscribe and Unsubscribe
+#region Subscribe and Unsubscribe
 
     // This method subscribes corresponding methods to the
     // InputAction event to listen to any key press.
-    // Note:
-    // I used playerInputs. "Anteater"  below, because
-    // I made another ActionMap in "PlayerInputs" called
-    // "Armadillo", and if I am doing this correctly,
-    // the Subscribe() and Unsubscribe() should be *virtual*
     protected virtual void Subscribe()
     {
     }
@@ -72,37 +66,37 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    #endregion
+#endregion
 
-    #region Callback Events
+#region Callback Events
 
     // This method is called when player press the movement key
-    protected void OnMoveStarted(InputAction.CallbackContext context)
+    protected virtual void OnMoveStarted(InputAction.CallbackContext context)
     {
         horizontalInput = context.ReadValue<Vector2>().x;
     }
 
     // This method is called when player release the movement key
-    protected void OnMoveCanceled(InputAction.CallbackContext context)
+    protected virtual void OnMoveCanceled(InputAction.CallbackContext context)
     {
         horizontalInput = context.ReadValue<Vector2>().x;
     }
 
-    protected void OnJumpStarted(InputAction.CallbackContext context)
+    protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
         if(IsGrounded() && context.started)
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
     }
 
-    protected void OnJumpCanceled(InputAction.CallbackContext context)
+    protected virtual void OnJumpCanceled(InputAction.CallbackContext context)
     {
         if(context.started)
             RB.velocity = new Vector2(RB.velocity.x, 0);
     }
 
-    #endregion
+#endregion
 
-    #region Utility Methods
+#region Utility Methods
 
     // Check if player is on the ground or not
     private bool IsGrounded()
@@ -112,5 +106,5 @@ public class PlayerController : MonoBehaviour
         return raycast.collider != null;
     }
 
-    #endregion
+#endregion
 }

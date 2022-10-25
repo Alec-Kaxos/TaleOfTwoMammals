@@ -44,6 +44,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootTongue"",
+                    ""type"": ""Button"",
+                    ""id"": ""5711e950-df9b-432c-ae62-3994b6165ae4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +163,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b879652b-51c0-46ab-a1d3-6d9607d8d243"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ShootTongue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -383,6 +403,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Anteater = asset.FindActionMap("Anteater", throwIfNotFound: true);
         m_Anteater_Move = m_Anteater.FindAction("Move", throwIfNotFound: true);
         m_Anteater_Jump = m_Anteater.FindAction("Jump", throwIfNotFound: true);
+        m_Anteater_ShootTongue = m_Anteater.FindAction("ShootTongue", throwIfNotFound: true);
         // Armadillo
         m_Armadillo = asset.FindActionMap("Armadillo", throwIfNotFound: true);
         m_Armadillo_Move = m_Armadillo.FindAction("Move", throwIfNotFound: true);
@@ -449,12 +470,14 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private IAnteaterActions m_AnteaterActionsCallbackInterface;
     private readonly InputAction m_Anteater_Move;
     private readonly InputAction m_Anteater_Jump;
+    private readonly InputAction m_Anteater_ShootTongue;
     public struct AnteaterActions
     {
         private @PlayerInputs m_Wrapper;
         public AnteaterActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Anteater_Move;
         public InputAction @Jump => m_Wrapper.m_Anteater_Jump;
+        public InputAction @ShootTongue => m_Wrapper.m_Anteater_ShootTongue;
         public InputActionMap Get() { return m_Wrapper.m_Anteater; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -470,6 +493,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnJump;
+                @ShootTongue.started -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
+                @ShootTongue.performed -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
+                @ShootTongue.canceled -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
             }
             m_Wrapper.m_AnteaterActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +506,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @ShootTongue.started += instance.OnShootTongue;
+                @ShootTongue.performed += instance.OnShootTongue;
+                @ShootTongue.canceled += instance.OnShootTongue;
             }
         }
     }
@@ -582,6 +611,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnShootTongue(InputAction.CallbackContext context);
     }
     public interface IArmadilloActions
     {

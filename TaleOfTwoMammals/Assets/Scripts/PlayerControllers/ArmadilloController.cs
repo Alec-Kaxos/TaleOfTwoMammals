@@ -19,7 +19,7 @@ public class ArmadilloController: PlayerController
     [SerializeField]
     private LayerMask tunnelLayerMask;
 
-    #region Normal Form Components
+#region Normal Form Components
 
     [Header("Normal Form Components")]
     [Tooltip("This stands for the collider when the Armadillo is in its normal form. This should be set to be ACTIVE by default.")]
@@ -29,9 +29,9 @@ public class ArmadilloController: PlayerController
     [SerializeField]
     private Sprite normalSprite;
 
-    #endregion
+#endregion
 
-    #region Ball Form Components
+#region Ball Form Components
 
     [Header("Ball Form Components")]
     [Tooltip("This stands for the collider when the Armadillo transforms into the ball. This should be set to be INACTIVE by default.")]
@@ -41,7 +41,9 @@ public class ArmadilloController: PlayerController
     [SerializeField]
     private Sprite ballSprite;
 
-    #endregion
+#endregion
+
+#region Subscribe and Unsubscribe
 
     protected override void Subscribe()
     {
@@ -65,7 +67,9 @@ public class ArmadilloController: PlayerController
         playerInputs.Armadillo.Transform.started -= OnTransform;
     }
 
-    #region Armadillo Special Methods
+#endregion
+
+#region Armadillo Special Methods
 
     private void toggleTransform()
     {
@@ -96,9 +100,9 @@ public class ArmadilloController: PlayerController
         }
     }
 
-    #endregion
+#endregion
 
-    #region Utilities
+#region Utilities
 
     private bool IsInTunnel()
     {
@@ -106,5 +110,5 @@ public class ArmadilloController: PlayerController
         return raycast.collider != null;
     }
 
-    #endregion
+#endregion
 }
