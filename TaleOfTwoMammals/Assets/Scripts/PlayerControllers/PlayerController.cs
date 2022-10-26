@@ -82,10 +82,20 @@ public class PlayerController : MonoBehaviour
         {
             horizontalInput = -1;
         }
-
         else
         {
             horizontalInput = 0;
+        }
+
+        // Face the character to left or right 
+        // It seems a little dumb how I do it
+        if (horizontalInput == 1 && gameObject.transform.rotation.eulerAngles != new Vector3(0, 180f, 0))
+        {
+            gameObject.transform.Rotate(new Vector3(0, 180f, 0));
+        }
+        else if (horizontalInput == -1 && gameObject.transform.rotation.eulerAngles != new Vector3(0, 0, 0))
+        {
+            gameObject.transform.Rotate(new Vector3(0, -180f, 0));
         }
     }
 

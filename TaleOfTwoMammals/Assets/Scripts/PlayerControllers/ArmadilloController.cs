@@ -71,6 +71,15 @@ public class ArmadilloController: PlayerController
 
 #region Armadillo Special Methods
 
+    // Armadillo will not be able to jump when it is currenly in the ball form
+    protected override void OnJumpStarted(InputAction.CallbackContext context)
+    {
+        if (transformed == false)
+        {
+            base.OnJumpStarted(context);
+        }
+    }
+
     private void toggleTransform()
     {
         transformed = !transformed;
