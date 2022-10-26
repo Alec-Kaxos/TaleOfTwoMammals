@@ -75,11 +75,17 @@ public class PlayerController : MonoBehaviour
     {
         if (context.ReadValue<Vector2>().x > 0)
         {
+            Debug.Log(context.ReadValue<Vector2>().x);
             horizontalInput = 1;
         }
-        else
+        else if (context.ReadValue<Vector2>().x < 0)
         {
             horizontalInput = -1;
+        }
+
+        else
+        {
+            horizontalInput = 0;
         }
     }
 
