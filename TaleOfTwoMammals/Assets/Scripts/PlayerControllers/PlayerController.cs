@@ -73,13 +73,20 @@ public class PlayerController : MonoBehaviour
     // This method is called when player press the movement key
     protected virtual void OnMoveStarted(InputAction.CallbackContext context)
     {
-        horizontalInput = context.ReadValue<Vector2>().x;
+        if (context.ReadValue<Vector2>().x > 0)
+        {
+            horizontalInput = 1;
+        }
+        else
+        {
+            horizontalInput = -1;
+        }
     }
 
     // This method is called when player release the movement key
     protected virtual void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        horizontalInput = context.ReadValue<Vector2>().x;
+        horizontalInput = 0;
     }
 
     protected virtual void OnJumpStarted(InputAction.CallbackContext context)
