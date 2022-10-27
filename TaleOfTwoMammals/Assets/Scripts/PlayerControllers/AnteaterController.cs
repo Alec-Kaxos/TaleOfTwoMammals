@@ -23,6 +23,17 @@ public class AnteaterController : PlayerController
 
     #endregion
 
+    #region Tongue Bridge
+
+    [SerializeField]
+    private float tongueWidth = .1f;
+    private bool tongueOut = false;
+    private GameObject tongueBridge = null;
+    [SerializeField]
+    private Texture2D tongueTexture;
+
+    #endregion 
+
     #region Subscribe and Unsubscribe
 
     protected override void Subscribe()
@@ -53,8 +64,8 @@ public class AnteaterController : PlayerController
 
     protected override void OnMoveStarted(InputAction.CallbackContext context)
     {
-        // Check if Anteater is aiming, Anteater will not be able to move if it is aiming
-        if (isAiming == false)
+        // Check if Anteater is aiming or has tongue out, Anteater will not be able to move if it is aiming
+        if (isAiming == false && !tongueOut)
         {
             base.OnMoveStarted(context);
         }
@@ -62,8 +73,8 @@ public class AnteaterController : PlayerController
 
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
-        // Check if Anteater is aiming, Anteater will not be able to jump if it is aiming
-        if (isAiming == false)
+        // Check if Anteater is aimingor has tongue out, Anteater will not be able to jump if it is aiming
+        if (isAiming == false && !tongueOut)
         {
             base.OnJumpStarted(context);
         }
@@ -76,39 +87,93 @@ public class AnteaterController : PlayerController
 
     private void OnShootTongue(InputAction.CallbackContext context)
     {
-        toggleIsAiming();
-        if (isAiming == true)
+        //First, check if the tongue bridge is already out, if so, recall it
+        if (tongueOut)
         {
-            playerInputs.Anteater.Aim.started += OnAim;
-            // Unsubscribe movement from player movement inputs
-            playerInputs.Anteater.Move.started -= OnMoveStarted;
-            playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
-            // Subscribe pointer rotation to player movement inputs
-            playerInputs.Anteater.Move.started += OnMovePointerStarted;
-            playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
-
-            aimingSprites.SetActive(true);
+            despawnTongueBridge();
         }
-        else
+        else //The tongue bridge is not currently deployed, so start aiming.
         {
-            playerInputs.Anteater.Aim.started -= OnAim;
-            // Subscribe movement to player movement inputs
-            playerInputs.Anteater.Move.started += OnMoveStarted;
-            playerInputs.Anteater.Move.canceled += OnMoveCanceled;
-            // Unsubscribe pointer rotation from player movement inputs
-            playerInputs.Anteater.Move.started -= OnMovePointerStarted;
-            playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
-
-            //CHANGE DISTANCE
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingSprites.transform.up, tongueLength, tongueLayers);
-            if(hit.collider != null)
+            toggleIsAiming();
+            if (isAiming == true)
             {
-                Debug.Log( hit.collider.gameObject);
-                Debug.DrawRay(transform.position, new Vector3(hit.point.x,hit.point.y,0f) - transform.position, Color.red, 5.0f);
-            }
+                playerInputs.Anteater.Aim.started += OnAim;
+                // Unsubscribe movement from player movement inputs
+                playerInputs.Anteater.Move.started -= OnMoveStarted;
+                playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
+                // Subscribe pointer rotation to player movement inputs
+                playerInputs.Anteater.Move.started += OnMovePointerStarted;
+                playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
 
-            aimingSprites.SetActive(false);
+                aimingSprites.SetActive(true);
+            }
+            else
+            {
+                playerInputs.Anteater.Aim.started -= OnAim;
+                // Subscribe movement to player movement inputs
+                playerInputs.Anteater.Move.started += OnMoveStarted;
+                playerInputs.Anteater.Move.canceled += OnMoveCanceled;
+                // Unsubscribe pointer rotation from player movement inputs
+                playerInputs.Anteater.Move.started -= OnMovePointerStarted;
+                playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
+
+                //CHANGE DISTANCE
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingSprites.transform.up, tongueLength, tongueLayers);
+                if (hit.collider != null)
+                {
+                    Debug.Log(hit.collider.gameObject);
+                    Debug.DrawRay(transform.position, new Vector3(hit.point.x, hit.point.y, 0f) - transform.position, Color.red, 5.0f);
+                    //Likely insert object type check here
+                    spawnTongueBridge(hit.point);
+
+                }
+
+                aimingSprites.SetActive(false);
+            }
         }
+    }
+
+    private void spawnTongueBridge(Vector2 endpoint)
+    {
+        tongueOut = true;
+
+        //Deal with movement lock
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Static;
+
+        float tongueLen = (endpoint - new Vector2(transform.position.x, transform.position.y)).magnitude;
+        //Rect tongueRect = new Rect(transform.position.x, transform.position.y, tongueWidth, tongueLen);
+
+        //Set tongue dimensions
+        tongueBridge = new GameObject("Tongue Bridge");
+        tongueBridge.transform.localScale = new Vector3(tongueLen, tongueWidth, 1f);
+        tongueBridge.transform.rotation = aimingSprites.transform.rotation;
+        tongueBridge.transform.Rotate(0, 0, 90);
+        tongueBridge.transform.SetParent(gameObject.transform);
+        tongueBridge.transform.localPosition = new Vector3();
+        BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
+        tBoxC.offset = new Vector2(.5f, .5f);
+        tongueBridge.layer = LayerMask.NameToLayer("Ground");
+
+        //Set Sprite
+        Texture2D test = new Texture2D(100, 100);
+        Sprite sprite = Sprite.Create(test, new Rect(0, 0, 100, 100), new Vector2());
+        SpriteRenderer renderer = tongueBridge.AddComponent<SpriteRenderer>();
+        renderer.sprite = sprite;
+
+    }
+
+    private void despawnTongueBridge()
+    {
+        tongueOut = false;
+
+        //Deal with movement lock
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
+        //Destroy tongue
+        Destroy(tongueBridge);
+        tongueBridge = null;
     }
 
     private void OnMovePointerStarted(InputAction.CallbackContext context)
