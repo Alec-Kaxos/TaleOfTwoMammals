@@ -16,10 +16,14 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private float aimingSpriteRotatingSpeed = 1f;
     private float aimingRotationInput = 0;
+    [SerializeField]
+    private float tongueLength = 20f;
+    [SerializeField]
+    private LayerMask tongueLayers;
 
-#endregion
+    #endregion
 
-#region Subscribe and Unsubscribe
+    #region Subscribe and Unsubscribe
 
     protected override void Subscribe()
     {
@@ -95,6 +99,14 @@ public class AnteaterController : PlayerController
             playerInputs.Anteater.Move.started -= OnMovePointerStarted;
             playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
 
+            //CHANGE DISTANCE
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingSprites.transform.up, tongueLength, tongueLayers);
+            if(hit.collider != null)
+            {
+                Debug.Log( hit.collider.gameObject);
+                Debug.DrawRay(transform.position, new Vector3(hit.point.x,hit.point.y,0f) - transform.position, Color.red, 5.0f);
+            }
+
             aimingSprites.SetActive(false);
         }
     }
@@ -142,6 +154,8 @@ public class AnteaterController : PlayerController
     private void LateUpdate()
     {
 #region Rotating the Aiming Sprites
+
+        Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
 
         if (isAiming == true)
         {
