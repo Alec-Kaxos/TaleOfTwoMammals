@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.ReadValue<Vector2>().x > 0)
         {
-            Debug.Log(context.ReadValue<Vector2>().x);
             horizontalInput = 1;
         }
         else if (context.ReadValue<Vector2>().x < 0)

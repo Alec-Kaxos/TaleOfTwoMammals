@@ -140,6 +140,7 @@ public class AnteaterController : PlayerController
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
 
         float tongueLen = (endpoint - new Vector2(transform.position.x, transform.position.y)).magnitude;
         //Rect tongueRect = new Rect(transform.position.x, transform.position.y, tongueWidth, tongueLen);
@@ -170,6 +171,8 @@ public class AnteaterController : PlayerController
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<BoxCollider2D>().enabled = true;
+
 
         //Destroy tongue
         Destroy(tongueBridge);
