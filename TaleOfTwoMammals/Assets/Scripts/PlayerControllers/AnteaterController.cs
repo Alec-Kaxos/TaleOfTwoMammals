@@ -23,7 +23,7 @@ public class AnteaterController : PlayerController
 
     #endregion
 
-    #region Tongue Bridge
+#region Tongue Bridge
 
     [SerializeField]
     private float tongueWidth = .1f;
@@ -32,9 +32,9 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private Texture2D tongueTexture;
 
-    #endregion 
+#endregion 
 
-    #region Subscribe and Unsubscribe
+#region Subscribe and Unsubscribe
 
     protected override void Subscribe()
     {
@@ -151,7 +151,7 @@ public class AnteaterController : PlayerController
         tongueBridge.transform.rotation = aimingSprites.transform.rotation;
         tongueBridge.transform.Rotate(0, 0, 90);
         tongueBridge.transform.SetParent(gameObject.transform);
-        tongueBridge.transform.localPosition = new Vector3();
+        tongueBridge.transform.localPosition = new Vector3(0f, tongueWidth/2, 0f);
         BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
         tBoxC.offset = new Vector2(.5f, .5f);
         tongueBridge.layer = LayerMask.NameToLayer("Ground");
@@ -161,6 +161,7 @@ public class AnteaterController : PlayerController
         Sprite sprite = Sprite.Create(test, new Rect(0, 0, 100, 100), new Vector2());
         SpriteRenderer renderer = tongueBridge.AddComponent<SpriteRenderer>();
         renderer.sprite = sprite;
+        renderer.color = Color.red;
 
     }
 
