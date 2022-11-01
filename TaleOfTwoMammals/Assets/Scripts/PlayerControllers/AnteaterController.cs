@@ -21,7 +21,7 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private LayerMask tongueLayers;
 
-    #endregion
+#endregion
 
 #region Tongue Bridge
 
@@ -87,6 +87,7 @@ public class AnteaterController : PlayerController
 
     private void OnShootTongue(InputAction.CallbackContext context)
     {
+        StopCharacter();
         //First, check if the tongue bridge is already out, if so, recall it
         if (tongueOut)
         {
@@ -97,7 +98,6 @@ public class AnteaterController : PlayerController
             toggleIsAiming();
             if (isAiming == true)
             {
-                playerInputs.Anteater.Aim.started += OnAim;
                 // Unsubscribe movement from player movement inputs
                 playerInputs.Anteater.Move.started -= OnMoveStarted;
                 playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
@@ -109,7 +109,6 @@ public class AnteaterController : PlayerController
             }
             else
             {
-                playerInputs.Anteater.Aim.started -= OnAim;
                 // Subscribe movement to player movement inputs
                 playerInputs.Anteater.Move.started += OnMoveStarted;
                 playerInputs.Anteater.Move.canceled += OnMoveCanceled;
@@ -210,12 +209,6 @@ public class AnteaterController : PlayerController
     private void OnMovePointerCanceled(InputAction.CallbackContext context)
     {
         aimingRotationInput = 0;
-    }
-
-    private void OnAim(InputAction.CallbackContext context)
-    {
-        Vector3 rotateAngle = context.ReadValue<Vector3>();
-        aimingSprites.transform.Rotate(rotateAngle);
     }
 
 #endregion
