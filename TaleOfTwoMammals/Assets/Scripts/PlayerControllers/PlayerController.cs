@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
         RB.velocity = new Vector2(currentVector.x, currentVector.y);
-        Debug.Log("current vector is: " + currentVector);
+        //Debug.Log("current vector is: " + currentVector);
     }
 
 #region Subscribe and Unsubscribe
