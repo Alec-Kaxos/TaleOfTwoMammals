@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorScript : MonoBehaviour
+public class DoorScript : ButtonUser
 {
-    [SerializeField]
-    private ButtonScript[] buttons;
+    //[SerializeField]
+    //private ButtonScript[] buttons;
 
-    private int currentButtonsPressed;
+    //private int currentButtonsPressed;
 
-    private bool doorOpen = false;
+    //private bool doorOpen = false;
 
     [SerializeField]
     private float squishAmt = 10;
 
+    /* OLD Button Functionality
     #region Button Functionality
 
     public void Pressed()
@@ -39,32 +40,49 @@ public class DoorScript : MonoBehaviour
     }
 
     #endregion
+    */
 
     #region Door Logic
 
-    protected void open()
+    /// <summary>
+    /// Called when the door opens (all connected buttons pressed). Only opens if not already open.
+    /// </summary>
+    protected virtual void open()
     {
-        if(!doorOpen)
-        {
-            transform.localPosition += new Vector3( 0, (transform.localScale.y - transform.localScale.y / squishAmt) / 2, 0 );
-            transform.localScale += new Vector3(0,transform.localScale.y / squishAmt - transform.localScale.y ,0);
+        //if(!doorOpen)
+        //{
+        transform.localPosition += new Vector3( 0, (transform.localScale.y - transform.localScale.y / squishAmt) / 2, 0 );
+        transform.localScale += new Vector3(0,transform.localScale.y / squishAmt - transform.localScale.y ,0);
 
-            doorOpen = true;
-            //Debug.Log("Open");
-        }
+        //    doorOpen = true;
+        //Debug.Log("Open");
+        //}
 
     }
 
-    protected void close()
+    /// <summary>
+    /// Called when the door closes, while not already closed. Happens when one button is released while all are pressed.
+    /// </summary>
+    protected virtual void close()
     {
-        if (doorOpen)
-        {
-            transform.localPosition += new Vector3(0, (transform.localScale.y - transform.localScale.y * squishAmt) / 2, 0);
-            transform.localScale += new Vector3(0, transform.localScale.y * squishAmt - transform.localScale.y, 0);
+        //if (doorOpen)
+        //{
+        transform.localPosition += new Vector3(0, (transform.localScale.y - transform.localScale.y * squishAmt) / 2, 0);
+        transform.localScale += new Vector3(0, transform.localScale.y * squishAmt - transform.localScale.y, 0);
 
-            doorOpen = false;
-            //Debug.Log("Close");
-        }
+        //    doorOpen = false;
+        //Debug.Log("Close");
+        //}
+    }
+
+    protected override void Activated()
+    {
+        open();
+    }
+
+    protected override void Deactivated()
+    {
+        close();
     }
 
     #endregion
@@ -72,9 +90,10 @@ public class DoorScript : MonoBehaviour
     #region Unity Functions
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        currentButtonsPressed = 0;
+        base.Start();
+        //currentButtonsPressed = 0;
     }
 
     // Update is called once per frame
@@ -83,6 +102,7 @@ public class DoorScript : MonoBehaviour
         
     }
 
+    /*
     private void OnEnable()
     {
         subscribe();   
@@ -118,13 +138,13 @@ public class DoorScript : MonoBehaviour
         foreach (ButtonScript b in buttons)
         {
             b.onPress -= Pressed;
-            b.onRelease += Unpressed;
-            if (b.IsPressed()) currentButtonsPressed++;
+            b.onRelease -= Unpressed;
         }
 
         close();
 
     }
+    */
 
     #endregion
 }
