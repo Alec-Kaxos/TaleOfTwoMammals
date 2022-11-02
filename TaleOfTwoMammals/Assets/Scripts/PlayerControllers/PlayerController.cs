@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
         Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
         RB.velocity = new Vector2(currentVector.x, currentVector.y);
-        //Debug.Log("current vector is: " + currentVector);
     }
 
 #region Subscribe and Unsubscribe
@@ -89,13 +88,13 @@ public class PlayerController : MonoBehaviour
 
         // Face the character to left or right 
         // It seems a little dumb how I do it
-        if (horizontalInput == 1 && gameObject.transform.rotation.eulerAngles != new Vector3(0, 180f, 0))
+        if (horizontalInput == 1)
         {
-            gameObject.transform.Rotate(new Vector3(0, 180f, 0));
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180f, 0));
         }
-        else if (horizontalInput == -1 && gameObject.transform.rotation.eulerAngles != new Vector3(0, 0, 0))
+        else if (horizontalInput == -1)
         {
-            gameObject.transform.Rotate(new Vector3(0, -180f, 0));
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         }
     }
 

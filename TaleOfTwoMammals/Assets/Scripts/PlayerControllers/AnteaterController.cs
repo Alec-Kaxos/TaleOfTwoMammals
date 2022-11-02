@@ -106,6 +106,8 @@ public class AnteaterController : PlayerController
                 playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
 
                 aimingSprites.SetActive(true);
+
+                aimingSprites.transform.parent = null;
             }
             else
             {
@@ -128,6 +130,10 @@ public class AnteaterController : PlayerController
                 }
 
                 aimingSprites.SetActive(false);
+
+                aimingSprites.transform.parent = gameObject.transform;
+                // Reset the aiming sprite to point upwards again
+                aimingSprites.transform.rotation = new Quaternion(0, 0, 0, 0);
             }
         }
     }
@@ -183,26 +189,15 @@ public class AnteaterController : PlayerController
     {
         if (context.ReadValue<Vector2>().x > 0)
         {
-            aimingRotationInput = 1;
+            aimingRotationInput = -1;
         }
         else if (context.ReadValue<Vector2>().x < 0)
         {
-            aimingRotationInput = -1;
+            aimingRotationInput = 1;
         }
         else
         {
             aimingRotationInput = 0;
-        }
-
-        // Just to make pointer always rotate clockwise/counter clockwise when player is
-        // press right/left no matter which way the charater is facing
-        if (gameObject.transform.rotation.y < 0)
-        {
-            rotationDirection = 1;
-        }
-        else
-        {
-            rotationDirection = -1;
         }
     }
 
@@ -215,16 +210,48 @@ public class AnteaterController : PlayerController
 
     private void LateUpdate()
     {
-#region Rotating the Aiming Sprites
+#region Rotating the Aiming Sprites along with the Anteater
 
         Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
 
         if (isAiming == true)
         {
             Vector3 currentRotation = aimingSprites.transform.rotation.eulerAngles;
-            aimingSprites.transform.Rotate(new Vector3(0, 0, aimingSpriteRotatingSpeed * aimingRotationInput * rotationDirection));
+            float zValue = currentRotation.z + aimingSpriteRotatingSpeed * aimingRotationInput;
+            aimingSprites.transform.rotation = Quaternion.Euler(new Vector3(0, 0, zValue));
+            // Rotating the Anteater according to the rotation of the pointer
+            // Excluding 0 and 360 here since rotation starts at 0, and we want 
+            // the Anteater to keep its direction when starting to aim
+            if (zValue > 180 && zValue < 360)
+            {
+                // rotate to left
+                gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180f, 0));
+            }
+            else if (zValue > 0 &&zValue < 180)
+            {
+                // rotate to right
+                gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            }
         }
 
 #endregion
     }
+
+#region Utilities
+
+    private void DetermineRotationDirection()
+    {
+        // Just to make pointer always rotate clockwise/counter clockwise when player is
+        // press right/left no matter which way the charater is facing
+        if (gameObject.transform.rotation.y < 0)
+        {
+            rotationDirection = -1;
+        }
+        else
+        {
+            rotationDirection = 1;
+        }
+    }
+
+#endregion
 }
