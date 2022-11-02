@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 595786299185234545}
   - component: {fileID: 595786299185234548}
   - component: {fileID: 595786299185234549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anteater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 595786300240532884}
+  - {fileID: 496468066216579043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a33fa23056ead2040a6683b455a13eac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: caa6365650487414f9968cb4382f88c3, type: 2}
@@ -122,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07854748, y: 0.057424724}
+  m_Offset: {x: -0.13102877, y: -0.7388091}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1890092, y: 1.0715126}
+  m_Size: {x: 1.2939718, y: 1.0823901}
   m_EdgeRadius: 0
 --- !u!114 &595786299185234549
 MonoBehaviour:
@@ -153,14 +154,18 @@ MonoBehaviour:
   movementVelocity: 5
   jumpVelocity: 5
   smoothInputSpeed: 0.01
+  spriteRenderer: {fileID: 595786299185234546}
+  normalSprite: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
+  crawlSprite: {fileID: 21300000, guid: ccdf9b3513953a94793ae8bab3dabef2, type: 3}
+  tongueStartPointRef: {fileID: 496468066216579043}
   aimingSprites: {fileID: 595786300240532883}
-  aimingSpriteRotatingSpeed: 1
+  aimingSpriteRotatingSpeed: 0.5
   tongueLength: 20
   tongueLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 832
   tongueWidth: 0.1
-  tongueTexture: {fileID: 0}
+  tongueTexture: {fileID: 2800000, guid: 3fc2bbd409bf34ab6af1637bab569da1, type: 3}
 --- !u!1 &595786300081805367
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595786300240532883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -362,3 +367,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2866320767577521197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496468066216579043}
+  m_Layer: 7
+  m_Name: TongueStartPoinReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496468066216579043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866320767577521197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.873, y: -1.195, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595786299185234547}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

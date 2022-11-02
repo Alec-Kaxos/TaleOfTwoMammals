@@ -8,6 +8,16 @@ public class AnteaterController : PlayerController
     private bool isAiming = false;
     private int rotationDirection = 1;
 
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Sprite normalSprite;
+    [SerializeField]
+    private Sprite crawlSprite;
+    [SerializeField]
+    private Transform tongueStartPointRef;
+
 #region Aiming
 
     [Header("Aiming")]
@@ -92,6 +102,8 @@ public class AnteaterController : PlayerController
         if (tongueOut)
         {
             despawnTongueBridge();
+
+            spriteRenderer.sprite = normalSprite;
         }
         else //The tongue bridge is not currently deployed, so start aiming.
         {
@@ -127,6 +139,7 @@ public class AnteaterController : PlayerController
                     //Likely insert object type check here
                     spawnTongueBridge(hit.point);
 
+                    spriteRenderer.sprite = crawlSprite;
                 }
 
                 aimingSprites.SetActive(false);

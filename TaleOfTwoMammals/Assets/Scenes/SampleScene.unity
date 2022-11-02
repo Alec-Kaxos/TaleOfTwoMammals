@@ -2197,22 +2197,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anteater
       objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234544, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234545, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234545, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234545, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2223,7 +2207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.55
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2255,46 +2239,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: jumpVelocity
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: tongueTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 3fc2bbd409bf34ab6af1637bab569da1, type: 3}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: tongueLayers.m_Bits
-      value: 832
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: tongueLayers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: aimingSpriteRotatingSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: tongueLayers.Array.data[0].m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: tongueLayers.Array.data[1].m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786300081805367, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786300240532883, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 595786300566118962, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
