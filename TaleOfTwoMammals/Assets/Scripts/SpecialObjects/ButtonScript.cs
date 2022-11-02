@@ -19,16 +19,16 @@ public class ButtonScript : MonoBehaviour
     [SerializeField]
     private LayerMask collisionLayers;
 
-#region Press/Unpress Subscription
+#region Press/Release
 
     /// <summary>
-    /// Use when the button is initially pressed. Calls the pressed function on all ButtonSubscribers.
+    /// Use when the button is initially pressed. Calls onPress action.
     /// </summary>
-    protected void Press()
+    protected void PressButton()
     {
         if (!isPressed)
         {
-            transform.localScale += new Vector3(0, -transform.localScale.y / 2, 0);
+            PressSpecifics();
 
             isPressed = true;
             onPress();
@@ -38,13 +38,13 @@ public class ButtonScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Use when the button is unpressed. Calls the unpressed function on all ButtonSubscribers.
+    /// Use when the button is unpressed (all objects leave button). Calls the onRelase action.
     /// </summary>
-    protected void Unpress()
+    protected void ReleaseButton()
     {
         if (isPressed)
         {
-            transform.localScale += new Vector3(0, transform.localScale.y, 0);
+            ReleaseSpecifics();
 
             isPressed = false;
             onRelease();
@@ -59,21 +59,31 @@ public class ButtonScript : MonoBehaviour
         return isPressed;
     }
 
+
+    /// <summary>
+    /// Specific functions to do to this button object when it is pressed.
+    /// </summary>
+    protected virtual void PressSpecifics()
+    {
+        //For now, just squishes the button.
+        transform.localScale += new Vector3(0, -transform.localScale.y / 2, 0);
+    }
+    
+    /// <summary>
+    /// Specific functions to do to this button object when it is released.
+    /// </summary>
+    protected virtual void ReleaseSpecifics()
+    {
+        //For now, just (un)squishes the button.
+        transform.localScale += new Vector3(0, transform.localScale.y, 0);
+    }
+
     #endregion
 
-#region Unity Actions
+    #region Unity Actions
     // Start is called before the first frame update
     void Start()
     {
-
-        /*
-        //Set up box collider and the number of currently colliding objects (should button already be pressed?)
-        boxCollider = GetComponent<BoxCollider2D>();
-        // Set your filters here according to https://docs.unity3d.com/ScriptReference/ContactFilter2D.html
-        ContactFilter2D contactFilter = new ContactFilter2D();
-        contactFilter.layerMask = collisionLayers;
-        overlapping = boxCollider.OverlapCollider(contactFilter, new Collider2D[1]);
-        */
 
         overlapping = 0;
         isPressed = overlapping > 0;
@@ -99,7 +109,7 @@ public class ButtonScript : MonoBehaviour
             //One(first) object has now entered
             if (overlapping == 1)
             {
-                Press();
+                PressButton();
             }
         }
     }
@@ -115,7 +125,7 @@ public class ButtonScript : MonoBehaviour
             //Now all objects are off
             if (overlapping == 0)
             {
-                Unpress();
+                ReleaseButton();
             }
         }
     }
