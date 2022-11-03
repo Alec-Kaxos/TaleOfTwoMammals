@@ -19,7 +19,15 @@ public class ButtonScript : MonoBehaviour
     [SerializeField]
     private LayerMask collisionLayers;
 
-#region Press/Release
+    [SerializeField]
+    private SpriteRenderer SpriteR;
+    [SerializeField]
+    private Sprite ButtonNormal;
+    [SerializeField]
+    private Sprite ButtonPushed;
+
+
+    #region Press/Release
 
     /// <summary>
     /// Use when the button is initially pressed. Calls onPress action.
@@ -66,7 +74,8 @@ public class ButtonScript : MonoBehaviour
     protected virtual void PressSpecifics()
     {
         //For now, just squishes the button.
-        transform.localScale += new Vector3(0, -transform.localScale.y / 2, 0);
+        //transform.localScale += new Vector3(0, -transform.localScale.y / 2, 0);
+        SpriteR.sprite = ButtonPushed;
     }
     
     /// <summary>
@@ -75,7 +84,8 @@ public class ButtonScript : MonoBehaviour
     protected virtual void ReleaseSpecifics()
     {
         //For now, just (un)squishes the button.
-        transform.localScale += new Vector3(0, transform.localScale.y, 0);
+        //transform.localScale += new Vector3(0, transform.localScale.y, 0);
+        SpriteR.sprite = ButtonNormal;
     }
 
     #endregion

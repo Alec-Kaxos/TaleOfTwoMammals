@@ -33,7 +33,7 @@ public class AnteaterController : PlayerController
 
 #endregion
 
-#region Tongue Bridge
+#region Tongue Bridge Variables
 
     [SerializeField]
     private float tongueWidth = .1f;
@@ -119,7 +119,11 @@ public class AnteaterController : PlayerController
 
                 aimingSprites.SetActive(true);
 
-                aimingSprites.transform.parent = null;
+                aimingSprites.transform.parent = tongueStartPointRef.transform;
+                aimingSprites.transform.localPosition = new Vector3(0f,0f,0f);
+
+
+                spriteRenderer.sprite = crawlSprite;
             }
             else
             {
@@ -130,12 +134,14 @@ public class AnteaterController : PlayerController
                 playerInputs.Anteater.Move.started -= OnMovePointerStarted;
                 playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
 
+
+                spriteRenderer.sprite = normalSprite;
                 //CHANGE DISTANCE
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingSprites.transform.up, tongueLength, tongueLayers);
+                RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
                 if (hit.collider != null)
                 {
                     Debug.Log(hit.collider.gameObject);
-                    Debug.DrawRay(transform.position, new Vector3(hit.point.x, hit.point.y, 0f) - transform.position, Color.red, 5.0f);
+                    Debug.DrawRay(tongueStartPointRef.position, new Vector3(hit.point.x, hit.point.y, 0f) - tongueStartPointRef.position, Color.red, 5.0f);
                     //Likely insert object type check here
                     spawnTongueBridge(hit.point);
 
@@ -144,7 +150,7 @@ public class AnteaterController : PlayerController
 
                 aimingSprites.SetActive(false);
 
-                aimingSprites.transform.parent = gameObject.transform;
+                aimingSprites.transform.parent = tongueStartPointRef.transform;
                 // Reset the aiming sprite to point upwards again
                 aimingSprites.transform.rotation = new Quaternion(0, 0, 0, 0);
             }
@@ -160,7 +166,7 @@ public class AnteaterController : PlayerController
         rb.bodyType = RigidbodyType2D.Static;
         GetComponent<BoxCollider2D>().enabled = false;
 
-        float tongueLen = (endpoint - new Vector2(transform.position.x, transform.position.y)).magnitude;
+        float tongueLen = (endpoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
         //Rect tongueRect = new Rect(transform.position.x, transform.position.y, tongueWidth, tongueLen);
 
         //Set tongue dimensions
@@ -168,7 +174,7 @@ public class AnteaterController : PlayerController
         tongueBridge.transform.localScale = new Vector3(tongueLen, tongueWidth, 1f);
         tongueBridge.transform.rotation = aimingSprites.transform.rotation;
         tongueBridge.transform.Rotate(0, 0, 90);
-        tongueBridge.transform.SetParent(gameObject.transform);
+        tongueBridge.transform.SetParent(tongueStartPointRef);
         tongueBridge.transform.localPosition = new Vector3(0f, tongueWidth/2, 0f);
         BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
         tBoxC.offset = new Vector2(.5f, .5f);
