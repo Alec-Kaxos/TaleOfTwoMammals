@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 // PlayerController class handles the players' inputs
 public class PlayerController : MonoBehaviour
@@ -121,7 +120,7 @@ public class PlayerController : MonoBehaviour
 #region Utility Methods
 
     // Check if player is on the ground or not
-    private bool IsGrounded()
+    protected bool IsGrounded()
     {
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);

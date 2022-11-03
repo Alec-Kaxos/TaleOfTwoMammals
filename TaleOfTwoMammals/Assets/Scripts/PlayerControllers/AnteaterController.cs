@@ -97,7 +97,6 @@ public class AnteaterController : PlayerController
 
     private void OnShootTongue(InputAction.CallbackContext context)
     {
-        StopCharacter();
         //First, check if the tongue bridge is already out, if so, recall it
         if (tongueOut)
         {
@@ -105,14 +104,19 @@ public class AnteaterController : PlayerController
 
             spriteRenderer.sprite = normalSprite;
         }
-        else //The tongue bridge is not currently deployed, so start aiming.
+        else if (IsGrounded())//The tongue bridge is not currently deployed, so start aiming.
         {
+            StopCharacter();
+
             toggleIsAiming();
             if (isAiming == true)
             {
                 // Unsubscribe movement from player movement inputs
                 playerInputs.Anteater.Move.started -= OnMoveStarted;
                 playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
+                // Unsubscribe Jump
+                playerInputs.Anteater.Jump.started -= OnJumpStarted;
+                playerInputs.Anteater.Jump.canceled -= OnJumpCanceled;
                 // Subscribe pointer rotation to player movement inputs
                 playerInputs.Anteater.Move.started += OnMovePointerStarted;
                 playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
@@ -130,6 +134,9 @@ public class AnteaterController : PlayerController
                 // Subscribe movement to player movement inputs
                 playerInputs.Anteater.Move.started += OnMoveStarted;
                 playerInputs.Anteater.Move.canceled += OnMoveCanceled;
+                // Subscribe Jump
+                playerInputs.Anteater.Jump.started += OnJumpStarted;
+                playerInputs.Anteater.Jump.canceled += OnJumpCanceled;
                 // Unsubscribe pointer rotation from player movement inputs
                 playerInputs.Anteater.Move.started -= OnMovePointerStarted;
                 playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
