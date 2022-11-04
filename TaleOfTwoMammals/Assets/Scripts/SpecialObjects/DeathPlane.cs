@@ -33,10 +33,12 @@ public class DeathPlane : MonoBehaviour
         if(go.GetComponent<ArmadilloController>() != null)
         {
             go.transform.position = ArmadilloSpawn.transform.position;
+            go.GetComponent<PlayerController>().StopCharacter();
         }
         else if(go.GetComponent<AnteaterController>() != null) //if the object is the anteater
         {
             go.transform.position = AnteaterSpawn.transform.position;
+            go.GetComponent<PlayerController>().StopCharacter();
         }
     }
 }

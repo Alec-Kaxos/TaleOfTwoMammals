@@ -73,8 +73,7 @@ public class ButtonScript : MonoBehaviour
     /// </summary>
     protected virtual void PressSpecifics()
     {
-        //For now, just squishes the button.
-        //transform.localScale += new Vector3(0, -transform.localScale.y / 2, 0);
+        //Currently changes the sprite
         SpriteR.sprite = ButtonPushed;
     }
     
@@ -83,8 +82,7 @@ public class ButtonScript : MonoBehaviour
     /// </summary>
     protected virtual void ReleaseSpecifics()
     {
-        //For now, just (un)squishes the button.
-        //transform.localScale += new Vector3(0, transform.localScale.y, 0);
+        //Currently changes the sprite
         SpriteR.sprite = ButtonNormal;
     }
 

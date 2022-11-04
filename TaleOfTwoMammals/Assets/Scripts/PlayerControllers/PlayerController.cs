@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         return raycast.collider != null;
     }
 
-    protected void StopCharacter()
+    public void StopCharacter()
     {
         horizontalInput = 0;
         currentVector = Vector2.zero;

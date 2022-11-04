@@ -4,43 +4,8 @@ using UnityEngine;
 
 public class DoorScript : ButtonUser
 {
-    //[SerializeField]
-    //private ButtonScript[] buttons;
-
-    //private int currentButtonsPressed;
-
-    //private bool doorOpen = false;
-
     [SerializeField]
     private float squishAmt = 10;
-
-    /* OLD Button Functionality
-    #region Button Functionality
-
-    public void Pressed()
-    {
-        currentButtonsPressed++;
-
-        //Check if door should be open
-        if (currentButtonsPressed == buttons.Length)
-        {
-            open();
-        }
-    }
-
-    public void Unpressed()
-    {
-        currentButtonsPressed--;
-
-        //Check if door should be closed
-        if (currentButtonsPressed != buttons.Length)
-        {
-            close();
-        }
-    }
-
-    #endregion
-    */
 
     #region Door Logic
 
@@ -49,14 +14,9 @@ public class DoorScript : ButtonUser
     /// </summary>
     protected virtual void open()
     {
-        //if(!doorOpen)
-        //{
+        //Currently Squishes the door
         transform.localPosition += new Vector3( 0, (transform.localScale.y - transform.localScale.y / squishAmt) / 2, 0 );
         transform.localScale += new Vector3(0,transform.localScale.y / squishAmt - transform.localScale.y ,0);
-
-        //    doorOpen = true;
-        //Debug.Log("Open");
-        //}
 
     }
 
@@ -65,14 +25,9 @@ public class DoorScript : ButtonUser
     /// </summary>
     protected virtual void close()
     {
-        //if (doorOpen)
-        //{
+        //Currently Squishes the door
         transform.localPosition += new Vector3(0, (transform.localScale.y - transform.localScale.y * squishAmt) / 2, 0);
         transform.localScale += new Vector3(0, transform.localScale.y * squishAmt - transform.localScale.y, 0);
-
-        //    doorOpen = false;
-        //Debug.Log("Close");
-        //}
     }
 
     protected override void Activated()
