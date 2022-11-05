@@ -24,6 +24,9 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private GameObject aimingSprites;
     [SerializeField]
+    private GameObject crosshairSprite;
+    private RaycastHit2D crosshairLocation;
+    [SerializeField]
     private float aimingSpriteRotatingSpeed = 1f;
     private float aimingRotationInput = 0;
     [SerializeField]
@@ -126,6 +129,10 @@ public class AnteaterController : PlayerController
                 aimingSprites.transform.parent = tongueStartPointRef.transform;
                 aimingSprites.transform.localPosition = new Vector3(0f,0f,0f);
 
+                // Sets up the crosshair to appear
+                crosshairSprite.transform.parent = tongueStartPointRef.transform;
+                crosshairSprite.transform.localPosition = new Vector3(0f, 0f, 0f);
+
 
                 spriteRenderer.sprite = crawlSprite;
             }
@@ -156,6 +163,10 @@ public class AnteaterController : PlayerController
                 }
 
                 aimingSprites.SetActive(false);
+                crosshairSprite.SetActive(false);
+
+                // Makes sure aiming pointer is not rotating on start of next aiming
+                aimingRotationInput = 0;
 
                 aimingSprites.transform.parent = tongueStartPointRef.transform;
                 // Reset the aiming sprite to point upwards again
@@ -245,6 +256,19 @@ public class AnteaterController : PlayerController
             Vector3 currentRotation = aimingSprites.transform.rotation.eulerAngles;
             float zValue = currentRotation.z + aimingSpriteRotatingSpeed * aimingRotationInput;
             aimingSprites.transform.rotation = Quaternion.Euler(new Vector3(0, 0, zValue));
+
+            // Sets the Location of the crosshair and makes it visible to the player
+            crosshairLocation = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
+            if (crosshairLocation.collider != null)
+            {
+                crosshairSprite.SetActive(true);
+                crosshairSprite.transform.position = crosshairLocation.point;
+            }
+            else
+            {
+                crosshairSprite.SetActive(false);
+            }
+
             // Rotating the Anteater according to the rotation of the pointer
             // Excluding 0 and 360 here since rotation starts at 0, and we want 
             // the Anteater to keep its direction when starting to aim
