@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ArmadilloController: PlayerController
+public class ArmadilloController : PlayerController
 {
     // False means the Armadillo is in the normal form
     // True means the Armadillo has transformed into the ball
     private bool transformed = false;
     [SerializeField]
     private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Animator animator;
 
     [SerializeField]
     [Tooltip("How much more speed you want the Armadillow to have after transforming into a ball?")]
@@ -38,8 +40,8 @@ public class ArmadilloController: PlayerController
     [SerializeField]
     private BoxCollider2D ballCollider;
     [Tooltip("This stands for the sprite when the Armadillo transforms into the ball.")]
-    [SerializeField]
-    private Sprite ballSprite;
+    //[SerializeField]
+    //private Sprite ballSprite;
 
 #endregion
 
@@ -92,7 +94,9 @@ public class ArmadilloController: PlayerController
         {
             ballCollider.enabled = true;
             normalCollider.enabled = false;
-            spriteRenderer.sprite = ballSprite;
+
+            animator.SetBool("BallTrigger", true);
+            //spriteRenderer.sprite = ballSprite;
             movementVelocity *= speedMultiplier;
         }
         else
@@ -102,9 +106,10 @@ public class ArmadilloController: PlayerController
                 toggleTransform();
                 return;
             }
+            animator.SetBool("BallTrigger", false);
             ballCollider.enabled = false;
             normalCollider.enabled = true;
-            spriteRenderer.sprite = normalSprite;
+            //spriteRenderer.sprite = normalSprite;
             movementVelocity /= speedMultiplier;
         }
     }
@@ -119,5 +124,18 @@ public class ArmadilloController: PlayerController
         return raycast.collider != null;
     }
 
-#endregion
+    #endregion
+
+
+    private void LateUpdate()
+    {
+        if (RB.velocity.x >0.01 || RB.velocity.x<-0.01 )
+        {
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
+    }
 }
