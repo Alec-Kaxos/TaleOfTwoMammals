@@ -6,10 +6,8 @@ using UnityEngine;
 public class DeathPlane : MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject AnteaterSpawn;
-    [SerializeField]
-    private GameObject ArmadilloSpawn;
+    [SerializeField] 
+    private LevelManager LM;
 
 
     // Start is called before the first frame update
@@ -32,13 +30,11 @@ public class DeathPlane : MonoBehaviour
         //IF the object is the armadillo
         if(go.GetComponent<ArmadilloController>() != null)
         {
-            go.transform.position = ArmadilloSpawn.transform.position;
-            go.GetComponent<PlayerController>().StopCharacter();
+            LM.RespawnArmadillo();
         }
         else if(go.GetComponent<AnteaterController>() != null) //if the object is the anteater
         {
-            go.transform.position = AnteaterSpawn.transform.position;
-            go.GetComponent<PlayerController>().StopCharacter();
+            LM.RespawnAnteater();
         }
     }
 }
