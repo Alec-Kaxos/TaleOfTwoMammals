@@ -53,15 +53,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim"",
-                    ""type"": ""Button"",
-                    ""id"": ""959b5d55-b0ea-4fa4-a6d0-a03943f12d41"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -86,28 +77,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e2062cb9-1b15-46a2-838c-2f8d72a0bdd9"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
@@ -145,7 +114,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e07b3464-e414-499c-a7b0-72c0f3dc6458"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -167,22 +136,11 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b879652b-51c0-46ab-a1d3-6d9607d8d243"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""ShootTongue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a988800b-fd80-407c-adf5-b92195cd2bbb"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -244,28 +202,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""33c4f9a4-5c5a-435a-bed9-09840a1ef362"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""f076fc9a-d971-46b8-9763-2148261ef46c"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""left"",
                     ""id"": ""6a6f2043-b7d4-413d-9fa0-8da480583434"",
                     ""path"": ""<Keyboard>/leftArrow"",
@@ -301,7 +237,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3b5e30a6-1e92-487d-9970-eec07504dd51"",
-                    ""path"": ""<Keyboard>/period"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -323,7 +259,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""672530a1-583a-4e3f-b84b-9bd128d78d42"",
-                    ""path"": ""<Keyboard>/slash"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -402,7 +338,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Anteater_Move = m_Anteater.FindAction("Move", throwIfNotFound: true);
         m_Anteater_Jump = m_Anteater.FindAction("Jump", throwIfNotFound: true);
         m_Anteater_ShootTongue = m_Anteater.FindAction("ShootTongue", throwIfNotFound: true);
-        m_Anteater_Aim = m_Anteater.FindAction("Aim", throwIfNotFound: true);
         // Armadillo
         m_Armadillo = asset.FindActionMap("Armadillo", throwIfNotFound: true);
         m_Armadillo_Move = m_Armadillo.FindAction("Move", throwIfNotFound: true);
@@ -470,7 +405,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Anteater_Move;
     private readonly InputAction m_Anteater_Jump;
     private readonly InputAction m_Anteater_ShootTongue;
-    private readonly InputAction m_Anteater_Aim;
     public struct AnteaterActions
     {
         private @PlayerInputs m_Wrapper;
@@ -478,7 +412,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Anteater_Move;
         public InputAction @Jump => m_Wrapper.m_Anteater_Jump;
         public InputAction @ShootTongue => m_Wrapper.m_Anteater_ShootTongue;
-        public InputAction @Aim => m_Wrapper.m_Anteater_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Anteater; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -497,9 +430,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @ShootTongue.started -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
                 @ShootTongue.performed -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
                 @ShootTongue.canceled -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnShootTongue;
-                @Aim.started -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_AnteaterActionsCallbackInterface.OnAim;
             }
             m_Wrapper.m_AnteaterActionsCallbackInterface = instance;
             if (instance != null)
@@ -513,9 +443,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @ShootTongue.started += instance.OnShootTongue;
                 @ShootTongue.performed += instance.OnShootTongue;
                 @ShootTongue.canceled += instance.OnShootTongue;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
             }
         }
     }
@@ -619,7 +546,6 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnShootTongue(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
     }
     public interface IArmadilloActions
     {
