@@ -133,7 +133,6 @@ public class SceneController : MonoBehaviour
     private ArmadilloController Armadillo;
 
 
-
     #region Unity Methods
     // Start is called before the first frame update
     void Start()
@@ -354,7 +353,7 @@ public class SceneController : MonoBehaviour
             //Also remember to move the loaded scene!
 
             Vector3 displacement = new Vector3();
-            for(int i = CurrentScene; i < CurrentScene+FutureScenesLoaded; ++i)
+            for(int i = PreviousScenesLoaded; i < SceneCount-1; ++i)
             {
                 displacement += LoadedScenes[i].NextAttachPos - LoadedScenes[i+1].AttachPos;
             }

@@ -305,6 +305,7 @@ MonoBehaviour:
   NewSceneName: 
   CurrentSceneName: 
   LoadScenePlease: 0
+  NextScenePlease: 0
   SceneNames:
   - TestTrans1
   - TestTrans2

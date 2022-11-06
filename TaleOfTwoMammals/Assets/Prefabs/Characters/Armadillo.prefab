@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2464515851302227828}
   - component: {fileID: 2464515851302227835}
   - component: {fileID: 2464515851302227831}
-  m_Layer: 0
+  - component: {fileID: 1178997695}
+  m_Layer: 7
   m_Name: Armadillo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +56,7 @@ MonoBehaviour:
   jumpVelocity: 5
   smoothInputSpeed: 0.01
   spriteRenderer: {fileID: 2464515851302227829}
+  animator: {fileID: 1178997695}
   speedMultiplier: 1.25
   tunnelLayerMask:
     serializedVersion: 2
@@ -62,7 +64,6 @@ MonoBehaviour:
   normalCollider: {fileID: 2464515851302227835}
   normalSprite: {fileID: 21300000, guid: 0e7b91fe092b3d24d8bee066fe1ffd78, type: 3}
   ballCollider: {fileID: 2464515851302227831}
-  ballSprite: {fileID: 21300000, guid: 0de61b0347189694f8c90e6ce715d08a, type: 3}
 --- !u!212 &2464515851302227829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -188,3 +189,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9584795, y: 0.92912316}
   m_EdgeRadius: 0
+--- !u!95 &1178997695
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464515851302227833}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d7cab5fa83fb704ba5422794269ec23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

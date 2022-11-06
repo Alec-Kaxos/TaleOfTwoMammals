@@ -799,6 +799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c0144c77144194b83f6f3f62c4e12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnteaterRespawn: {fileID: 1336431851}
+  ArmadilloRespawn: {fileID: 579393831}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
@@ -1331,8 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d878a1cf8010114397360d05f873edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnteaterSpawn: {fileID: 1336431851}
-  ArmadilloSpawn: {fileID: 579393831}
+  LM: {fileID: 0}
 --- !u!61 &1593699386
 BoxCollider2D:
   m_ObjectHideFlags: 0

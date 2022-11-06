@@ -7,7 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     private bool IsActiveLevel = false;
 
+    [SerializeField, Tooltip("This is only seralized for testing")]
     private AnteaterController Anteater;
+    [SerializeField, Tooltip("This is only seralized for testing")]
     private ArmadilloController Armadillo;
 
     [SerializeField]
