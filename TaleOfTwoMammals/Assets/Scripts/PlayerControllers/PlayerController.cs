@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         Unsubscribe();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);

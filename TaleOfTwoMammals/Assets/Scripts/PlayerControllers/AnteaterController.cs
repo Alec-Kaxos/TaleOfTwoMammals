@@ -245,8 +245,10 @@ public class AnteaterController : PlayerController
 
 #endregion
 
-    private void LateUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
+
 #region Rotating the Aiming Sprites along with the Anteater
 
         Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
