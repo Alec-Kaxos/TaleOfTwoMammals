@@ -126,6 +126,15 @@ public class ArmadilloController : PlayerController
 
     #endregion
 
+#region Public Methods
+
+    public bool IsInBallForm()
+    {
+        return transformed;
+    }
+
+#endregion
+
 
     private void LateUpdate()
     {
