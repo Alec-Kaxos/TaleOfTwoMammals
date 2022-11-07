@@ -2526,6 +2526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anteater
       objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234545, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: caa6365650487414f9968cb4382f88c3, type: 2}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2570,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: tongueShootTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
 --- !u!1001 &2464515851048845996
@@ -2579,6 +2587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2464515851302227828, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: caa6365650487414f9968cb4382f88c3, type: 2}
     - target: {fileID: 2464515851302227830, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: m_RootOrder
       value: 3

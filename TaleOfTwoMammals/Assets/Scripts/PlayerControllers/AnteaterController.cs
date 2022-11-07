@@ -51,8 +51,10 @@ public class AnteaterController : PlayerController
     private GameObject tongueBridge = null;
     [SerializeField]
     private Texture2D tongueTexture;
-    
+
     //Used for the tongue growth
+    [SerializeField]
+    private float tongueShootTime = 0.5f;
     private Vector2 tongueEndPoint;
     private float growthTimer = 0f;
 
@@ -366,12 +368,12 @@ public class AnteaterController : PlayerController
         do
         {
 
-            tongueBridge.transform.localScale = Vector3.Lerp(startScale, maxScale, growthTimer / 0.5f);
+            tongueBridge.transform.localScale = Vector3.Lerp(startScale, maxScale, growthTimer / tongueShootTime);
             growthTimer += Time.deltaTime;
             yield return null;
 
         }
-        while (growthTimer <= 0.5f);
+        while (growthTimer <= tongueShootTime);
     }
 
     #endregion
