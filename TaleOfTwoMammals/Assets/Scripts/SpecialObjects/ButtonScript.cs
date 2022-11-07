@@ -15,10 +15,15 @@ public class ButtonScript : MonoBehaviour
     //The amount of currently overlapping objects
     private int overlapping;
 
+    [Header("Button Settings")]
+    [SerializeField, Tooltip("Set if button should never be released after being pressed.")]
+    private bool StaysPressed = false;
+
     private BoxCollider2D boxCollider;
     [SerializeField]
     private LayerMask collisionLayers;
 
+    [Header("Button Sprite Settings")]
     [SerializeField]
     private SpriteRenderer SpriteR;
     [SerializeField]
@@ -50,7 +55,7 @@ public class ButtonScript : MonoBehaviour
     /// </summary>
     protected void ReleaseButton()
     {
-        if (isPressed)
+        if (!StaysPressed && isPressed)
         {
             ReleaseSpecifics();
 

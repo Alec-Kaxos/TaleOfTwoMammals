@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorScript : ButtonUser
 {
+    [Header("Door Options")]
     [SerializeField]
     private float squishAmt = 10;
 

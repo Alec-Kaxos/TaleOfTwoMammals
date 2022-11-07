@@ -4,10 +4,14 @@ using UnityEngine;
 
 public abstract class ButtonUser : MonoBehaviour
 {
+    [Header("Button User Settings")]
     [SerializeField, Tooltip("All the buttons this ButtonUser will link to.")]
     private ButtonScript[] Buttons;
     [SerializeField, Tooltip("The minimum number of buttons needed to be pressed to activate (and deactivate) this ButtonUser. Set to -1 for all buttons to be required."), Min(-1)]
     private int ButtonsRequired = -1;
+    [SerializeField, Tooltip("Set if Button User should never be deactivated after being activated.")]
+    private bool StaysActivated = false;
+
     private int CurrentPressed;
 
     private bool NowActivated;
@@ -137,7 +141,7 @@ public abstract class ButtonUser : MonoBehaviour
     /// </summary>
     private void InternalDeactivate()
     {
-        if (NowActivated)
+        if (!StaysActivated && NowActivated)
         {
             NowActivated = false;
 
