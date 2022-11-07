@@ -51,8 +51,12 @@ public class AnteaterController : PlayerController
     private GameObject tongueBridge = null;
     [SerializeField]
     private Texture2D tongueTexture;
+    
+    //Used for the tongue growth
+    private Vector2 tongueEndPoint;
+    private float growthTimer = 0f;
 
-#endregion 
+    #endregion
 
 #region Subscribe and Unsubscribe
 
@@ -162,7 +166,10 @@ public class AnteaterController : PlayerController
                     Debug.Log(hit.collider.gameObject);
                     Debug.DrawRay(tongueStartPointRef.position, new Vector3(hit.point.x, hit.point.y, 0f) - tongueStartPointRef.position, Color.red, 5.0f);
                     //Likely insert object type check here
-                    spawnTongueBridge(hit.point);
+
+                    //Saves where tongue will hit instead of sending it to spawnTongueBridge()
+                    tongueEndPoint = hit.point;
+                    spawnTongueBridge();
 
                 }
                 else
@@ -183,21 +190,27 @@ public class AnteaterController : PlayerController
         }
     }
 
-    private void spawnTongueBridge(Vector2 endpoint)
+    private void spawnTongueBridge()
     {
         tongueOut = true;
 
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
-        //GetComponent<BoxCollider2D>().enabled = false;
 
-        float tongueLen = (endpoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
+        //GetComponent<BoxCollider2D>().enabled = false;
+        //float tongueLen = (endpoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
         //Rect tongueRect = new Rect(transform.position.x, transform.position.y, tongueWidth, tongueLen);
 
         //Set tongue dimensions
         tongueBridge = new GameObject("Tongue Bridge");
-        tongueBridge.transform.localScale = new Vector3(tongueLen, tongueWidth, 1f);
+        tongueBridge.transform.localScale = new Vector3(0f, tongueWidth, 1f);
+
+        //Makes the tongue look like its shooting out
+        //sorta
+        StartCoroutine(Grow());
+
+
         tongueBridge.transform.rotation = aimingSprites.transform.rotation;
         tongueBridge.transform.Rotate(0, 0, 90);
         tongueBridge.transform.SetParent(tongueStartPointRef);
@@ -217,6 +230,9 @@ public class AnteaterController : PlayerController
 
     private void despawnTongueBridge()
     {
+        //Resets timer for tongue growth
+        growthTimer = 0f;
+
         tongueOut = false;
 
         //Deal with movement lock
@@ -339,5 +355,24 @@ public class AnteaterController : PlayerController
         }
     }
 
-#endregion
+    
+    private IEnumerator Grow()
+    {
+        float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
+
+        Vector3 startScale = tongueBridge.transform.localScale;
+        Vector3 maxScale = new Vector3(tongueLen, tongueWidth, 1f);
+
+        do
+        {
+
+            tongueBridge.transform.localScale = Vector3.Lerp(startScale, maxScale, growthTimer / 0.5f);
+            growthTimer += Time.deltaTime;
+            yield return null;
+
+        }
+        while (growthTimer <= 0.5f);
+    }
+
+    #endregion
 }

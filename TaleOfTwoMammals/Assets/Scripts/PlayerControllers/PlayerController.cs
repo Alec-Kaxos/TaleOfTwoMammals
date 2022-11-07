@@ -48,7 +48,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
         currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
-        RB.velocity = new Vector2(currentVector.x, currentVector.y);
+        if (RB.bodyType != RigidbodyType2D.Static)
+        {
+            RB.velocity = new Vector2(currentVector.x, currentVector.y);
+        }     
     }
 
 #region Subscribe and Unsubscribe
