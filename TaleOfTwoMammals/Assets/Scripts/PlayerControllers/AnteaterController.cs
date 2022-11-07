@@ -11,10 +11,17 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
+    [Header("Crouching")]
     [SerializeField]
     private Sprite normalSprite;
     [SerializeField]
     private Sprite crawlSprite;
+    [SerializeField]
+    private BoxCollider2D normalCollider;
+    private BoxCollider2D normalColliderCopy;
+    [SerializeField]
+    private BoxCollider2D crouchCollider;
+
     [SerializeField]
     private Transform tongueStartPointRef;
 
@@ -105,7 +112,7 @@ public class AnteaterController : PlayerController
         {
             despawnTongueBridge();
 
-            spriteRenderer.sprite = normalSprite;
+            Uncrouch();
         }
         else if (IsGrounded())//The tongue bridge is not currently deployed, so start aiming.
         {
@@ -133,8 +140,7 @@ public class AnteaterController : PlayerController
                 crosshairSprite.transform.parent = tongueStartPointRef.transform;
                 crosshairSprite.transform.localPosition = new Vector3(0f, 0f, 0f);
 
-
-                spriteRenderer.sprite = crawlSprite;
+                Crouch();
             }
             else
             {
@@ -149,7 +155,6 @@ public class AnteaterController : PlayerController
                 playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
 
 
-                spriteRenderer.sprite = normalSprite;
                 //CHANGE DISTANCE
                 RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
                 if (hit.collider != null)
@@ -159,7 +164,10 @@ public class AnteaterController : PlayerController
                     //Likely insert object type check here
                     spawnTongueBridge(hit.point);
 
-                    spriteRenderer.sprite = crawlSprite;
+                }
+                else
+                {
+                    Uncrouch();
                 }
 
                 aimingSprites.SetActive(false);
@@ -182,7 +190,7 @@ public class AnteaterController : PlayerController
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
-        GetComponent<BoxCollider2D>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
 
         float tongueLen = (endpoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
         //Rect tongueRect = new Rect(transform.position.x, transform.position.y, tongueWidth, tongueLen);
@@ -214,7 +222,7 @@ public class AnteaterController : PlayerController
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Dynamic;
-        GetComponent<BoxCollider2D>().enabled = true;
+        //GetComponent<BoxCollider2D>().enabled = true;
 
 
         //Destroy tongue
@@ -241,6 +249,32 @@ public class AnteaterController : PlayerController
     private void OnMovePointerCanceled(InputAction.CallbackContext context)
     {
         aimingRotationInput = 0;
+    }
+
+    private void Crouch()
+    {
+        spriteRenderer.sprite = crawlSprite;
+        //crouchCollider.enabled = true;
+        //normalCollider.enabled = false;
+        if (normalColliderCopy == null)
+        { //Its the first time setting this copy
+            normalColliderCopy = gameObject.AddComponent<BoxCollider2D>();
+            normalColliderCopy.enabled = false;
+            normalColliderCopy.offset = normalCollider.offset;
+            normalColliderCopy.size = normalCollider.size;
+        }
+        normalCollider.offset = crouchCollider.offset;
+        normalCollider.size = crouchCollider.size;
+
+    }
+
+    private void Uncrouch()
+    {
+        spriteRenderer.sprite = normalSprite;
+        //crouchCollider.enabled = false;
+        //normalCollider.enabled = true;
+        normalCollider.offset = normalColliderCopy.offset;
+        normalCollider.size = normalColliderCopy.size;
     }
 
 #endregion

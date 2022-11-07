@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   movementVelocity: 5
   jumpVelocity: 5
   smoothInputSpeed: 0.01
