@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject ArmadilloRespawn;
 
+    public static LevelManager Instance;
+
     #region Management Methods
 
     /// <summary>
@@ -51,17 +53,34 @@ public class LevelManager : MonoBehaviour
 
     public void RespawnAnteater()
     {
+        Anteater.OnRespawn();
         Anteater.transform.position = AnteaterRespawn.transform.position;
         Anteater.StopCharacter();
     }
 
     public void RespawnArmadillo()
     {
+        Armadillo.OnRespawn();
         Armadillo.transform.position = ArmadilloRespawn.transform.position;
         Armadillo.StopCharacter();
+    }
+
+    public void Respawn()
+    {
+        RespawnAnteater();
+        RespawnArmadillo();
     }
 
 
     #endregion
 
+    private void Start()
+    {
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 }

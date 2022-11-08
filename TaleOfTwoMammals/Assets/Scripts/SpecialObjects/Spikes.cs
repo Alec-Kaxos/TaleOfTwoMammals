@@ -17,8 +17,7 @@ public class Spikes : MonoBehaviour
                 return;
             }
 
-            levelManager.RespawnAnteater();
-            levelManager.RespawnArmadillo();
+            other.GetComponent<PlayerController>().OnDeath();
         }
     }
 }

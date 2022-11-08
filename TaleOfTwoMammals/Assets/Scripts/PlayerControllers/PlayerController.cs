@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     protected Rigidbody2D RB;
     [SerializeField]
     protected LayerMask GroundLayerMask;
+    [SerializeField]
+    protected Animator animator;
 
 #region Movement Variables
 
@@ -138,4 +140,19 @@ public class PlayerController : MonoBehaviour
     }
 
 #endregion
+
+    public void OnDeath()
+    {
+        StopCharacter();
+        Unsubscribe();
+        animator.SetTrigger("Die");
+    }
+
+    public void OnRespawn()
+    {
+        // Right now it only triggers the animator to go back 
+        // to Idle state, but we might want to do more
+        animator.SetTrigger("Respawn");
+        Subscribe();
+    }
 }

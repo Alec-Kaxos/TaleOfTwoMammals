@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rolling
+  m_Name: Anteater_Dead
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 0de61b0347189694f8c90e6ce715d08a, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 2452f70145ce2b346beea34a20be18c7, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: a9b718d404a94044e831060aa41be056, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: c93f1875dd936c44181b23c95b91af28, type: 3}
+      value: {fileID: -907645715, guid: 6bedced44153a4a4e8572438f0abeb71, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 0de61b0347189694f8c90e6ce715d08a, type: 3}
-    - {fileID: 21300000, guid: 2452f70145ce2b346beea34a20be18c7, type: 3}
-    - {fileID: 21300000, guid: a9b718d404a94044e831060aa41be056, type: 3}
-    - {fileID: 21300000, guid: c93f1875dd936c44181b23c95b91af28, type: 3}
+    - {fileID: -907645715, guid: 6bedced44153a4a4e8572438f0abeb71, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

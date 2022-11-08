@@ -10,8 +10,6 @@ public class ArmadilloController : PlayerController
     private bool transformed = false;
     [SerializeField]
     private SpriteRenderer spriteRenderer;
-    [SerializeField]
-    private Animator animator;
 
     [SerializeField]
     [Tooltip("How much more speed you want the Armadillow to have after transforming into a ball?")]
@@ -133,12 +131,12 @@ public class ArmadilloController : PlayerController
         return transformed;
     }
 
-#endregion
+    #endregion
 
 
     private void LateUpdate()
     {
-        if (RB.velocity.x >0.01 || RB.velocity.x<-0.01 )
+        if (RB.velocity.x > 0.01 || RB.velocity.x < -0.01)
         {
             animator.SetBool("Moving", true);
         }

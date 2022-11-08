@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 595786299185234545}
   - component: {fileID: 595786299185234548}
   - component: {fileID: 2029406867}
+  - component: {fileID: 595786300036011370}
   m_Layer: 7
   m_Name: Anteater
   m_TagString: Player
@@ -52,6 +53,7 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  animator: {fileID: 595786300036011370}
   movementVelocity: 5
   jumpVelocity: 5
   smoothInputSpeed: 0.01
@@ -196,6 +198,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.92, y: 0.2}
   m_EdgeRadius: 0
+--- !u!95 &595786300036011370
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595786299185234544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9385bcb7a7781f4084a1584e02d866a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &595786300081805367
 GameObject:
   m_ObjectHideFlags: 0
