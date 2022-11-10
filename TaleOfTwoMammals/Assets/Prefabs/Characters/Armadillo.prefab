@@ -52,17 +52,17 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  animator: {fileID: 1178997695}
   movementVelocity: 5
   jumpVelocity: 5
   smoothInputSpeed: 0.01
   spriteRenderer: {fileID: 2464515851302227829}
-  animator: {fileID: 1178997695}
   speedMultiplier: 1.25
   tunnelLayerMask:
     serializedVersion: 2
     m_Bits: 256
   normalCollider: {fileID: 2464515851302227835}
-  normalSprite: {fileID: 21300000, guid: 0e7b91fe092b3d24d8bee066fe1ffd78, type: 3}
+  normalSprite: {fileID: 21300000, guid: 0f42cca4d2842e440b24b5d1471df97e, type: 3}
   ballCollider: {fileID: 2464515851302227831}
 --- !u!212 &2464515851302227829
 SpriteRenderer:
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e7b91fe092b3d24d8bee066fe1ffd78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f42cca4d2842e440b24b5d1471df97e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12734967, y: 0.096046686}
+  m_Offset: {x: -0.12734967, y: -0.61515623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5730428, y: 1.3098238}
+  m_Size: {x: 1.5730428, y: 1.3166956}
   m_EdgeRadius: 0
 --- !u!61 &2464515851302227831
 BoxCollider2D:
@@ -176,7 +176,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.038363636, y: -0.038667217}
+  m_Offset: {x: -0.038363636, y: -0.8148552}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +187,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9584795, y: 0.92912316}
+  m_Size: {x: 0.9584795, y: 0.91596913}
   m_EdgeRadius: 0
 --- !u!95 &1178997695
 Animator:

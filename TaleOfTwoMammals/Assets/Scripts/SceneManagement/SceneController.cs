@@ -137,7 +137,8 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        StartCoroutine(FirstLoad(0));
     }
 
     // Update is called once per frame
@@ -196,7 +197,7 @@ public class SceneController : MonoBehaviour
 
         curS.DisableObject.SetActive(true);
 
-        curS.LevelManagerRef.LevelActive();
+        curS.LevelManagerRef.LevelActive(this);
 
         //CURRENT SCENE NOW LOADED
 
@@ -238,11 +239,13 @@ public class SceneController : MonoBehaviour
 
         AllLoaded = true;
 
+        /*
         Debug.Log("Finished preloading everything");
         foreach(SceneInfo SI in LoadedScenes)
         {
             Debug.Log(SI.Name);
         }
+        */
 
     }
     /// <summary>
@@ -291,6 +294,11 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator ToNextLevel()
     {
+        if (CurrentScene >= SceneNames.Length - 1)
+        { //If there are no more scenes left, dont go to the next scene !
+            yield break;
+        }
+
         CurrentScene++;
         AllLoaded = false;
 
@@ -300,7 +308,7 @@ public class SceneController : MonoBehaviour
         cS.LevelManagerRef.LevelUnactive();
         cS.DisableObject.SetActive(false);
         nS.DisableObject.SetActive(true);
-        nS.LevelManagerRef.LevelActive();
+        nS.LevelManagerRef.LevelActive(this);
 
         //Transition to the next scene
         Vector3 movement =  cS.NextAttachPos - nS.AttachPos;
@@ -366,17 +374,37 @@ public class SceneController : MonoBehaviour
 
         AllLoaded = true;
 
-
+        /*
         Debug.Log("Finished next");
         foreach (SceneInfo SI in LoadedScenes)
         {
             Debug.Log(SI.Name);
         }
+        */
 
     }
 
-#endregion
+    #endregion
 
+    #region Public Methods
+
+
+    /// <summary>
+    /// Call when a level is completed.
+    /// </summary>
+    /// <returns>If the SceneManager could successfully process the level complete request.</returns>
+    public bool LevelCompleted()
+    {
+        if (!AllLoaded) return false;
+
+        StartCoroutine(ToNextLevel());
+
+        return true;
+    }
+
+    #endregion
+
+    #region Testing
     private IEnumerator LoadScene()
     {
         //1. Load Scene (In the background)
@@ -424,4 +452,5 @@ public class SceneController : MonoBehaviour
 
     }
 
+    #endregion
 }

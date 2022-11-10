@@ -753,6 +753,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: jumpVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: movementVelocity
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
 --- !u!1001 &2464515851048845996
@@ -766,17 +774,25 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2464515851302227829, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f42cca4d2842e440b24b5d1471df97e, type: 3}
+    - target: {fileID: 2464515851302227829, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2464515851302227830, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2464515851302227830, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.21
+      value: 2.73
       objectReference: {fileID: 0}
     - target: {fileID: 2464515851302227830, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 2464515851302227830, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: m_LocalPosition.z
@@ -821,6 +837,14 @@ PrefabInstance:
     - target: {fileID: 2464515851302227834, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
       propertyPath: jumpVelocity
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464515851302227834, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f42cca4d2842e440b24b5d1471df97e, type: 3}
+    - target: {fileID: 2464515851302227834, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
+      propertyPath: movementVelocity
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}

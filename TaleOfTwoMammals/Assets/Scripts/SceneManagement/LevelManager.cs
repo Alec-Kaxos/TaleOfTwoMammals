@@ -17,7 +17,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject ArmadilloRespawn;
 
-    public static LevelManager Instance;
+    /// <summary>
+    /// When it is NOT NULL, this level is active.
+    /// </summary>
+    private SceneController SC;
+
+    //public static LevelManager Instance;
 
     #region Management Methods
 
@@ -35,9 +40,13 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// Only called after LevelFullyLoaded. Notifies the LevelManager that this is now the level being played.
     /// </summary>
-    public void LevelActive()
+    public void LevelActive(SceneController s)
     {
         IsActiveLevel = true;
+        SC = s;
+
+        Anteater.SetLevelManager(this);
+        Armadillo.SetLevelManager(this);
         RespawnAnteater();
         RespawnArmadillo();
     }
@@ -45,6 +54,23 @@ public class LevelManager : MonoBehaviour
     public void LevelUnactive()
     {
         IsActiveLevel = false;
+        SC = null;  
+    }
+
+    /// <summary>
+    /// Call only when the level is finished. Will then notify the scene controller to go to the next level.
+    /// </summary>
+    public void LevelWon()
+    {
+        Debug.Log("Level Won !!!!");
+        if(SC != null)
+        {
+            //Do next level code
+
+            SC.LevelCompleted();
+
+        
+        }
     }
 
     #endregion
@@ -74,13 +100,16 @@ public class LevelManager : MonoBehaviour
 
     #endregion
 
+
+    #region Unity Methods
     private void Start()
     {
-        Instance = this;
+        //Instance = this;
     }
 
     private void OnDestroy()
     {
-        Instance = null;
+        //Instance = null;
     }
+    #endregion  
 }

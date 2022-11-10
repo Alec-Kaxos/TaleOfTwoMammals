@@ -129,7 +129,6 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-
         //Duplicate of above, but subtracts one on exit
         if ((collisionLayers >> other.gameObject.layer) % 2 == 1)
         {

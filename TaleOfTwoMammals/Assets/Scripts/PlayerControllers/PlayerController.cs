@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 // PlayerController class handles the players' inputs
 public class PlayerController : MonoBehaviour
@@ -10,6 +13,9 @@ public class PlayerController : MonoBehaviour
     protected LayerMask GroundLayerMask;
     [SerializeField]
     protected Animator animator;
+
+    [SerializeField]
+    protected LevelManager LM;
 
 #region Movement Variables
 
@@ -145,7 +151,27 @@ public class PlayerController : MonoBehaviour
     {
         StopCharacter();
         Unsubscribe();
+        StartCoroutine(DeathAnimation());
+    }
+
+    private IEnumerator DeathAnimation()
+    {
         animator.SetTrigger("Die");
+
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+
+        while (animator.GetCurrentAnimatorStateInfo(0).length >
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        {
+            yield return null;
+        }
+
+        LM.Respawn();
+
     }
 
     public void OnRespawn()
@@ -154,5 +180,10 @@ public class PlayerController : MonoBehaviour
         // to Idle state, but we might want to do more
         animator.SetTrigger("Respawn");
         Subscribe();
+    }
+
+    public void SetLevelManager(LevelManager l)
+    {
+        LM = l;
     }
 }
