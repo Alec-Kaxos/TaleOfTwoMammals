@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
 #endregion
 
-    public void OnDeath()
+    public virtual void OnDeath()
     {
         StopCharacter();
         Unsubscribe();

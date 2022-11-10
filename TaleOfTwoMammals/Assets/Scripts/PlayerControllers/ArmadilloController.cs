@@ -112,6 +112,23 @@ public class ArmadilloController : PlayerController
         }
     }
 
+    /// <summary>
+    /// Takes the Armadillo out of ball form, if it is in it.
+    /// </summary>
+    private void ResetBall()
+    {
+        if (transformed)
+        {
+            animator.SetBool("BallTrigger", false);
+            ballCollider.enabled = false;
+            normalCollider.enabled = true;
+            //spriteRenderer.sprite = normalSprite;
+            movementVelocity /= speedMultiplier;
+
+            transformed = false;
+        }
+    }
+
 #endregion
 
 #region Utilities
@@ -129,6 +146,12 @@ public class ArmadilloController : PlayerController
     public bool IsInBallForm()
     {
         return transformed;
+    }
+
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        ResetBall();
     }
 
     #endregion

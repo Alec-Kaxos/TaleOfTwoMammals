@@ -51,9 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 1216
   animator: {fileID: 1178997695}
-  movementVelocity: 5
+  LM: {fileID: 0}
+  movementVelocity: 4
   jumpVelocity: 5
   smoothInputSpeed: 0.01
   spriteRenderer: {fileID: 2464515851302227829}
