@@ -54,7 +54,7 @@ public class AnteaterController : PlayerController
 
     //Used for the tongue growth
     [SerializeField]
-    private float tongueShootTime = 0.5f;
+    private float baseTongueShootTime = 0.5f;
     private Vector2 tongueEndPoint;
     private float growthTimer = 0f;
 
@@ -122,6 +122,7 @@ public class AnteaterController : PlayerController
         }
         else if (IsGrounded())//The tongue bridge is not currently deployed, so start aiming.
         {
+
             StopCharacter();
 
             toggleIsAiming();
@@ -271,7 +272,8 @@ public class AnteaterController : PlayerController
 
     private void Crouch()
     {
-        spriteRenderer.sprite = crawlSprite;
+        animator.SetBool("Aiming", true);
+        //spriteRenderer.sprite = crawlSprite;
         //crouchCollider.enabled = true;
         //normalCollider.enabled = false;
         if (normalColliderCopy == null)
@@ -288,7 +290,8 @@ public class AnteaterController : PlayerController
 
     private void Uncrouch()
     {
-        spriteRenderer.sprite = normalSprite;
+        animator.SetBool("Aiming", false);
+        //spriteRenderer.sprite = normalSprite;
         //crouchCollider.enabled = false;
         //normalCollider.enabled = true;
         normalCollider.offset = normalColliderCopy.offset;
@@ -361,19 +364,29 @@ public class AnteaterController : PlayerController
     private IEnumerator Grow()
     {
         float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
+        
+        //Calculates how long it will take to shoot tongue based on distance.
+        //Closer something is, less time it will take to shoot tongue.
+        float modTongueShootTime = baseTongueShootTime * (tongueLen/10);
 
         Vector3 startScale = tongueBridge.transform.localScale;
         Vector3 maxScale = new Vector3(tongueLen, tongueWidth, 1f);
 
         do
         {
-
-            tongueBridge.transform.localScale = Vector3.Lerp(startScale, maxScale, growthTimer / tongueShootTime);
-            growthTimer += Time.deltaTime;
-            yield return null;
-
+            if (tongueBridge != null)
+            {
+                tongueBridge.transform.localScale = Vector3.Lerp(startScale, maxScale, growthTimer / modTongueShootTime);
+                growthTimer += Time.deltaTime;
+                yield return null;
+            }
+            else
+            {
+                break;
+            }
+            
         }
-        while (growthTimer <= tongueShootTime);
+        while (growthTimer <= modTongueShootTime);
     }
 
     #endregion
