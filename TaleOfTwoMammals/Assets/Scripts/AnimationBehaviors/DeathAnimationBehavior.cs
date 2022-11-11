@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class DeathAnimationBehavior : StateMachineBehaviour
 {
-    //[SerializeField]
-    //public LevelManager LM;
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -22,7 +19,7 @@ public class DeathAnimationBehavior : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //LM.Respawn();
+        animator.gameObject.GetComponent<PlayerController>().GetLevelManager().Respawn();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

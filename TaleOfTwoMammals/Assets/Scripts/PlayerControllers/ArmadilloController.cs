@@ -49,8 +49,7 @@ public class ArmadilloController : PlayerController
     private bool Pounding = false;
 #endregion
 
-
-    #region Subscribe and Unsubscribe
+#region Subscribe and Unsubscribe
 
     protected override void Subscribe()
     {
@@ -194,7 +193,7 @@ public class ArmadilloController : PlayerController
         ResetBall();
     }
 
-    #endregion
+#endregion
 
 
     private void LateUpdate()

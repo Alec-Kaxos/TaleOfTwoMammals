@@ -151,39 +151,21 @@ public class PlayerController : MonoBehaviour
     {
         StopCharacter();
         Unsubscribe();
-        StartCoroutine(DeathAnimation());
-    }
-
-    private IEnumerator DeathAnimation()
-    {
         animator.SetTrigger("Die");
-
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null;
-
-        while (animator.GetCurrentAnimatorStateInfo(0).length >
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {
-            yield return null;
-        }
-
-        LM.Respawn();
-
     }
 
     public void OnRespawn()
     {
-        // Right now it only triggers the animator to go back 
-        // to Idle state, but we might want to do more
-        animator.SetTrigger("Respawn");
         Subscribe();
     }
 
     public void SetLevelManager(LevelManager l)
     {
         LM = l;
+    }
+    
+    public LevelManager GetLevelManager()
+    {
+        return LM;
     }
 }

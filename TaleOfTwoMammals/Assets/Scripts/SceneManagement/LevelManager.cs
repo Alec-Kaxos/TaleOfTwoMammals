@@ -79,16 +79,16 @@ public class LevelManager : MonoBehaviour
 
     public void RespawnAnteater()
     {
-        Anteater.OnRespawn();
         Anteater.transform.position = AnteaterRespawn.transform.position;
         Anteater.StopCharacter();
+        Anteater.OnRespawn();
     }
 
     public void RespawnArmadillo()
     {
-        Armadillo.OnRespawn();
         Armadillo.transform.position = ArmadilloRespawn.transform.position;
         Armadillo.StopCharacter();
+        Armadillo.OnRespawn();
     }
 
     public void Respawn()

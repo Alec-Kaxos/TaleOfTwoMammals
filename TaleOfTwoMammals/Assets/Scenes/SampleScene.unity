@@ -1197,7 +1197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500e5ca6e45b760488de33ae7f2f240f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructableTilemap: {fileID: 0}
 --- !u!1 &1289162985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.96
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
       propertyPath: m_LocalPosition.y
