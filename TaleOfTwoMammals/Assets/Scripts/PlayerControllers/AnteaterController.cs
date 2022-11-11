@@ -364,7 +364,7 @@ public class AnteaterController : PlayerController
     private IEnumerator Grow()
     {
         float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
-        
+        Debug.Log(tongueLen);
         //Calculates how long it will take to shoot tongue based on distance.
         //Closer something is, less time it will take to shoot tongue.
         float modTongueShootTime = baseTongueShootTime * (tongueLen/10);

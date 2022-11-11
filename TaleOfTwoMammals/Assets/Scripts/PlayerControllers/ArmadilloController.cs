@@ -40,10 +40,17 @@ public class ArmadilloController : PlayerController
     [Tooltip("This stands for the sprite when the Armadillo transforms into the ball.")]
     //[SerializeField]
     //private Sprite ballSprite;
+    #endregion
 
+#region GroundPound Components
+    [SerializeField]
+    protected LayerMask PoundLayers;
+    private Vector2 PoundSpeed = new Vector2(0f, -20f);
+    private bool Pounding = false;
 #endregion
 
-#region Subscribe and Unsubscribe
+
+    #region Subscribe and Unsubscribe
 
     protected override void Subscribe()
     {
@@ -79,6 +86,17 @@ public class ArmadilloController : PlayerController
             base.OnJumpStarted(context);
         }
     }
+ 
+    private void GroundPound()
+    {
+        RB.velocity = PoundSpeed;
+        Pounding = true;
+    }
+
+    private void FinishedPounding()
+    {
+        Pounding = false;
+    }
 
     private void toggleTransform()
     {
@@ -96,6 +114,19 @@ public class ArmadilloController : PlayerController
             animator.SetBool("BallTrigger", true);
             //spriteRenderer.sprite = ballSprite;
             movementVelocity *= speedMultiplier;
+
+            //Gives the Armadillo the ability to use a groundpound move.
+            if (!IsGrounded())
+            {
+                RaycastHit2D hit = Physics2D.Raycast(RB.position, -RB.transform.up, 20f, PoundLayers);
+                float DistanceFromGround = RB.position.y - hit.point.y;
+                Debug.Log(DistanceFromGround);
+                if (DistanceFromGround > 3.5f)
+                {
+                    GroundPound();
+                }            
+            }
+
         }
         else
         {
@@ -148,6 +179,15 @@ public class ArmadilloController : PlayerController
         return transformed;
     }
 
+    public bool IsPounding()
+    {
+        if (Pounding)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public override void OnDeath()
     {
         base.OnDeath();
@@ -166,6 +206,11 @@ public class ArmadilloController : PlayerController
         else
         {
             animator.SetBool("Moving", false);
+        }
+
+        if (RB.velocity.y > -0.01)
+        {
+            FinishedPounding();
         }
     }
 }
