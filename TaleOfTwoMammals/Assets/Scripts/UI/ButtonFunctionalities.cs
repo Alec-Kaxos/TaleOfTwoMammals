@@ -50,4 +50,9 @@ public class ButtonFunctionalities : MonoBehaviour
         
         SceneC.RestartCurrentLevel();
     }
+
+    public void OnHomeButtonPressed()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
 }
