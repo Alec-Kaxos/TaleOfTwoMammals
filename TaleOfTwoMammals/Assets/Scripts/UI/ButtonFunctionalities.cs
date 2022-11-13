@@ -13,10 +13,21 @@ public class ButtonFunctionalities : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void OnCreditsButtonPressed()
+    {
+
+    }
+
     public void OnQuitButtonPressed()
     {
         Application.Quit();
     }
 
 #endregion
+
+    // Temporary
+    public void OnRestartButtonPressed()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
