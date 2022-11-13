@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctionalities : MonoBehaviour
 {
+    [SerializeField]
+    private Canvas creditsPage;
+    [SerializeField]
+    private Canvas thingsOtherThanCreditsPage;
+
 #region Start Menu Button Functionalities
 
     public void OnStartButtonPressed()
@@ -15,7 +20,14 @@ public class ButtonFunctionalities : MonoBehaviour
 
     public void OnCreditsButtonPressed()
     {
+        creditsPage.gameObject.SetActive(true);
+        thingsOtherThanCreditsPage.gameObject.SetActive(false);
+    }
 
+    public void OnReturnButtonInCreditsPagePressed()
+    {
+        creditsPage.gameObject.SetActive(false);
+        thingsOtherThanCreditsPage.gameObject.SetActive(true);
     }
 
     public void OnQuitButtonPressed()
