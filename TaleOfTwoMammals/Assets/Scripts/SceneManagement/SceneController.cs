@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -110,6 +111,8 @@ public class SceneController : MonoBehaviour
     private bool LoadScenePlease = false;
     [SerializeField]
     private bool NextScenePlease = false;
+    [SerializeField]
+    private bool RestartScenePlease = false;
 
     [Header("Level Scenes")]
     [SerializeField, Tooltip("Note: Names in equivalent level order.")]
@@ -123,13 +126,19 @@ public class SceneController : MonoBehaviour
     private int CurrentScene;
     private int SceneCount;
 
+    [SerializeField]
+    private Image ScreenCover;
+
     private bool AllLoaded = false;
     private bool CurrentLoaded = false;
 
     [Header("References")]
     [SerializeField]
-    private AnteaterController Anteater;
+    private GameObject AnteaterPrefab;
     [SerializeField]
+    private GameObject ArmadilloPrefab;
+
+    private AnteaterController Anteater;
     private ArmadilloController Armadillo;
 
 
@@ -137,7 +146,6 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         StartCoroutine(FirstLoad(0));
     }
 
@@ -157,6 +165,12 @@ public class SceneController : MonoBehaviour
 
             StartCoroutine(ToNextLevel());
         }
+        if (RestartScenePlease)
+        {
+            RestartScenePlease = false;
+
+            StartCoroutine(RestartLevel());
+        }
     }
 
     #endregion
@@ -169,7 +183,13 @@ public class SceneController : MonoBehaviour
     /// <param name="LevelIndex">The index of the level from the SceneNames array. Starts at 0.</param>
     private IEnumerator FirstLoad(int LevelIndex)
     {
+        Color TempColor = ScreenCover.color;
+        TempColor.a = 1.0f;
+        ScreenCover.color = TempColor;
+
         CurrentScene = LevelIndex;
+
+        SpawnCharacters();
 
         Anteater.gameObject.SetActive(false);
         Armadillo.gameObject.SetActive(false);
@@ -198,6 +218,11 @@ public class SceneController : MonoBehaviour
         curS.DisableObject.SetActive(true);
 
         curS.LevelManagerRef.LevelActive(this);
+
+        Camera.main.transform.position = curS.Cam.transform.position;
+        Camera.main.orthographicSize = curS.Cam.orthographicSize;
+
+        StartCoroutine(FadeScreenCover(0, 1, 2));
 
         //CURRENT SCENE NOW LOADED
 
@@ -248,6 +273,7 @@ public class SceneController : MonoBehaviour
         */
 
     }
+    
     /// <summary>
     /// Unloads all level scenes, effectively resetting this SceneManager. 
     /// </summary>
@@ -266,6 +292,8 @@ public class SceneController : MonoBehaviour
 
         Anteater.gameObject.SetActive(false);
         Armadillo.gameObject.SetActive(false);
+
+        DespawnCharacters();
 
         AllLoaded = false;
         CurrentLoaded = false;
@@ -294,7 +322,7 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator ToNextLevel()
     {
-        if (CurrentScene >= SceneNames.Length - 1)
+        if (!AllLoaded || CurrentScene >= SceneNames.Length - 1)
         { //If there are no more scenes left, dont go to the next scene !
             yield break;
         }
@@ -384,6 +412,113 @@ public class SceneController : MonoBehaviour
 
     }
 
+    private IEnumerator RestartLevel()
+    {
+        if (!CurrentLoaded) yield break;
+
+        yield return FadeScreenCover(1.0f, 0, 1f);
+
+        CurrentLoaded = false;
+        AllLoaded = false;
+
+        Anteater.gameObject.SetActive(false);
+        Armadillo.gameObject.SetActive(false);
+
+        DespawnCharacters();
+
+        SceneInfo curS = LoadedScenes[PreviousScenesLoaded];
+
+        //Unload current scene
+        if (curS.IsValid())
+        {
+            curS.LevelManagerRef.LevelUnactive();
+            yield return SceneManager.UnloadSceneAsync(curS.S);
+        }
+
+        //LOAD CURRENT SCENE
+        yield return PreloadLevel(CurrentScene);
+
+        curS = new SceneInfo(SceneNames[CurrentScene]);
+        LoadedScenes[PreviousScenesLoaded] = curS;
+
+        CurrentLoaded = true;
+        AllLoaded = true;
+
+        SpawnCharacters();
+
+        Anteater.gameObject.SetActive(true);
+        Armadillo.gameObject.SetActive(true);
+
+        curS.DisableObject.SetActive(true);
+
+        curS.LevelManagerRef.LevelActive(this);
+
+        StartCoroutine(FadeScreenCover(0, 1, 2));
+
+        //CURRENT SCENE NOW LOADED
+    }
+
+    private IEnumerator FadeScreenCover(float alpha, float secondsBefore, float seconds)
+    {
+        float curTime = 0f;
+        while (curTime < secondsBefore)
+        {
+            curTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Color StartColor = ScreenCover.color;
+        Color EndColor = StartColor;
+        EndColor.a = alpha;
+
+        curTime = 0f;
+
+        while (curTime < seconds)
+        {
+            curTime += Time.deltaTime;
+
+            ScreenCover.color = Color.Lerp(StartColor, EndColor, (curTime / seconds));
+
+            yield return null;
+        }
+
+        ScreenCover.color = EndColor;
+        
+    }
+
+    #endregion
+
+    #region Characters
+
+    private void SpawnCharacters()
+    {
+        GameObject AntTemp = Instantiate(AnteaterPrefab, new Vector3(), Quaternion.identity);
+        GameObject ArmTemp = Instantiate(ArmadilloPrefab, new Vector3(), Quaternion.identity);
+
+        Anteater = AntTemp.GetComponent<AnteaterController>();
+        Armadillo = ArmTemp.GetComponent<ArmadilloController>();
+
+        if (LoadedScenes != null)
+        {
+            foreach (SceneInfo si in LoadedScenes)
+            {
+                if (si.IsValid())
+                {
+                    si.LevelManagerRef.RelinkReferences(Anteater, Armadillo);
+                }
+            }
+        }
+    }
+
+    private void DespawnCharacters()
+    {
+        Destroy(Anteater.gameObject);
+        Destroy(Armadillo.gameObject);
+        Anteater = null;
+        Armadillo = null;
+    }
+
     #endregion
 
     #region Public Methods
@@ -398,6 +533,19 @@ public class SceneController : MonoBehaviour
         if (!AllLoaded) return false;
 
         StartCoroutine(ToNextLevel());
+
+        return true;
+    }
+
+    /// <summary>
+    /// Call to restart the CURRENT Level
+    /// </summary>
+    /// <returns>If the level could be successfully restarted.</returns>
+    public bool RestartCurrentLevel()
+    {
+        if (!CurrentLoaded) return false;
+
+        StartCoroutine(RestartLevel());
 
         return true;
     }

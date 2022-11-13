@@ -38,6 +38,17 @@ public class LevelManager : MonoBehaviour
     }
 
     /// <summary>
+    /// A function so the SceneManager can relink Anteater and Armadillo references if they were deleted
+    /// </summary>
+    /// <param name="Anteater">A reference to the Anteater GameObject.</param>
+    /// <param name="Armadillo">A reference to the Armadillo GameObject.</param>
+    public void RelinkReferences(AnteaterController Ant, ArmadilloController Arm)
+    {
+        Anteater = Ant;
+        Armadillo = Arm;
+    }
+
+    /// <summary>
     /// Only called after LevelFullyLoaded. Notifies the LevelManager that this is now the level being played.
     /// </summary>
     public void LevelActive(SceneController s)
