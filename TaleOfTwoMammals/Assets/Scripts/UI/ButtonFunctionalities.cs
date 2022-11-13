@@ -10,12 +10,17 @@ public class ButtonFunctionalities : MonoBehaviour
     [SerializeField]
     private Canvas thingsOtherThanCreditsPage;
 
+    private string StartScene = "Level Management Scene";
+
+    [SerializeField]
+    private SceneController SceneC;
+
 #region Start Menu Button Functionalities
 
     public void OnStartButtonPressed()
     {
         // Good enough for now
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(StartScene);
     }
 
     public void OnCreditsButtonPressed()
@@ -40,6 +45,9 @@ public class ButtonFunctionalities : MonoBehaviour
     // Temporary
     public void OnRestartButtonPressed()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        
+        SceneC.RestartCurrentLevel();
     }
 }

@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestTrans4.unity
     guid: 29c808b3ded6a40498758a55c1198de6
   - enabled: 1
+    path: Assets/Scenes/Level Management Scene.unity
+    guid: 94fef320629c88b4c9cee9b71681a890
+  - enabled: 1
     path: Assets/Scenes/Level Example Playtest.unity
     guid: 73bd8999d21d6ed4598d74dc68dfe702
   - enabled: 1

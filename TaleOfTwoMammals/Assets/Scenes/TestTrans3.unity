@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d98b66b878c14d4da97865f0ea7a921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StaysPressed: 0
   collisionLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -839,6 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c0144c77144194b83f6f3f62c4e12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anteater: {fileID: 0}
+  Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
 --- !u!4 &646980032
@@ -986,6 +989,7 @@ MonoBehaviour:
   - {fileID: 1293737688}
   - {fileID: 324354921}
   ButtonsRequired: -1
+  StaysActivated: 0
   squishAmt: 10
 --- !u!1 &920644747
 GameObject:
@@ -1166,6 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d98b66b878c14d4da97865f0ea7a921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StaysPressed: 0
   collisionLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -1373,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d878a1cf8010114397360d05f873edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LM: {fileID: 0}
+  LM: {fileID: 646980031}
 --- !u!61 &1593699386
 BoxCollider2D:
   m_ObjectHideFlags: 0
