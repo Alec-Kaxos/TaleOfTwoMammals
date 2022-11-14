@@ -324,68 +324,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1001 &69859795
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1289162986}
-    m_Modifications:
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1414424
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272838489048177343, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-      propertyPath: m_Name
-      value: Spikes
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
---- !u!4 &69859796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2272838489048177337, guid: 51ef11e7f10435847a213214d7b2eacb, type: 3}
-  m_PrefabInstance: {fileID: 69859795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114967073
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480730396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.38, y: -2.4, z: 0}
+  m_LocalPosition: {x: 11.52, y: -2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1103,7 +1041,6 @@ Transform:
   m_Children:
   - {fileID: 1983265610}
   - {fileID: 1063070369}
-  - {fileID: 69859796}
   m_Father: {fileID: 934789943}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

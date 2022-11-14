@@ -310,6 +310,7 @@ MonoBehaviour:
   RestartScenePlease: 0
   SceneNames:
   - Level Example Playtest
+  - Level Example Playtest 2
   - TestTrans1
   - TestTrans2
   - TestTrans3

@@ -55,7 +55,7 @@ MonoBehaviour:
   animator: {fileID: 1178997695}
   LM: {fileID: 0}
   movementVelocity: 4
-  jumpVelocity: 8
+  jumpVelocity: 10
   smoothInputSpeed: 0.01
   spriteRenderer: {fileID: 2464515851302227829}
   speedMultiplier: 1.25
