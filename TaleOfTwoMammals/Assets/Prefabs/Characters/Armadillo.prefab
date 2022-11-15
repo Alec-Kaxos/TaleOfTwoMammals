@@ -67,7 +67,7 @@ MonoBehaviour:
   ballCollider: {fileID: 2464515851302227831}
   PoundLayers:
     serializedVersion: 2
-    m_Bits: 3136
+    m_Bits: 3392
 --- !u!212 &2464515851302227829
 SpriteRenderer:
   m_ObjectHideFlags: 0
