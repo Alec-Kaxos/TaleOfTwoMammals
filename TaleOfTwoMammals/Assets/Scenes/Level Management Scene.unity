@@ -320,6 +320,12 @@ MonoBehaviour:
   FutureScenesLoaded: 2
   PreviousScenesLoaded: 2
   ScreenCover: {fileID: 809522000}
+  InitialLoadCoverWait: 1
+  InitialLoadCoverFade: 2
+  NextLevelTransitionTime: 3
+  ResetFadeBlackTime: 1
+  ResetHoldTime: 1
+  ResetFadeTransparentTime: 2
   AnteaterPrefab: {fileID: 595786299185234544, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
   ArmadilloPrefab: {fileID: 2464515851302227833, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
 --- !u!1 &315885123

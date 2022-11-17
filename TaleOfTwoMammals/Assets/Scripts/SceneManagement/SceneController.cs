@@ -132,6 +132,21 @@ public class SceneController : MonoBehaviour
     private bool AllLoaded = false;
     private bool CurrentLoaded = false;
 
+    [Header("Transition Timings")]
+    [SerializeField]
+    private float InitialLoadCoverWait = 1.0f;
+    [SerializeField]
+    private float InitialLoadCoverFade = 2.0f;
+    [SerializeField]
+    private float NextLevelTransitionTime = 3.0f;
+    [SerializeField]
+    private float ResetFadeBlackTime = 1.0f;
+    [SerializeField]
+    private float ResetHoldTime = 1.0f;
+    [SerializeField]
+    private float ResetFadeTransparentTime = 2.0f;
+
+
     [Header("References")]
     [SerializeField]
     private GameObject AnteaterPrefab;
@@ -222,7 +237,7 @@ public class SceneController : MonoBehaviour
         Camera.main.transform.position = curS.Cam.transform.position;
         Camera.main.orthographicSize = curS.Cam.orthographicSize;
 
-        StartCoroutine(FadeScreenCover(0, 1, 2));
+        StartCoroutine(FadeScreenCover(0, InitialLoadCoverWait, InitialLoadCoverFade));
 
         //CURRENT SCENE NOW LOADED
 
@@ -341,31 +356,55 @@ public class SceneController : MonoBehaviour
         //Transition to the next scene
         Vector3 movement =  cS.NextAttachPos - nS.AttachPos;
 
-        //  this just moves both scenes to the right place :) (over 1000 frames)
-        int frames = 1000;
-        for (int i = 0; i < frames; ++i)
+        //  this just moves both scenes to the right place :)
+        float CurSeconds = 0;
+        float timeDiff;
+        while(CurSeconds < NextLevelTransitionTime)
         {
+            timeDiff =  Time.deltaTime / NextLevelTransitionTime;
             //camera
-            Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) / frames;
-            Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) / frames;
+            Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
+            Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
 
             //Move the scenes/levels (to simulate camera movement)
             foreach (SceneInfo SI in LoadedScenes)
             {
                 if (SI.IsValid())
                 {
-                    SI.EnableObject.transform.position -= movement / frames;
+                    SI.EnableObject.transform.position -= movement * timeDiff;
                 }
             }
 
             //Move the players with the scenes
-            Anteater.transform.position -= movement / frames;
-            Armadillo.transform.position -= movement / frames;
+            Anteater.transform.position -= movement * timeDiff;
+            Armadillo.transform.position -= movement * timeDiff;
 
+            CurSeconds += Time.deltaTime;
 
             yield return null;
         }
 
+        //Resolve the leftover movement (undo the overcompensation)
+        timeDiff = (NextLevelTransitionTime-CurSeconds) / NextLevelTransitionTime;
+        //camera
+        Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
+        Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
+
+        //Move the scenes/levels (to simulate camera movement)
+        foreach (SceneInfo SI in LoadedScenes)
+        {
+            if (SI.IsValid())
+            {
+                SI.EnableObject.transform.position -= movement * timeDiff;
+            }
+        }
+
+        //Move the players with the scenes
+        Anteater.transform.position -= movement * timeDiff;
+        Armadillo.transform.position -= movement * timeDiff;
+
+
+        yield return null;
 
 
         //FINALLY, unload the first level loaded and insert the new level that should be loaded
@@ -416,7 +455,7 @@ public class SceneController : MonoBehaviour
     {
         if (!CurrentLoaded) yield break;
 
-        yield return FadeScreenCover(1.0f, 0, 1f);
+        yield return FadeScreenCover(1.0f, 0, ResetFadeBlackTime);
 
         CurrentLoaded = false;
         AllLoaded = false;
@@ -453,7 +492,7 @@ public class SceneController : MonoBehaviour
 
         curS.LevelManagerRef.LevelActive(this);
 
-        StartCoroutine(FadeScreenCover(0, 1, 2));
+        StartCoroutine(FadeScreenCover(0, ResetHoldTime, ResetFadeTransparentTime));
 
         //CURRENT SCENE NOW LOADED
     }
