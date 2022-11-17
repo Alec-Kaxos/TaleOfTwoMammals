@@ -163,6 +163,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1289162986}
     m_Modifications:
+    - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
+      propertyPath: m_text
+      value: As the Armadillo, use the down arrow key to enter ball form.  In this
+        form you can fit into tight spaces and are immune to damage.
+      objectReference: {fileID: 0}
     - target: {fileID: 8113810802928451622, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
       value: As the Armadillo, press the down arrow key to enter ball form, becoming
@@ -234,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.97
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2912,6 +2917,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1289162986}
     m_Modifications:
+    - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
+      propertyPath: m_text
+      value: As the Anteater, use the e key to enter aiming mode.  Press e again
+        to shoot your tounge and create a bridge.  Press e again to retract your
+        tongue.
+      objectReference: {fileID: 0}
     - target: {fileID: 8113810802928451622, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
       value: As the Anteater, use the e key to enter aiming mode, press e again to
@@ -2983,7 +2994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.5
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.y

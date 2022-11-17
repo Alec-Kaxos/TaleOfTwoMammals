@@ -7,7 +7,9 @@ public class SignScript : MonoBehaviour
     [SerializeField]
     private LayerMask activator;
     [SerializeField]
-    private Canvas canvas;
+    private GameObject Text;
+    [SerializeField]
+    private GameObject Background;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +21,8 @@ public class SignScript : MonoBehaviour
         if ((activator >> other.gameObject.layer) % 2 == 1)
         {
 
-            canvas.gameObject.SetActive(true);
+            Text.gameObject.SetActive(true);
+            Background.gameObject.SetActive(true);
         }
     }
 
@@ -28,8 +31,8 @@ public class SignScript : MonoBehaviour
         if ((activator >> other.gameObject.layer) % 2 == 1)
         {
 
-            canvas.gameObject.SetActive(false);
-       
+            Text.gameObject.SetActive(false);
+            Background.gameObject.SetActive(false);
         }
     }
 
