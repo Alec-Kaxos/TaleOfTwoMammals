@@ -84,6 +84,10 @@ public class ArmadilloController : PlayerController
         {
             base.OnJumpStarted(context);
         }
+        else
+        {
+            OnTransform(context);
+        }
     }
  
     private void GroundPound()
