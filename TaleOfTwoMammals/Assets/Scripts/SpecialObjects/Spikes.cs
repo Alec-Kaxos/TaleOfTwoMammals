@@ -7,17 +7,17 @@ public class Spikes : MonoBehaviour
     [SerializeField]
     private LevelManager levelManager;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Player" )
+        if (collision.gameObject.tag == "Player")
         {
-            ArmadilloController armadillo = other.GetComponent<ArmadilloController>();
+            ArmadilloController armadillo = collision.gameObject.GetComponent<ArmadilloController>();
             if (armadillo != null && armadillo.IsInBallForm())
             {
                 return;
             }
 
-            other.GetComponent<PlayerController>().OnDeath();
+            collision.gameObject.GetComponent<PlayerController>().OnDeath();
         }
     }
 }
