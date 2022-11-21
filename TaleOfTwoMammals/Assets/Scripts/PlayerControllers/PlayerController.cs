@@ -62,6 +62,23 @@ public class PlayerController : MonoBehaviour
         }     
     }
 
+    protected virtual void UpdateAnimation()
+    {
+        if (RB.velocity.x > 0.01 || RB.velocity.x < -0.01)
+        {
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
+    }
+
+    protected virtual void LateUpdate()
+    {
+        UpdateAnimation();
+    }
+
 #region Subscribe and Unsubscribe
 
     // This method subscribes corresponding methods to the

@@ -77,7 +77,6 @@ public class ArmadilloController : PlayerController
 
 #region Armadillo Special Methods
 
-    // Armadillo will not be able to jump when it is currenly in the ball form
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
         if (transformed == false)
@@ -200,16 +199,9 @@ public class ArmadilloController : PlayerController
 #endregion
 
 
-    private void LateUpdate()
+    protected override void LateUpdate()
     {
-        if (RB.velocity.x > 0.01 || RB.velocity.x < -0.01)
-        {
-            animator.SetBool("Moving", true);
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-        }
+        base.LateUpdate();
 
         if (RB.velocity.y > -0.01)
         {
