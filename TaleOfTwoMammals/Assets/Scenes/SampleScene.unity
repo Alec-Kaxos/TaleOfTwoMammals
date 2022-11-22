@@ -3139,6 +3139,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2029406867, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 595786299185234544, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_Name
       value: Anteater
@@ -3146,6 +3150,14 @@ PrefabInstance:
     - target: {fileID: 595786299185234545, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_GravityScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234546, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
+    - target: {fileID: 595786299185234546, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_RootOrder
@@ -3190,6 +3202,10 @@ PrefabInstance:
     - target: {fileID: 595786299185234547, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 595786299185234548, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 595786299185234549, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
       propertyPath: LM

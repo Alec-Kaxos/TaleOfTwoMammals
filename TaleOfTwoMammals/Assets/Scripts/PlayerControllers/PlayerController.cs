@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     protected LayerMask GroundLayerMask;
     [SerializeField]
     protected Animator animator;
+    [SerializeField]
+    protected Collider2D detectionCollider;
 
     [SerializeField]
     protected LevelManager LM;
@@ -28,13 +30,15 @@ public class PlayerController : MonoBehaviour
     protected float jumpVelocity = 5;
     [SerializeField]
     private float smoothInputSpeed = .2f;
+    [SerializeField]
+    protected float maxClimbAngle = 30f;
 
 #endregion
 
     private Vector2 currentVector;
     private Vector2 smoothInputVelocity;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         playerInputs = new PlayerInputs();
         RB = GetComponent<Rigidbody2D>();
@@ -54,12 +58,15 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
-        currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
-        if (RB.bodyType != RigidbodyType2D.Static)
+        if (IsOnMovableSlope())
         {
-            RB.velocity = new Vector2(currentVector.x, currentVector.y);
-        }     
+            Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
+            currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
+            if (RB.bodyType != RigidbodyType2D.Static)
+            {
+                RB.velocity = new Vector2(currentVector.x, currentVector.y);
+            }
+        }
     }
 
     protected virtual void UpdateAnimation()
@@ -133,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
-        if(IsGrounded() && context.started)
+        if(IsOnMovableSlope() && context.started)
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
     }
 
@@ -150,9 +157,15 @@ public class PlayerController : MonoBehaviour
     // Check if player is on the ground or not
     protected bool IsGrounded()
     {
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
-        RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
+        RaycastHit2D raycast = Physics2D.BoxCast(detectionCollider.bounds.center, detectionCollider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
         return raycast.collider != null;
+    }
+
+    protected bool IsOnMovableSlope()
+    {
+        RaycastHit2D raycast = Physics2D.BoxCast(detectionCollider.bounds.center, detectionCollider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
+        // Debug.Log(string.Format("{0}: raycast is not null: {1}, smaller than max angle is: {2}, collider is not active: {3}", gameObject.name, raycast.collider != null, Vector2.Angle(raycast.normal, Vector2.up) <= maxClimbAngle, detectionCollider.isActiveAndEnabled));
+        return (raycast.collider != null && Vector2.Angle(raycast.normal, Vector2.up) <= maxClimbAngle);
     }
 
     public void StopCharacter()

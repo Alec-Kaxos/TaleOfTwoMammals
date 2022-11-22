@@ -58,7 +58,13 @@ public class AnteaterController : PlayerController
     private Vector2 tongueEndPoint;
     private float growthTimer = 0f;
 
-    #endregion
+#endregion
+
+    protected override void Awake()
+    {
+        base.Awake();
+        detectionCollider = normalCollider;
+    }
 
 #region Subscribe and Unsubscribe
 
@@ -120,7 +126,7 @@ public class AnteaterController : PlayerController
 
             Uncrouch();
         }
-        else if (IsGrounded())//The tongue bridge is not currently deployed, so start aiming.
+        else if (IsOnMovableSlope())//The tongue bridge is not currently deployed, so start aiming.
         {
 
             StopCharacter();
@@ -285,7 +291,6 @@ public class AnteaterController : PlayerController
         }
         normalCollider.offset = crouchCollider.offset;
         normalCollider.size = crouchCollider.size;
-
     }
 
     private void Uncrouch()

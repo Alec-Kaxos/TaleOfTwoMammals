@@ -49,6 +49,12 @@ public class ArmadilloController : PlayerController
     private bool Pounding = false;
 #endregion
 
+    protected override void Awake()
+    {
+        base.Awake();
+        detectionCollider = normalCollider;
+    }
+
 #region Subscribe and Unsubscribe
 
     protected override void Subscribe()
@@ -112,6 +118,7 @@ public class ArmadilloController : PlayerController
         {
             ballCollider.enabled = true;
             normalCollider.enabled = false;
+            detectionCollider = ballCollider;
 
             animator.SetBool("BallTrigger", true);
             //spriteRenderer.sprite = ballSprite;
@@ -140,6 +147,7 @@ public class ArmadilloController : PlayerController
             animator.SetBool("BallTrigger", false);
             ballCollider.enabled = false;
             normalCollider.enabled = true;
+            detectionCollider = normalCollider;
             //spriteRenderer.sprite = normalSprite;
             movementVelocity /= speedMultiplier;
         }
@@ -172,7 +180,7 @@ public class ArmadilloController : PlayerController
         return raycast.collider != null;
     }
 
-    #endregion
+#endregion
 
 #region Public Methods
 

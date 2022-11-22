@@ -54,10 +54,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3520
   animator: {fileID: 595786300036011370}
+  detectionCollider: {fileID: 0}
   LM: {fileID: 0}
   movementVelocity: 4
   jumpVelocity: 10
   smoothInputSpeed: 0.01
+  maxClimbAngle: 30
   spriteRenderer: {fileID: 595786299185234546}
   normalSprite: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
   crawlSprite: {fileID: 21300000, guid: ccdf9b3513953a94793ae8bab3dabef2, type: 3}
@@ -186,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: -1.17}
+  m_Offset: {x: 0.050000012, y: -1.1753505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -197,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.92, y: 0.2}
+  m_Size: {x: 1.92, y: 0.21070123}
   m_EdgeRadius: 0
 --- !u!95 &595786300036011370
 Animator:
