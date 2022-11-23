@@ -18,6 +18,8 @@ MonoBehaviour:
     do not delete anything.
   preview: {fileID: 2800000, guid: f27d9334d38c5f44298a3b88b8333d7a, type: 3}
   dependencies:
+  - dependency: {fileID: 2800000, guid: c79bba83ba72ea2468ed1b48b640b0d1, type: 3}
+    instantiationMode: 0
   - dependency: {fileID: 2100000, guid: e5cb235237a63bf42bcc5d5d2e6f892c, type: 2}
     instantiationMode: 0
   - dependency: {fileID: 11400000, guid: 8e7436a564a7f4c4db95f4777c51056f, type: 2}
@@ -36,10 +38,10 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 89a5cc955f8b2d0499fab2fbfc2f3303, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-    instantiationMode: 0
   - dependency: {fileID: 11400000, guid: c163454dc6b887349a857da29827fa24, type: 2}
     instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 8e160a2a620644cd6afef9119dad1093, type: 3}
     instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 3b66e1a27c9634fe9a4746c47eeda7cc, type: 3}
