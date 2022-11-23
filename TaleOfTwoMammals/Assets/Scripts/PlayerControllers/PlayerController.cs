@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     protected LevelManager LM;
 
+    protected Vector2 slopeNormal = Vector2.zero;
+
 #region Movement Variables
 
     [Header("Movement Variables")]
@@ -58,14 +60,16 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (IsOnMovableSlope())
+        CheckGround();
+        if (IsGrounded() && !IsOnMovableSlope())
         {
-            Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
-            currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
-            if (RB.bodyType != RigidbodyType2D.Static)
-            {
-                RB.velocity = new Vector2(currentVector.x, currentVector.y);
-            }
+            return;
+        }
+        Vector2 input = new Vector2(horizontalInput * movementVelocity, RB.velocity.y);
+        currentVector = Vector2.SmoothDamp(currentVector, input, ref smoothInputVelocity, smoothInputSpeed);
+        if (RB.bodyType != RigidbodyType2D.Static)
+        {
+            RB.velocity = new Vector2(currentVector.x, currentVector.y);
         }
     }
 
@@ -140,7 +144,8 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
-        if(IsOnMovableSlope() && context.started)
+        CheckGround();
+        if (IsGrounded() && IsOnMovableSlope() && context.started)
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
     }
 
@@ -150,22 +155,49 @@ public class PlayerController : MonoBehaviour
             RB.velocity = new Vector2(RB.velocity.x, 0);
     }
 
+    public virtual void OnDeath()
+    {
+        StopCharacter();
+        Unsubscribe();
+        animator.SetTrigger("Die");
+    }
+
+    public virtual void OnRespawn()
+    {
+        ResetCharacter();
+        Subscribe();
+    }
+
 #endregion
 
 #region Utility Methods
 
+    // Call this method before calling IsGrounded() or IsOnMovableSlope()
+    // If you try to call IsOnMovableSlope() to check if is on a slope with
+    // allowed angle, call IsGrounded() && IsOnMovableSlope() in order instead
+    protected void CheckGround()
+    {
+        RaycastHit2D raycast = Physics2D.BoxCast(detectionCollider.bounds.center, detectionCollider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
+        if (raycast.collider != null)
+        {
+            slopeNormal = raycast.normal;
+        }
+        else
+        {
+            slopeNormal = Vector2.zero;
+        }
+    }
+
     // Check if player is on the ground or not
     protected bool IsGrounded()
     {
-        RaycastHit2D raycast = Physics2D.BoxCast(detectionCollider.bounds.center, detectionCollider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
-        return raycast.collider != null;
+        return slopeNormal != Vector2.zero;
     }
 
+    // Check if player is on a slope with allowed angle
     protected bool IsOnMovableSlope()
     {
-        RaycastHit2D raycast = Physics2D.BoxCast(detectionCollider.bounds.center, detectionCollider.bounds.size, 0f, Vector2.down, 0.1f, GroundLayerMask);
-        // Debug.Log(string.Format("{0}: raycast is not null: {1}, smaller than max angle is: {2}, collider is not active: {3}", gameObject.name, raycast.collider != null, Vector2.Angle(raycast.normal, Vector2.up) <= maxClimbAngle, detectionCollider.isActiveAndEnabled));
-        return (raycast.collider != null && Vector2.Angle(raycast.normal, Vector2.up) <= maxClimbAngle);
+        return Vector2.Angle(slopeNormal, Vector2.up) <= maxClimbAngle;
     }
 
     public void StopCharacter()
@@ -175,19 +207,13 @@ public class PlayerController : MonoBehaviour
         RB.velocity = Vector2.zero;
     }
 
+    // Reset the character back to normal state
+    public virtual void ResetCharacter()
+    {
+
+    }
+
 #endregion
-
-    public virtual void OnDeath()
-    {
-        StopCharacter();
-        Unsubscribe();
-        animator.SetTrigger("Die");
-    }
-
-    public void OnRespawn()
-    {
-        Subscribe();
-    }
 
     public void SetLevelManager(LevelManager l)
     {

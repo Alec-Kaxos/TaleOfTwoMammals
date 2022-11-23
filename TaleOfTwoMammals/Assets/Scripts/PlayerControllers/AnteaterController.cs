@@ -119,6 +119,7 @@ public class AnteaterController : PlayerController
 
     private void OnShootTongue(InputAction.CallbackContext context)
     {
+        CheckGround();
         //First, check if the tongue bridge is already out, if so, recall it
         if (tongueOut)
         {
@@ -126,7 +127,7 @@ public class AnteaterController : PlayerController
 
             Uncrouch();
         }
-        else if (IsOnMovableSlope())//The tongue bridge is not currently deployed, so start aiming.
+        else if (IsGrounded() && IsOnMovableSlope())//The tongue bridge is not currently deployed, so start aiming.
         {
 
             StopCharacter();
@@ -134,15 +135,7 @@ public class AnteaterController : PlayerController
             toggleIsAiming();
             if (isAiming == true)
             {
-                // Unsubscribe movement from player movement inputs
-                playerInputs.Anteater.Move.started -= OnMoveStarted;
-                playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
-                // Unsubscribe Jump
-                playerInputs.Anteater.Jump.started -= OnJumpStarted;
-                playerInputs.Anteater.Jump.canceled -= OnJumpCanceled;
-                // Subscribe pointer rotation to player movement inputs
-                playerInputs.Anteater.Move.started += OnMovePointerStarted;
-                playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
+                HijackInputFromMovement();
 
                 aimingSprites.SetActive(true);
 
@@ -157,16 +150,7 @@ public class AnteaterController : PlayerController
             }
             else
             {
-                // Subscribe movement to player movement inputs
-                playerInputs.Anteater.Move.started += OnMoveStarted;
-                playerInputs.Anteater.Move.canceled += OnMoveCanceled;
-                // Subscribe Jump
-                playerInputs.Anteater.Jump.started += OnJumpStarted;
-                playerInputs.Anteater.Jump.canceled += OnJumpCanceled;
-                // Unsubscribe pointer rotation from player movement inputs
-                playerInputs.Anteater.Move.started -= OnMovePointerStarted;
-                playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
-
+                ReturnInputBackToMovement();
 
                 //CHANGE DISTANCE
                 RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
@@ -303,7 +287,33 @@ public class AnteaterController : PlayerController
         normalCollider.size = normalColliderCopy.size;
     }
 
-#endregion
+    private void HijackInputFromMovement()
+    {
+        // Unsubscribe movement from player movement inputs
+        playerInputs.Anteater.Move.started -= OnMoveStarted;
+        playerInputs.Anteater.Move.canceled -= OnMoveCanceled;
+        // Unsubscribe Jump
+        playerInputs.Anteater.Jump.started -= OnJumpStarted;
+        playerInputs.Anteater.Jump.canceled -= OnJumpCanceled;
+        // Subscribe pointer rotation to player movement inputs
+        playerInputs.Anteater.Move.started += OnMovePointerStarted;
+        playerInputs.Anteater.Move.canceled += OnMovePointerCanceled;
+    }
+
+    private void ReturnInputBackToMovement()
+    {
+        // Subscribe movement to player movement inputs
+        playerInputs.Anteater.Move.started += OnMoveStarted;
+        playerInputs.Anteater.Move.canceled += OnMoveCanceled;
+        // Subscribe Jump
+        playerInputs.Anteater.Jump.started += OnJumpStarted;
+        playerInputs.Anteater.Jump.canceled += OnJumpCanceled;
+        // Unsubscribe pointer rotation from player movement inputs
+        playerInputs.Anteater.Move.started -= OnMovePointerStarted;
+        playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
+    }
+
+    #endregion
 
     protected override void FixedUpdate()
     {
@@ -395,5 +405,33 @@ public class AnteaterController : PlayerController
         while (growthTimer <= modTongueShootTime);
     }
 
-    #endregion
+    public override void ResetCharacter()
+    {
+        if (tongueOut)
+        {
+            ReturnInputBackToMovement();
+            despawnTongueBridge();
+            Uncrouch();
+        }
+
+        if (isAiming)
+        {
+            ReturnInputBackToMovement();
+            Uncrouch();
+            isAiming = false;
+            aimingSprites.SetActive(false);
+            crosshairSprite.SetActive(false);
+
+            // Makes sure aiming pointer is not rotating on start of next aiming
+            aimingRotationInput = 0;
+
+            aimingSprites.transform.parent = tongueStartPointRef.transform;
+            // Reset the aiming sprite to point upwards again
+            aimingSprites.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+
+        base.ResetCharacter();
+    }
+
+#endregion
 }

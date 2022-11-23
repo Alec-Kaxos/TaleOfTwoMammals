@@ -180,6 +180,12 @@ public class ArmadilloController : PlayerController
         return raycast.collider != null;
     }
 
+    public override void ResetCharacter()
+    {
+        base.ResetCharacter();
+        ResetBall();
+    }
+
 #endregion
 
 #region Public Methods
