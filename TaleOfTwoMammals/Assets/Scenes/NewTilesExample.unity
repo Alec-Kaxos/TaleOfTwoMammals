@@ -257,30 +257,30 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 1e-45
+      e00: 385.8
       e01: 0
-      e02: 1.3959018e-38
-      e03: 1.3959018e-38
+      e02: 2.5749843e-19
+      e03: 2.5749843e-19
       e10: 0
       e11: 0
-      e12: 7e-43
-      e13: 7e-43
-      e20: 1.9634521e+34
+      e12: 5.96e-43
+      e13: 5.96e-43
+      e20: 1.26224894e-26
       e21: 1e-45
-      e22: -2.4891374e-19
-      e23: -3.7051044e+19
+      e22: -2.4896585e-19
+      e23: -3.6902566e+19
       e30: 4.5904e-41
       e31: 0
-      e32: 7e-43
-      e33: 7.03e-43
+      e32: 5.96e-43
+      e33: 5.98e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.7992e-41, g: 3.7992e-41, b: 3.7992e-41, a: 3.7992e-41}
+    m_Data: {r: 3.561e-41, g: 3.561e-41, b: 3.561e-41, a: 3.561e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -11, y: -5, z: 0}
-  m_Size: {x: 23, y: 5, z: 1}
+  m_Size: {x: 23, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1940,9 +1940,13 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.8115e-41, g: 3.8115e-41, b: 3.8115e-41, a: 3.8115e-41}
+    m_Data: {r: 3.5733e-41, g: 3.5733e-41, b: 3.5733e-41, a: 3.5733e-41}
   - m_RefCount: 69
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 3.5733e-41, g: 3.5733e-41, b: 3.5733e-41, a: 3.5733e-41}
+  - m_RefCount: 0
+    m_Data: {r: 3.5733e-41, g: 3.5733e-41, b: 3.5733e-41, a: 3.5733e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2003,7 +2007,15 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1918546594}
     m_ColliderPaths:
-    - - X: -110000100
+    - - X: 120000100
+        Y: -50000041
+      - X: 120000100
+        Y: -19999959
+      - X: 120000041
+        Y: -19999900
+      - X: -110000041
+        Y: -19999900
+      - X: -110000100
         Y: -19999959
       - X: -110000100
         Y: -50000041
@@ -2011,14 +2023,6 @@ CompositeCollider2D:
         Y: -50000100
       - X: 120000041
         Y: -50000100
-      - X: 120000100
-        Y: -50000041
-      - X: 120000100
-        Y: -19999959
-      - X: 120000041
-        Y: -19999900
-      - X: -110000041
-        Y: -19999900
   m_CompositePaths:
     m_Paths:
     - - {x: 11.999974, y: -5.00001}
