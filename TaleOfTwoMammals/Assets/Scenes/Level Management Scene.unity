@@ -309,12 +309,12 @@ MonoBehaviour:
   NextScenePlease: 0
   RestartScenePlease: 0
   SceneNames:
-  - Level Example Playtest
-  - Level Example Playtest 2
-  - TestTrans1
-  - TestTrans2
-  - TestTrans3
-  - TestTrans4
+  - 0-1
+  - 0-2
+  - 0-3
+  - 0-4
+  - 0-5
+  - 1-1
   - TestTrans5
   - TestTrans6
   FutureScenesLoaded: 2

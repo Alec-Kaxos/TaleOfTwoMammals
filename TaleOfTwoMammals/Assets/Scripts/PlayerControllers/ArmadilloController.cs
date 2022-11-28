@@ -165,6 +165,7 @@ public class ArmadilloController : PlayerController
             normalCollider.enabled = true;
             //spriteRenderer.sprite = normalSprite;
             movementVelocity /= speedMultiplier;
+            detectionCollider = normalCollider;
 
             transformed = false;
         }
