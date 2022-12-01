@@ -116,26 +116,33 @@ public class ArmadilloController : PlayerController
         toggleTransform();
         if (transformed)
         {
-            ballCollider.enabled = true;
-            normalCollider.enabled = false;
-            detectionCollider = ballCollider;
-
-            animator.SetBool("BallTrigger", true);
-            //spriteRenderer.sprite = ballSprite;
-            movementVelocity *= speedMultiplier;
-
-            //Gives the Armadillo the ability to use a groundpound move.
-            if (!IsGrounded())
+            if (IsGrounded() && IsOnMovableSlope())
             {
-                RaycastHit2D hit = Physics2D.Raycast(RB.position, -RB.transform.up, 20f, PoundLayers);
-                float DistanceFromGround = RB.position.y - hit.point.y;
-                Debug.Log(DistanceFromGround);
-                if (DistanceFromGround > 3.5f)
-                {
-                    GroundPound();
-                }            
-            }
+                ballCollider.enabled = true;
+                normalCollider.enabled = false;
+                detectionCollider = ballCollider;
 
+                animator.SetBool("BallTrigger", true);
+                //spriteRenderer.sprite = ballSprite;
+                movementVelocity *= speedMultiplier;
+
+                //Gives the Armadillo the ability to use a groundpound move.
+                if (!IsGrounded())
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(RB.position, -RB.transform.up, 20f, PoundLayers);
+                    float DistanceFromGround = RB.position.y - hit.point.y;
+                    Debug.Log(DistanceFromGround);
+                    if (DistanceFromGround > 3.5f)
+                    {
+                        GroundPound();
+                    }
+                }
+            }
+            else
+            {
+                toggleTransform();
+                return;
+            }
         }
         else
         {
