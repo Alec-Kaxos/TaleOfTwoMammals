@@ -256,6 +256,7 @@ public class SceneController : MonoBehaviour
             //Also remember to move the loaded scene!
             displacement += LoadedScenes[indexInLoaded + 1].AttachPos - LoadedScenes[indexInLoaded].NextAttachPos;
             thisS.EnableObject.transform.position += displacement;
+            thisS.DisableObject.transform.position += displacement;
 
         }
 
@@ -274,6 +275,7 @@ public class SceneController : MonoBehaviour
             //Also remember to move the loaded scene!
             displacement += LoadedScenes[indexInLoaded - 1].NextAttachPos - LoadedScenes[indexInLoaded].AttachPos;
             thisS.EnableObject.transform.position += displacement;
+            thisS.DisableObject.transform.position += displacement;
 
         }
 
@@ -372,6 +374,7 @@ public class SceneController : MonoBehaviour
                 if (SI.IsValid())
                 {
                     SI.EnableObject.transform.position -= movement * timeDiff;
+                    SI.DisableObject.transform.position -= movement * timeDiff;
                 }
             }
 
@@ -384,8 +387,8 @@ public class SceneController : MonoBehaviour
             yield return null;
         }
 
-        //Resolve the leftover movement (undo the overcompensation)
-        timeDiff = (NextLevelTransitionTime-CurSeconds) / NextLevelTransitionTime;
+        //Resolve the leftover movement
+        timeDiff = (Time.deltaTime + NextLevelTransitionTime-CurSeconds) / NextLevelTransitionTime;
         //camera
         Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
         Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
@@ -396,6 +399,7 @@ public class SceneController : MonoBehaviour
             if (SI.IsValid())
             {
                 SI.EnableObject.transform.position -= movement * timeDiff;
+                SI.DisableObject.transform.position -= movement * timeDiff;
             }
         }
 
@@ -433,6 +437,7 @@ public class SceneController : MonoBehaviour
                 displacement += LoadedScenes[i].NextAttachPos - LoadedScenes[i+1].AttachPos;
             }
             thisS.EnableObject.transform.position += displacement;
+            thisS.DisableObject.transform.position += displacement;
         }
         else
         {
