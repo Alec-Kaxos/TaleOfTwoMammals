@@ -116,7 +116,7 @@ public class ArmadilloController : PlayerController
         toggleTransform();
         if (transformed)
         {
-            if (IsGrounded() && IsOnMovableSlope())
+            if (IsGrounded() && IsOnMovableSlope() || !IsGrounded())
             {
                 ballCollider.enabled = true;
                 normalCollider.enabled = false;
