@@ -578,8 +578,8 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Spikes are harmful !!!
 
-        But Armadillo will be invulnerable
-        to it when it is in ball form.'
+        Use the Armadillo''s Ball Form to become
+        invulnerable to spikes!'
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_Pivot.x
