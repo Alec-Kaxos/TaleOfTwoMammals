@@ -152,7 +152,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1433802635}
-  - {fileID: 1805942785}
   - {fileID: 688272879}
   - {fileID: 774765016}
   - {fileID: 2001825721}
@@ -1014,7 +1013,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: The one way platform, waiting for text entry.
+      value: Players can jump through platforms from bellow, but can not go back
+        down!
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_Pivot.x
@@ -1026,7 +1026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1082,11 +1082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.48
+      value: 4.27
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9405899
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1134,7 +1134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1888,113 +1888,6 @@ Transform:
   m_Father: {fileID: 646980032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1805942784
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 16011193}
-    m_Modifications:
-    - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_text
-      value: As the Armadillo, use the "DOWN" arrow key while midair to perform a
-        ground pound move.  Some special blocks can be destroyed this way!
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.030560827
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -3.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.9405899
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113810803245259866, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-      propertyPath: m_Name
-      value: Sign (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
---- !u!224 &1805942785 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
-  m_PrefabInstance: {fileID: 1805942784}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1918546590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,7 +3420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_AnchorMax.x
