@@ -318,6 +318,8 @@ MonoBehaviour:
   - 1-1
   - TestTrans5
   - TestTrans6
+  LevelsPerWorld: 0600000001000000
+  WorldNames: []
   FutureScenesLoaded: 2
   PreviousScenesLoaded: 2
   ScreenCover: {fileID: 809522000}

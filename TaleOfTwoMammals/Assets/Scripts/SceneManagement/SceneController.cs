@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
 
+    public static int FirstLoadWorld = 0;
+    public static int FirstLoadLevel = 1;
+    public static bool LoadOnStart = false;
+
     private struct SceneInfo
     {
         /// <summary>
@@ -38,7 +42,7 @@ public class SceneController : MonoBehaviour
                 switch (go.name)
                 {
                     case "Level Manager":
-                        LevelManagerRef = go.GetComponent<LevelManager>(); 
+                        LevelManagerRef = go.GetComponent<LevelManager>();
 
                         //Find Attachment Points
                         Vector3 aP = LevelManagerRef.transform.Find("Level Attachment Point").transform.position;
@@ -105,8 +109,6 @@ public class SceneController : MonoBehaviour
     }
 
     [Header("Testing")]
-    public string NewSceneName;
-    public string CurrentSceneName;
     [SerializeField]
     private bool LoadScenePlease = false;
     [SerializeField]
@@ -115,16 +117,20 @@ public class SceneController : MonoBehaviour
     private bool RestartScenePlease = false;
 
     [Header("Level Scenes")]
-    [SerializeField, Tooltip("Note: Names in equivalent level order.")]
-    private string[] SceneNames;
+    //private string[] SceneNames;
+    [SerializeField, Tooltip("Note: Worlds are 0-indexed.")]
+    private int[] LevelsPerWorld;
 
     [SerializeField, Min(1)]
     private int FutureScenesLoaded = 2;
     [SerializeField, Min(1)]
     private int PreviousScenesLoaded = 2;
     private List<SceneInfo> LoadedScenes;
-    private int CurrentScene;
+    //private int CurrentScene;
     private int SceneCount;
+
+    private int CurrentWorld;
+    private int CurrentLevel;
 
     [SerializeField]
     private Image ScreenCover;
@@ -161,7 +167,11 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(FirstLoad(0));
+        if (LoadOnStart)
+        {
+            StartCoroutine(FirstLoad(FirstLoadWorld, FirstLoadLevel));
+            LoadOnStart = false;
+        }
     }
 
     // Update is called once per frame
@@ -171,7 +181,7 @@ public class SceneController : MonoBehaviour
         {
             LoadScenePlease = false;
 
-            StartCoroutine(FirstLoad(0));
+            StartCoroutine(FirstLoad(FirstLoadWorld, FirstLoadLevel));
             //StartCoroutine(LoadScene());
         }
         if (NextScenePlease)
@@ -195,14 +205,18 @@ public class SceneController : MonoBehaviour
     /// <summary>
     /// The first load of the levels, centered on LevelIndex. Will load into LevelIndex.
     /// </summary>
-    /// <param name="LevelIndex">The index of the level from the SceneNames array. Starts at 0.</param>
-    private IEnumerator FirstLoad(int LevelIndex)
+    /// <param name="World">The world number. Starts at 0.</param>
+    /// <param name="Level">The level number. Starts at 1.</param>
+    private IEnumerator FirstLoad(int World, int Level)
     {
         Color TempColor = ScreenCover.color;
         TempColor.a = 1.0f;
         ScreenCover.color = TempColor;
 
-        CurrentScene = LevelIndex;
+        //CurrentScene = LevelIndex;
+        CurrentWorld = World;
+        CurrentLevel = Level;
+
 
         SpawnCharacters();
 
@@ -213,16 +227,16 @@ public class SceneController : MonoBehaviour
         //Initialize LoadedScenes with null;
         SceneCount = 1 + FutureScenesLoaded + PreviousScenesLoaded;
         LoadedScenes = new List<SceneInfo>(SceneCount);
-        for(int i = 0; i < SceneCount; ++i)
+        for (int i = 0; i < SceneCount; ++i)
         {
             LoadedScenes.Add(new SceneInfo(null));
         }
 
 
         //LOAD CURRENT SCENE
-        yield return PreloadLevel(CurrentScene);
+        yield return PreloadLevel(CurrentWorld, CurrentLevel);
 
-        SceneInfo curS = new SceneInfo(SceneNames[CurrentScene]);
+        SceneInfo curS = new SceneInfo(GetSceneName(World, Level));
         LoadedScenes[PreviousScenesLoaded] = curS;
 
         CurrentLoaded = true;
@@ -244,13 +258,13 @@ public class SceneController : MonoBehaviour
         Vector3 displacement = new Vector3();
 
         //Load Previous Scenes
-        for (int i = CurrentScene - 1; i >= Math.Max(0, CurrentScene - PreviousScenesLoaded); i--)
+        for (int i = CurrentLevel - 1; i >= Math.Max(1, CurrentLevel - PreviousScenesLoaded); i--)
         {// i is the index within the SceneNames array
 
-            yield return PreloadLevel(i);
+            yield return PreloadLevel(CurrentWorld, i);
 
-            SceneInfo thisS = new SceneInfo(SceneNames[i]);
-            int indexInLoaded = (i - CurrentScene) + PreviousScenesLoaded;
+            SceneInfo thisS = new SceneInfo(GetSceneName(CurrentWorld, i));
+            int indexInLoaded = (i - CurrentLevel) + PreviousScenesLoaded;
             LoadedScenes[indexInLoaded] = thisS;
 
             //Also remember to move the loaded scene!
@@ -263,13 +277,13 @@ public class SceneController : MonoBehaviour
         displacement = new Vector3();
 
         //Load Future Scenes
-        for (int i = CurrentScene + 1; i < Math.Min(CurrentScene + FutureScenesLoaded + 1, SceneNames.Length); i++)
+        for (int i = CurrentLevel + 1; i <= Math.Min(CurrentLevel + FutureScenesLoaded, LevelsPerWorld[CurrentWorld]); i++)
         {// i is the index within the SceneNames array
 
-            yield return PreloadLevel(i);
+            yield return PreloadLevel(CurrentWorld, i);
 
-            SceneInfo thisS = new SceneInfo(SceneNames[i]);
-            int indexInLoaded = (i - CurrentScene) + PreviousScenesLoaded;
+            SceneInfo thisS = new SceneInfo(GetSceneName(CurrentWorld, i));
+            int indexInLoaded = (i - CurrentLevel) + PreviousScenesLoaded;
             LoadedScenes[indexInLoaded] = thisS;
 
             //Also remember to move the loaded scene!
@@ -290,14 +304,15 @@ public class SceneController : MonoBehaviour
         */
 
     }
-    
+
     /// <summary>
     /// Unloads all level scenes, effectively resetting this SceneManager. 
     /// </summary>
     /// <returns></returns>
-    private IEnumerable UnloadAll()
+    private IEnumerator UnloadAll()
     {
-        CurrentScene = -1;
+        //CurrentWorld = -1;
+        //CurrentLevel = -1;
 
         foreach (SceneInfo SI in LoadedScenes)
         {
@@ -319,18 +334,19 @@ public class SceneController : MonoBehaviour
     /// <summary>
     /// Preloads a level in the background.
     /// </summary>
-    /// <param name="levelIndex">The level index in the SceneNames array, starting at 0.</param>
-    private IEnumerator PreloadLevel(int levelIndex)
+    /// <param name="World">The world number. Starts at 0.</param>
+    /// <param name="Level">The level number. Starts at 1.</param>
+    private IEnumerator PreloadLevel(int World, int Level)
     {
         //Load this scene
-        var loading = SceneManager.LoadSceneAsync(SceneNames[levelIndex], LoadSceneMode.Additive);
+        var loading = SceneManager.LoadSceneAsync(GetSceneName(World, Level), LoadSceneMode.Additive);
 
         while (!loading.isDone)
         {
             yield return null;
         }
 
-        SceneInfo thisS = new SceneInfo(SceneNames[levelIndex]);
+        SceneInfo thisS = new SceneInfo(GetSceneName(World, Level));
         thisS.DisableObject.SetActive(false);
 
         thisS.LevelManagerRef.LevelFullyLoaded(Anteater, Armadillo);
@@ -339,13 +355,38 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator ToNextLevel()
     {
-        if (!AllLoaded || CurrentScene >= SceneNames.Length - 1)
-        { //If there are no more scenes left, dont go to the next scene !
+        if (!AllLoaded)
+        { //If there are no more levels left, dont go to the next level !
             yield break;
         }
 
-        CurrentScene++;
+        if (CurrentLevel >= LevelsPerWorld[CurrentWorld])
+        {
+            //If we are at the last level of the world, go to the next world
+            if (CurrentWorld >= LevelsPerWorld.Length - 1)
+            {
+                //If we are at the last world, do nothing
+                yield break;
+            }
+            
+            //Go to the next world
+            CurrentWorld++;
+            CurrentLevel = 1;
+
+            yield return FadeScreenCover(1, .3f, 0.5f);
+
+            yield return UnloadAll();
+
+            yield return FirstLoad(CurrentWorld, CurrentLevel);
+
+            //yield return FadeScreenCover(0, 0, 0.5f);
+
+            yield break;
+        }
+
+        CurrentLevel++;
         AllLoaded = false;
+        CurrentLoaded = false;
 
         //Set the next scene to the active one
         SceneInfo cS = LoadedScenes[PreviousScenesLoaded];
@@ -356,14 +397,14 @@ public class SceneController : MonoBehaviour
         nS.LevelManagerRef.LevelActive(this);
 
         //Transition to the next scene
-        Vector3 movement =  cS.NextAttachPos - nS.AttachPos;
+        Vector3 movement = cS.NextAttachPos - nS.AttachPos;
 
         //  this just moves both scenes to the right place :)
         float CurSeconds = 0;
         float timeDiff;
-        while(CurSeconds < NextLevelTransitionTime)
+        while (CurSeconds < NextLevelTransitionTime)
         {
-            timeDiff =  Time.deltaTime / NextLevelTransitionTime;
+            timeDiff = Time.deltaTime / NextLevelTransitionTime;
             //camera
             Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
             Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
@@ -388,7 +429,7 @@ public class SceneController : MonoBehaviour
         }
 
         //Resolve the leftover movement
-        timeDiff = (Time.deltaTime + NextLevelTransitionTime-CurSeconds) / NextLevelTransitionTime;
+        timeDiff = (Time.deltaTime + NextLevelTransitionTime - CurSeconds) / NextLevelTransitionTime;
         //camera
         Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
         Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
@@ -407,8 +448,9 @@ public class SceneController : MonoBehaviour
         Anteater.transform.position -= movement * timeDiff;
         Armadillo.transform.position -= movement * timeDiff;
 
-
         yield return null;
+
+        CurrentLoaded = true;
 
 
         //FINALLY, unload the first level loaded and insert the new level that should be loaded
@@ -420,21 +462,21 @@ public class SceneController : MonoBehaviour
         }
 
         LoadedScenes.RemoveAt(0);
-        int lastScene = CurrentScene + FutureScenesLoaded;
-        if(lastScene < SceneNames.Length)
+        int lastLevel = CurrentLevel + FutureScenesLoaded;
+        if (lastLevel <= LevelsPerWorld[CurrentWorld])
         {
-            yield return PreloadLevel(lastScene);
+            yield return PreloadLevel(CurrentWorld, lastLevel);
 
-            SceneInfo thisS = new SceneInfo(SceneNames[lastScene]);
+            SceneInfo thisS = new SceneInfo(GetSceneName(CurrentWorld, lastLevel));
             int indexInLoaded = SceneCount - 1;
             LoadedScenes.Add(thisS);
 
             //Also remember to move the loaded scene!
 
             Vector3 displacement = new Vector3();
-            for(int i = PreviousScenesLoaded; i < SceneCount-1; ++i)
+            for (int i = PreviousScenesLoaded; i < SceneCount - 1; ++i)
             {
-                displacement += LoadedScenes[i].NextAttachPos - LoadedScenes[i+1].AttachPos;
+                displacement += LoadedScenes[i].NextAttachPos - LoadedScenes[i + 1].AttachPos;
             }
             thisS.EnableObject.transform.position += displacement;
             thisS.DisableObject.transform.position += displacement;
@@ -480,9 +522,9 @@ public class SceneController : MonoBehaviour
         }
 
         //LOAD CURRENT SCENE
-        yield return PreloadLevel(CurrentScene);
+        yield return PreloadLevel(CurrentWorld, CurrentLevel);
 
-        curS = new SceneInfo(SceneNames[CurrentScene]);
+        curS = new SceneInfo(GetSceneName(CurrentWorld, CurrentLevel));
         LoadedScenes[PreviousScenesLoaded] = curS;
 
         CurrentLoaded = true;
@@ -501,9 +543,17 @@ public class SceneController : MonoBehaviour
 
         //CURRENT SCENE NOW LOADED
     }
-
+    
+    
+    /// <summary>
+    /// Fades the screen cover (ScreenCover) from the current alpha to the target alpha.
+    /// </summary>
+    /// <param name="alpha">TargetAlpha</param>
+    /// <param name="secondsBefore">Seconds to wait before changing the screen cover (can be 0).</param>
+    /// <param name="seconds">Seconds to take during scene cover transition.</param>
     private IEnumerator FadeScreenCover(float alpha, float secondsBefore, float seconds)
     {
+        //Wait for secondsBefore seconds before doing anything
         float curTime = 0f;
         while (curTime < secondsBefore)
         {
@@ -512,10 +562,12 @@ public class SceneController : MonoBehaviour
             yield return null;
         }
 
+        //Grab initial values
         Color StartColor = ScreenCover.color;
         Color EndColor = StartColor;
         EndColor.a = alpha;
 
+        //Change the screen cover :)
         curTime = 0f;
 
         while (curTime < seconds)
@@ -528,7 +580,17 @@ public class SceneController : MonoBehaviour
         }
 
         ScreenCover.color = EndColor;
-        
+
+    }
+
+    /// <summary>
+    /// Returns the scene name of a level.
+    /// </summary>
+    /// <param name="World">The world number. Starts at 0.</param>
+    /// <param name="Level">The level number. Starts at 1.</param>
+    private String GetSceneName(int World, int Level)
+    {
+        return "" + World + "-" + Level;
     }
 
     #endregion
@@ -596,6 +658,7 @@ public class SceneController : MonoBehaviour
 
     #endregion
 
+    /*
     #region Testing
     private IEnumerator LoadScene()
     {
@@ -645,4 +708,5 @@ public class SceneController : MonoBehaviour
     }
 
     #endregion
+    */
 }

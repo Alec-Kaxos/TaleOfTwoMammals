@@ -3,7 +3,10 @@ guid: 9d6aebd4c9067a84eaee020a6f34ba3c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ScreenCover: {instanceID: 0}
+  - AnteaterPrefab: {fileID: 595786299185234544, guid: f0ee13c732cb34b40853c371d36ee0b7, type: 3}
+  - ArmadilloPrefab: {fileID: 2464515851302227833, guid: 9f0b9615087987a46bf8c045b12c1489, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

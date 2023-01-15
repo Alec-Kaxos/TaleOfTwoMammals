@@ -19,7 +19,10 @@ public class ButtonFunctionalities : MonoBehaviour
 
     public void OnStartButtonPressed()
     {
-        // Good enough for now
+        //I'm (Aaron) sorry for the absolute references :(
+        SceneController.FirstLoadWorld = 0;
+        SceneController.FirstLoadLevel = 1;
+        SceneController.LoadOnStart = true;
         SceneManager.LoadScene(StartScene);
     }
 
