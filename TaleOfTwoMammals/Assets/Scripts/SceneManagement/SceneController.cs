@@ -120,6 +120,8 @@ public class SceneController : MonoBehaviour
     //private string[] SceneNames;
     [SerializeField, Tooltip("Note: Worlds are 0-indexed.")]
     private int[] LevelsPerWorld;
+    [SerializeField, Tooltip("For levels not named as the previous are. Counted as the last world.")]
+    private string[] CustomLevels;
 
     [SerializeField, Min(1)]
     private int FutureScenesLoaded = 2;
@@ -277,7 +279,7 @@ public class SceneController : MonoBehaviour
         displacement = new Vector3();
 
         //Load Future Scenes
-        for (int i = CurrentLevel + 1; i <= Math.Min(CurrentLevel + FutureScenesLoaded, LevelsPerWorld[CurrentWorld]); i++)
+        for (int i = CurrentLevel + 1; i <= Math.Min(CurrentLevel + FutureScenesLoaded, LevelsInWorld(World)); i++)
         {// i is the index within the SceneNames array
 
             yield return PreloadLevel(CurrentWorld, i);
@@ -360,10 +362,10 @@ public class SceneController : MonoBehaviour
             yield break;
         }
 
-        if (CurrentLevel >= LevelsPerWorld[CurrentWorld])
+        if (CurrentLevel >= LevelsInWorld(CurrentWorld))
         {
             //If we are at the last level of the world, go to the next world
-            if (CurrentWorld >= LevelsPerWorld.Length - 1)
+            if (CurrentWorld >= LevelsPerWorld.Length - (CustomLevels.Length == 0 ? 1 : 0))
             {
                 //If we are at the last world, do nothing
                 yield break;
@@ -463,7 +465,7 @@ public class SceneController : MonoBehaviour
 
         LoadedScenes.RemoveAt(0);
         int lastLevel = CurrentLevel + FutureScenesLoaded;
-        if (lastLevel <= LevelsPerWorld[CurrentWorld])
+        if (lastLevel <= LevelsInWorld(CurrentWorld))
         {
             yield return PreloadLevel(CurrentWorld, lastLevel);
 
@@ -583,6 +585,13 @@ public class SceneController : MonoBehaviour
 
     }
 
+
+    private int LevelsInWorld(int World)
+    {
+        if (World >= LevelsPerWorld.Length) return CustomLevels.Length;
+        return LevelsPerWorld[World];
+    }
+
     /// <summary>
     /// Returns the scene name of a level.
     /// </summary>
@@ -590,6 +599,7 @@ public class SceneController : MonoBehaviour
     /// <param name="Level">The level number. Starts at 1.</param>
     private String GetSceneName(int World, int Level)
     {
+        if (World >= LevelsPerWorld.Length) return CustomLevels[Level - 1];
         return "" + World + "-" + Level;
     }
 

@@ -303,23 +303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6aebd4c9067a84eaee020a6f34ba3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewSceneName: 
-  CurrentSceneName: 
   LoadScenePlease: 0
   NextScenePlease: 0
   RestartScenePlease: 0
-  SceneNames:
-  - 0-1
-  - 0-2
-  - 0-3
-  - 0-4
-  - 0-5
-  - 0-6
-  - 1-1
+  LevelsPerWorld: 0600000001000000
+  CustomLevels:
   - TestTrans5
   - TestTrans6
-  LevelsPerWorld: 0600000001000000
-  WorldNames: []
   FutureScenesLoaded: 2
   PreviousScenesLoaded: 2
   ScreenCover: {fileID: 809522000}
