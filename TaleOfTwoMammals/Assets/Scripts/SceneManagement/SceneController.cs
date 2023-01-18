@@ -431,7 +431,7 @@ public class SceneController : MonoBehaviour
         }
 
         //Resolve the leftover movement
-        timeDiff = (Time.deltaTime + NextLevelTransitionTime - CurSeconds) / NextLevelTransitionTime;
+        timeDiff = -(CurSeconds - NextLevelTransitionTime) / NextLevelTransitionTime;
         //camera
         Camera.main.transform.position += (nS.Cam.transform.position - cS.Cam.transform.position) * timeDiff;
         Camera.main.orthographicSize += (nS.Cam.orthographicSize - cS.Cam.orthographicSize) * timeDiff;
