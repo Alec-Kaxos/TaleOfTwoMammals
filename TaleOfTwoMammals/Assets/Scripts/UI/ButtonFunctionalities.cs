@@ -49,7 +49,8 @@ public class ButtonFunctionalities : MonoBehaviour
     public void OnRestartButtonPressed()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        if (!SceneC)
+            SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
         
         SceneC.RestartCurrentLevel();
     }
@@ -57,5 +58,27 @@ public class ButtonFunctionalities : MonoBehaviour
     public void OnHomeButtonPressed()
     {
         SceneManager.LoadScene("StartMenu");
+    }
+
+    public void OnNextButtonPressed()
+    {
+        if (!SceneC)
+            SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        SceneC.LevelCompleted();
+    }
+
+
+    public void OnBackButtonPressed()
+    {
+        if (!SceneC)
+            SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        SceneC.GoBackLevel();
+    }
+
+    public void OnWorldButtonPressed()
+    {
+        if (!SceneC)
+            SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        SceneC.GoToNextWorld();
     }
 }
