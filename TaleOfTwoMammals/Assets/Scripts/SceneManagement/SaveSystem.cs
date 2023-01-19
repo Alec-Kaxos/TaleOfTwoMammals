@@ -1,0 +1,60 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SaveSystem : MonoBehaviour
+{
+    public static SaveSystem Instance;
+    private string SaveKeyLevelPrefix = "level";
+    private string SaveKeyCollectiblePrefix = "collectible";
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+
+    public void SaveLevelPassedState(string levelName, int passedState)
+    {
+        PlayerPrefs.SetInt(SaveKeyLevelPrefix + levelName, passedState);
+    }
+
+    public bool LoadLevelPassedState(string levelName)
+    {
+        if (PlayerPrefs.GetInt(SaveKeyLevelPrefix + levelName) == 1)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    public void SaveCollectiblePassedState(string collectibleName, int passedState)
+    {
+        PlayerPrefs.SetInt(SaveKeyCollectiblePrefix + collectibleName, passedState);
+    }
+
+    public bool LoadCollectiblePassedState(string collectibleName)
+    {
+        if (PlayerPrefs.GetInt(SaveKeyLevelPrefix + collectibleName) == 1)
+        {
+            return true;
+        }
+        else return false;
+    }
+        
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
