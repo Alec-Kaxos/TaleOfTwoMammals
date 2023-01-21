@@ -147,6 +147,12 @@ public class SceneController : MonoBehaviour
     private Image BackgroundImage;
     [SerializeField]
     private Sprite[] WorldBackgrounds;
+    [SerializeField]
+    private float[] WorldBackgroundXOffset;
+    [SerializeField]
+    private float[] WorldBackgroundYOffset;
+    [SerializeField]
+    private float WorldBackgroundMoveFactor;
 
     private bool AllLoaded = false;
     private bool CurrentLoaded = false;
@@ -241,6 +247,7 @@ public class SceneController : MonoBehaviour
         if (WorldBackgrounds.Length > CurrentWorld)
         {
             BackgroundImage.sprite = WorldBackgrounds[CurrentWorld];
+            BackgroundImage.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(WorldBackgroundXOffset[CurrentWorld], WorldBackgroundYOffset[CurrentWorld]);
             if (BackgroundImage.sprite != null)
             {
                 TempColor.a = 1.0f;
@@ -256,7 +263,6 @@ public class SceneController : MonoBehaviour
             TempColor.a = 0.0f;
         }
         BackgroundImage.color = TempColor;
-
 
         SpawnCharacters();
 
@@ -453,6 +459,11 @@ public class SceneController : MonoBehaviour
             CurColor.b = Math.Max(0, CurColor.b - .20f * timeDiff);
             BackgroundImage.color = CurColor;
 
+            //Move background
+            BackgroundImage.transform.parent.position -= movement * timeDiff * WorldBackgroundMoveFactor;
+            //BackgroundImage.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(WorldBackgroundXOffset[CurrentWorld], WorldBackgroundYOffset[CurrentWorld]);
+
+
             CurSeconds += Time.deltaTime;
 
             yield return null;
@@ -477,6 +488,10 @@ public class SceneController : MonoBehaviour
         //Move the players with the scenes
         Anteater.transform.position -= movement * timeDiff;
         Armadillo.transform.position -= movement * timeDiff;
+
+        //Move background
+        BackgroundImage.transform.parent.position -= movement * timeDiff * WorldBackgroundMoveFactor;
+
 
         yield return null;
 
