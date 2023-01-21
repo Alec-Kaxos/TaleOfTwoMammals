@@ -81,4 +81,11 @@ public class ButtonFunctionalities : MonoBehaviour
             SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
         SceneC.GoToNextWorld();
     }
+
+    public void OnWorldBackButtonPressed()
+    {
+        if (!SceneC)
+            SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
+        SceneC.GoToLastWorld();
+    }
 }

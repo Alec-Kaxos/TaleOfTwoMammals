@@ -539,27 +539,27 @@ public class SceneController : MonoBehaviour
             yield break;
         }
 
-        if (CurrentLevel >= LevelsInWorld(CurrentWorld))
+        if (CurrentLevel <= 1)
         {
-            yield return ToNextWorld();
+            yield return ToPreviousWorld();
 
             yield break;
         }
 
-        CurrentLevel++;
+        CurrentLevel--;
         AllLoaded = false;
         CurrentLoaded = false;
 
         //Set the next scene to the active one
         SceneInfo cS = LoadedScenes[PreviousScenesLoaded];
-        SceneInfo nS = LoadedScenes[PreviousScenesLoaded + 1];
+        SceneInfo nS = LoadedScenes[PreviousScenesLoaded - 1];
         cS.LevelManagerRef.LevelUnactive();
         cS.DisableObject.SetActive(false);
         nS.DisableObject.SetActive(true);
         nS.LevelManagerRef.LevelActive(this);
 
         //Transition to the next scene
-        Vector3 movement = cS.NextAttachPos - nS.AttachPos;
+        Vector3 movement = cS.AttachPos - nS.NextAttachPos;
 
         //  this just moves both scenes to the right place :)
         float CurSeconds = 0;
@@ -587,9 +587,9 @@ public class SceneController : MonoBehaviour
 
             //Change the background color
             Color CurColor = BackgroundImage.color;
-            CurColor.r = Math.Max(0, CurColor.r - .03f * timeDiff);
-            CurColor.g = Math.Max(0, CurColor.g - .09f * timeDiff);
-            CurColor.b = Math.Max(0, CurColor.b - .20f * timeDiff);
+            CurColor.r = Math.Min(1f, CurColor.r + .03f * timeDiff);
+            CurColor.g = Math.Min(1f, CurColor.g + .09f * timeDiff);
+            CurColor.b = Math.Min(1f, CurColor.b + .20f * timeDiff);
             BackgroundImage.color = CurColor;
 
             CurSeconds += Time.deltaTime;
@@ -622,37 +622,36 @@ public class SceneController : MonoBehaviour
         CurrentLoaded = true;
 
 
-        //FINALLY, unload the first level loaded and insert the new level that should be loaded
+        //FINALLY, unload the last level loaded and insert the new level that should be loaded
 
         //Wait to unload first scene
-        if (LoadedScenes[0].IsValid())
+        if (LoadedScenes[SceneCount-1].IsValid())
         {
-            yield return SceneManager.UnloadSceneAsync(LoadedScenes[0].S);
+            yield return SceneManager.UnloadSceneAsync(LoadedScenes[SceneCount - 1].S);
         }
 
-        LoadedScenes.RemoveAt(0);
-        int lastLevel = CurrentLevel + FutureScenesLoaded;
-        if (lastLevel <= LevelsInWorld(CurrentWorld))
+        LoadedScenes.RemoveAt(SceneCount - 1);
+        int loadLevel = CurrentLevel - PreviousScenesLoaded;
+        if (loadLevel >= 1)
         {
-            yield return PreloadLevel(CurrentWorld, lastLevel);
+            yield return PreloadLevel(CurrentWorld, loadLevel);
 
-            SceneInfo thisS = new SceneInfo(GetSceneName(CurrentWorld, lastLevel));
-            int indexInLoaded = SceneCount - 1;
-            LoadedScenes.Add(thisS);
+            SceneInfo thisS = new SceneInfo(GetSceneName(CurrentWorld, loadLevel));
+            LoadedScenes.Insert(0, thisS);
 
             //Also remember to move the loaded scene!
 
             Vector3 displacement = new Vector3();
-            for (int i = PreviousScenesLoaded; i < SceneCount - 1; ++i)
+            for (int i = PreviousScenesLoaded; i > 0; --i)
             {
-                displacement += LoadedScenes[i].NextAttachPos - LoadedScenes[i + 1].AttachPos;
+                displacement += LoadedScenes[i].AttachPos - LoadedScenes[i - 1].NextAttachPos;
             }
             thisS.EnableObject.transform.position += displacement;
             thisS.DisableObject.transform.position += displacement;
         }
         else
         {
-            LoadedScenes.Add(new SceneInfo(null));
+            LoadedScenes.Insert(0, new SceneInfo(null));
         }
 
         AllLoaded = true;
@@ -722,6 +721,8 @@ public class SceneController : MonoBehaviour
             yield break;
         }
 
+        AllLoaded = false;
+
         //Go to the next world
         CurrentWorld++;
         CurrentLevel = 1;
@@ -733,6 +734,38 @@ public class SceneController : MonoBehaviour
         yield return FirstLoad(CurrentWorld, CurrentLevel);
 
         //yield return FadeScreenCover(0, 0, 0.5f);
+
+        AllLoaded = true; //redundant, but just in case
+    }
+
+    /// <summary>
+    /// Goes to the LAST level in the previous world (if it is able to, of course)
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator ToPreviousWorld()
+    {
+        //If we are at the last level of the world, go to the next world
+        if (CurrentWorld <= 0)
+        {
+            //If we are at the first world, cant progress
+            yield break;
+        }
+
+        AllLoaded = false;
+
+        //Go to the next world
+        CurrentWorld--;
+        CurrentLevel = LevelsInWorld(CurrentWorld);
+
+        yield return FadeScreenCover(1, .3f, 0.5f);
+
+        yield return UnloadAll();
+
+        yield return FirstLoad(CurrentWorld, CurrentLevel);
+
+        //yield return FadeScreenCover(0, 0, 0.5f);
+
+        AllLoaded = true; //redundant, but just in case
     }
 
 
@@ -850,11 +883,21 @@ public class SceneController : MonoBehaviour
 
         return true;
     }
+
     public bool GoToNextWorld()
     {
         if (!AllLoaded) return false;
 
         StartCoroutine(ToNextWorld());
+
+        return true;
+    }
+
+    public bool GoToLastWorld()
+    {
+        if (!AllLoaded) return false;
+
+        StartCoroutine(ToPreviousWorld());
 
         return true;
     }
