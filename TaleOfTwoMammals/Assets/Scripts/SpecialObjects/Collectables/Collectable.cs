@@ -34,7 +34,6 @@ public class Collectable : MonoBehaviour
 
     protected virtual void Collect()
     {
-        Debug.Log("collect");
         isCollected = true;
 
         animator.SetBool("isCollected", true);
@@ -55,11 +54,13 @@ public class Collectable : MonoBehaviour
 
     private void SaveData()
     {
-        // save data to the save file
+        int collectedState = isCollected ? 1 : 0;
+        SaveSystem.Instance.SaveCollectiblePassedState(gameObject.scene.name, collectedState);
     }
 
     private void LoadData()
     {
-        // load data from the save file
+        isCollected = SaveSystem.Instance.LoadCollectiblePassedState(gameObject.scene.name);
+        SetCollectedState();
     }
 }

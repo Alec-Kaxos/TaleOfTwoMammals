@@ -10,7 +10,15 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        DontDestroyOnLoad(this);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
@@ -39,7 +47,7 @@ public class SaveSystem : MonoBehaviour
 
     public bool LoadCollectiblePassedState(string collectibleName)
     {
-        if (PlayerPrefs.GetInt(SaveKeyLevelPrefix + collectibleName) == 1)
+        if (PlayerPrefs.GetInt(SaveKeyCollectiblePrefix + collectibleName) == 1)
         {
             return true;
         }
