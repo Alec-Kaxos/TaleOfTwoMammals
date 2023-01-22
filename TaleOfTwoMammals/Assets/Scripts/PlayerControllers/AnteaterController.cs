@@ -209,8 +209,11 @@ public class AnteaterController : PlayerController
         tongueBridge.transform.SetParent(tongueStartPointRef);
         tongueBridge.transform.localPosition = new Vector3(0f, tongueWidth/2, 0f);
         BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
+        Rigidbody2D rigidbody = tongueBridge.AddComponent<Rigidbody2D>();
+        rigidbody.isKinematic = true;
         tBoxC.offset = new Vector2(.5f, .5f);
         tongueBridge.layer = LayerMask.NameToLayer("Ground");
+        tongueBridge.tag = "Tongue";
 
         //Set Sprite
         Texture2D test = new Texture2D(100, 100);

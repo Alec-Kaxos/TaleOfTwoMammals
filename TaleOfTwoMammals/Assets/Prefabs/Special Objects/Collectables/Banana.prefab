@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5137214646971391541}
   - component: {fileID: -6355237996559248202}
   m_Layer: 0
-  m_Name: Collectable
+  m_Name: Banana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

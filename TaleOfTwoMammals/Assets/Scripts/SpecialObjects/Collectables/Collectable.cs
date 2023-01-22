@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    private bool isCollected = false;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Collider2D collider;
+    protected bool isCollected = false;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected Collider2D collider;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Collectable : MonoBehaviour
         SaveData();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") == true)
         {
@@ -24,7 +24,7 @@ public class Collectable : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
@@ -32,8 +32,9 @@ public class Collectable : MonoBehaviour
         }
     }
 
-    private void Collect()
+    protected virtual void Collect()
     {
+        Debug.Log("collect");
         isCollected = true;
 
         animator.SetBool("isCollected", true);
@@ -43,11 +44,11 @@ public class Collectable : MonoBehaviour
         SaveData();
     }
 
-    private void SetCollectedState()
+    protected virtual void SetCollectedState()
     {
         if (isCollected == true)
         {
-            animator.Play("Banana_Collected", 0, 1);
+            animator.Play("Collected", 0, 1);
             collider.enabled = false;
         }
     }
