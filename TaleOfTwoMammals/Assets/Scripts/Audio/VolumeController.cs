@@ -17,6 +17,7 @@ public class VolumeController : MonoBehaviour
     {
         updateSlider();
         mySlider.onValueChanged.AddListener(volumeChange);
+        myMixer.SetFloat(volumeParameter, SaveSystem.Instance.LoadMusicSettings(volumeParameter));
     }
     
     //Change the volume to a volume btwn 0-1
@@ -24,6 +25,7 @@ public class VolumeController : MonoBehaviour
     {
         volume = Mathf.Log10(volume) * multiplier;
         myMixer.SetFloat(volumeParameter, volume);
+        SaveSystem.Instance.SaveMusicSettings(volumeParameter, volume);
     }
 
     //Updates the slider to the current volume of the source

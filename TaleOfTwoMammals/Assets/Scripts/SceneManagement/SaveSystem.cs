@@ -53,6 +53,16 @@ public class SaveSystem : MonoBehaviour
         }
         else return false;
     }
+
+    public void SaveMusicSettings(string parameterName, float value)
+    {
+        PlayerPrefs.SetFloat(parameterName, value);
+    }
+
+    public float LoadMusicSettings(string parameterName)
+    {
+        return PlayerPrefs.GetFloat(parameterName);
+    }
         
     // Start is called before the first frame update
     void Start()

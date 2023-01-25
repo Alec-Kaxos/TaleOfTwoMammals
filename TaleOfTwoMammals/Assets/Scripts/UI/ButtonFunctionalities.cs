@@ -8,7 +8,9 @@ public class ButtonFunctionalities : MonoBehaviour
     [SerializeField]
     private Canvas creditsPage;
     [SerializeField]
-    private Canvas thingsOtherThanCreditsPage;
+    private Canvas settingsPage;
+    [SerializeField]
+    private Canvas mainPage;
 
     private string StartScene = "Level Management Scene";
 
@@ -29,13 +31,20 @@ public class ButtonFunctionalities : MonoBehaviour
     public void OnCreditsButtonPressed()
     {
         creditsPage.gameObject.SetActive(true);
-        thingsOtherThanCreditsPage.gameObject.SetActive(false);
+        mainPage.gameObject.SetActive(false);
+    }
+
+    public void OnSettingsButtonPressed()
+    {
+        settingsPage.gameObject.SetActive(true);
+        mainPage.gameObject.SetActive(false);
     }
 
     public void OnReturnButtonInCreditsPagePressed()
     {
         creditsPage.gameObject.SetActive(false);
-        thingsOtherThanCreditsPage.gameObject.SetActive(true);
+        settingsPage.gameObject.SetActive(false);
+        mainPage.gameObject.SetActive(true);
     }
 
     public void OnQuitButtonPressed()
