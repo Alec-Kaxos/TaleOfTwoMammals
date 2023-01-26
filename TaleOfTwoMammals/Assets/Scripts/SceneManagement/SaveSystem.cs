@@ -63,6 +63,11 @@ public class SaveSystem : MonoBehaviour
     {
         return PlayerPrefs.GetFloat(parameterName);
     }
+
+    public void DeleteAllSaves()
+    {
+        PlayerPrefs.DeleteAll();
+    }
         
     // Start is called before the first frame update
     void Start()

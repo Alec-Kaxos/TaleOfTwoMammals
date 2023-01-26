@@ -52,8 +52,15 @@ public class ButtonFunctionalities : MonoBehaviour
         Application.Quit();
     }
 
-#endregion
+    public void OnDeleteButtonPressed()
+    {
+        SaveSystem.Instance.DeleteAllSaves();
+    }
+    
+    #endregion
 
+
+    #region Level Buttons
     // Temporary
     public void OnRestartButtonPressed()
     {
@@ -97,4 +104,5 @@ public class ButtonFunctionalities : MonoBehaviour
             SceneC = GameObject.Find("SceneManager").GetComponent<SceneController>();
         SceneC.GoToLastWorld();
     }
+    #endregion
 }
