@@ -7,7 +7,7 @@ public class RopeMaster : MonoBehaviour
     [SerializeField]
     private Rigidbody2D Hook;
     private Rigidbody2D FirstLink;
-    private Rigidbody2D EndPoint;
+    public Rigidbody2D EndPoint { get; private set; }
     [SerializeField]
     private GameObject EndPointPrefab;
     [SerializeField]
@@ -54,13 +54,13 @@ public class RopeMaster : MonoBehaviour
             GameObject NewSegment = Instantiate(PrefabRopeSegments[Random.Range(0, PrefabRopeSegments.Length)]);
             NewSegment.transform.position = Hook.position;
             NewSegment.transform.parent = transform;
-            NewSegment.GetComponent<HingeJoint2D>().connectedBody = LastSegment;
+            NewSegment.GetComponent<RopeSegment>().SetConnectedAbove(LastSegment.gameObject);
             LastSegment = NewSegment.GetComponent<Rigidbody2D>();
             if (i == 0)
             { //Make sure we know what the first segment is
                 FirstLink = LastSegment;
             }
-            else if (i == Segments - 1)
+            if (i == Segments - 1)
             { //Give the last segment an endpoint thing...
                 GameObject EndPt = Instantiate(EndPointPrefab);
                 EndPt.transform.position = Hook.position;
@@ -84,11 +84,8 @@ public class RopeMaster : MonoBehaviour
             GameObject NewSegment = Instantiate(PrefabRopeSegments[Random.Range(0, PrefabRopeSegments.Length)]);
             NewSegment.transform.position = Hook.position;
             NewSegment.transform.parent = transform;
-            NewSegment.GetComponent<HingeJoint2D>().connectedBody = Hook;
-            FirstLink.GetComponent<HingeJoint2D>().connectedBody = NewSegment.GetComponent<Rigidbody2D>();
-            FirstLink.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0, -NewSegment.GetComponent<SpriteRenderer>().bounds.size.y);
-            FirstLink.GetComponent<RopeSegment>().ConnectedAbove = NewSegment;
-            NewSegment.GetComponent<RopeSegment>().ConnectedBelow = FirstLink.gameObject;
+            NewSegment.GetComponent<RopeSegment>().SetConnectedAbove(Hook.gameObject);
+            FirstLink.GetComponent<RopeSegment>().SetConnectedAbove(NewSegment);
 
             FirstLink = NewSegment.GetComponent<Rigidbody2D>();
 
@@ -113,9 +110,7 @@ public class RopeMaster : MonoBehaviour
         else
         {//2+ segments
             GameObject SecondSegment = FirstLink.GetComponent<RopeSegment>().ConnectedBelow;
-            SecondSegment.GetComponent<HingeJoint2D>().connectedBody = Hook;
-            SecondSegment.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0, 0);
-            SecondSegment.GetComponent<RopeSegment>().ConnectedAbove = null;
+            SecondSegment.GetComponent<RopeSegment>().ConnectToHook(Hook);
 
             Rigidbody2D FirstLinkTemp = FirstLink;
             FirstLink = SecondSegment.GetComponent<Rigidbody2D>();
@@ -124,4 +119,5 @@ public class RopeMaster : MonoBehaviour
             CurSegments--;
         }
     }
+    
 }

@@ -6,28 +6,53 @@ using UnityEngine;
 public class RopeSegment : MonoBehaviour
 {
     [SerializeField]
-    public GameObject ConnectedAbove, ConnectedBelow;
+    public GameObject ConnectedAbove { get; private set; }
+    public GameObject ConnectedBelow { get; private set; }
+
+    private HingeJoint2D _hinge;
+    private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        ConnectedAbove = GetComponent<HingeJoint2D>().connectedBody.gameObject;
-        RopeSegment SegementAbove = ConnectedAbove.GetComponent<RopeSegment>();
-        if (SegementAbove != null)
-        {
-            SegementAbove.ConnectedBelow = gameObject;
-            float SpriteHeight = GetComponent<SpriteRenderer>().bounds.size.y;
-            GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0, -SpriteHeight);
-        }
-        else
-        {
-            GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(0, 0);
-        }
+        _hinge = GetComponent<HingeJoint2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public float GetSegmentLength()
+    {
+        float SpriteHeight = _spriteRenderer.bounds.size.y;
+        return SpriteHeight;
+    }
+
+    public void SetConnectedAbove(GameObject Connected)
+    {
+        ConnectedAbove = Connected;
+        _hinge.connectedBody = ConnectedAbove.GetComponent<Rigidbody2D>();
+        RopeSegment SegementAbove = ConnectedAbove.GetComponent<RopeSegment>();
+        if (SegementAbove != null)
+        {
+            SegementAbove.ConnectedBelow = gameObject;
+            _hinge.connectedAnchor = new Vector2(0, -SegementAbove.GetSegmentLength());
+        }
+        else
+        {
+            _hinge.connectedAnchor = new Vector2(0, 0);
+        }
+    }
+
+    public void ConnectToHook(Rigidbody2D Hook)
+    {
+        _hinge.connectedBody = Hook;
+        _hinge.connectedAnchor = new Vector2(0, 0);
+        ConnectedAbove = Hook.gameObject;
     }
 }
