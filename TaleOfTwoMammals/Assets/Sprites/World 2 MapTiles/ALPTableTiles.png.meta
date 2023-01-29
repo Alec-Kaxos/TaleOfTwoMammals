@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c29886f7cf211fd4a8104fbcef24c1ab
+guid: f9c361c6f27829641b16ec994fb4e184
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ALP_Table_0
+      name: ALPTableTiles_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,28 +113,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -3, y: 16}
-        - {x: -3, y: -12}
-        - {x: -8, y: -12}
-        - {x: -11, y: -16}
-        - {x: 11, y: -16}
-        - {x: 8, y: -12}
-        - {x: 3, y: -12}
-        - {x: 3, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5648f624936634d41abe0bfc60b292a0
-      internalID: -1230197821
+      spriteID: 6c31b73e3cdc830489f8c46485040ba9
+      internalID: -808289691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALP_Table_1
+      name: ALPTableTiles_1
       rect:
         serializedVersion: 2
         x: 32
@@ -142,24 +134,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 3, y: -16}
-        - {x: 3, y: 16}
-        - {x: -3, y: 16}
-        - {x: -3, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baeb7e141a4b25a47b1481deca1f94e3
-      internalID: 978815905
+      spriteID: 1c0a6127729e21a4d9b900afa87446e0
+      internalID: 1184680953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALP_Table_2
+      name: ALPTableTiles_2
       rect:
         serializedVersion: 2
         x: 64
@@ -167,28 +155,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 16}
-        - {x: -8, y: 10}
-        - {x: -3, y: 10}
-        - {x: -3, y: -16}
-        - {x: 3, y: -16}
-        - {x: 3, y: 10}
-        - {x: 16, y: 10}
-        - {x: 16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3124a59b8223cb4a93078d9a6704068
-      internalID: -374553638
+      spriteID: 2617b52d03988004cb6b13a32188cd81
+      internalID: -606341644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALP_Table_3
+      name: ALPTableTiles_3
       rect:
         serializedVersion: 2
         x: 0
@@ -196,28 +176,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: 10}
-        - {x: -3, y: 10}
-        - {x: -3, y: -16}
-        - {x: 3, y: -16}
-        - {x: 3, y: 10}
-        - {x: 8, y: 10}
-        - {x: 8, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4094cc8fea39f9d48a82b2b3fd9e6f46
-      internalID: -2010092819
+      spriteID: a9d4d0dcc8aef174ea0adb1cc19289e7
+      internalID: 1368787540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALP_Table_4
+      name: ALPTableTiles_4
       rect:
         serializedVersion: 2
         x: 32
@@ -225,18 +197,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: 10}
-        - {x: 16, y: 10}
-        - {x: 16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f66555588f8f9214f8bebba063bee853
-      internalID: 1389821414
+      spriteID: ce4aec6ffa4604b40919b931b1f34df9
+      internalID: 1807897440
       vertices: []
       indices: 
       edges: []
@@ -252,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ALP_Table_0: -1230197821
-      ALP_Table_1: 978815905
-      ALP_Table_4: 1389821414
-      ALP_Table_2: -374553638
-      ALP_Table_3: -2010092819
+      ALPTableTiles_3: 1368787540
+      ALPTableTiles_0: -808289691
+      ALPTableTiles_1: 1184680953
+      ALPTableTiles_4: 1807897440
+      ALPTableTiles_2: -606341644
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
