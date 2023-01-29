@@ -56,9 +56,9 @@ MonoBehaviour:
   detectionCollider: {fileID: 0}
   LM: {fileID: 0}
   movementVelocity: 4
-  jumpVelocity: 10
+  jumpVelocity: 11
   smoothInputSpeed: 0.01
-  maxClimbAngle: 45
+  maxClimbAngle: 30
   spriteRenderer: {fileID: 2464515851302227829}
   speedMultiplier: 1.25
   tunnelLayerMask:
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12734967, y: -0.61515623}
+  m_Offset: {x: 0.15680213, y: -0.61515623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5730428, y: 1.3166956}
+  m_Size: {x: 1.0047392, y: 1.3166956}
   m_EdgeRadius: 0
 --- !u!61 &2464515851302227831
 BoxCollider2D:

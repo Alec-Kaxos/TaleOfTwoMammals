@@ -1226,6 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500e5ca6e45b760488de33ae7f2f240f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyEntireBlock: 1
 --- !u!19719996 &1090487285
 TilemapCollider2D:
   m_ObjectHideFlags: 0

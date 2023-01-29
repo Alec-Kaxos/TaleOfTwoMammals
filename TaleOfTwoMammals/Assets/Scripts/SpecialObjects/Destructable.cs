@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Destructable : MonoBehaviour
 {
-
+    [SerializeField] private bool destroyEntireBlock = false;
     private Tilemap destructableTilemap;
     private ArmadilloController Armadillo;
 
@@ -27,7 +27,14 @@ public class Destructable : MonoBehaviour
                 {
                     hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                     hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                    destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
+                    if (destroyEntireBlock == true)
+                    {
+                        Destroy(this.gameObject);
+                    }
+                    else
+                    {
+                        destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
+                    }
                 }
 
             }
