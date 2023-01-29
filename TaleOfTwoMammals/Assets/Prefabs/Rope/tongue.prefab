@@ -48,8 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb196625bf526c4fa54e1e631bb2b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectedAbove: {fileID: 0}
-  ConnectedBelow: {fileID: 0}
 --- !u!212 &7236315073317604324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,8 +143,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -60
-    m_UpperAngle: 60
+    m_LowerAngle: 0
+    m_UpperAngle: 120
 --- !u!61 &7236315073317604322
 BoxCollider2D:
   m_ObjectHideFlags: 0

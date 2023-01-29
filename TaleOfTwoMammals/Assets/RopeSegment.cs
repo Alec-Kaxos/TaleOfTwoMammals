@@ -13,6 +13,8 @@ public class RopeSegment : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
 
+    private float _segmentLength;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,10 +29,16 @@ public class RopeSegment : MonoBehaviour
         
     }
 
+    public void SetSegmentLength(float length)
+    {
+        _segmentLength = length;
+    }
+
     public float GetSegmentLength()
     {
-        float SpriteHeight = _spriteRenderer.bounds.size.y;
-        return SpriteHeight;
+        //float SpriteHeight = _spriteRenderer.bounds.size.y;
+        //return SpriteHeight;
+        return _segmentLength;
     }
 
     public void SetConnectedAbove(GameObject Connected)
