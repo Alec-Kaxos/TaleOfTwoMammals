@@ -23,6 +23,9 @@ public class ButtonScript : MonoBehaviour
     [SerializeField]
     private LayerMask collisionLayers;
 
+    [SerializeField]
+    private string TongueTag;
+
     [Header("Button Sprite Settings")]
     [SerializeField]
     private SpriteRenderer SpriteR;
@@ -115,7 +118,7 @@ public class ButtonScript : MonoBehaviour
         //Checks if the other layer is within collision layers
         //works by shifting the collisionLayers layermask the other.layer amount of bits to the right
         //  and checks if the bit corresponding to that layer is enabled.
-        if ((collisionLayers >> other.gameObject.layer) % 2 == 1)
+        if (((collisionLayers >> other.gameObject.layer) % 2 == 1) || other.gameObject.tag == TongueTag)
         {
             overlapping++;
 
@@ -130,7 +133,7 @@ public class ButtonScript : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         //Duplicate of above, but subtracts one on exit
-        if ((collisionLayers >> other.gameObject.layer) % 2 == 1)
+        if (((collisionLayers >> other.gameObject.layer) % 2 == 1) || other.gameObject.tag == TongueTag)
         {
             overlapping--;
 

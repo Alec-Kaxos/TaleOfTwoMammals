@@ -102,6 +102,7 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 1152
+  TongueTag: Tongue
   SpriteR: {fileID: 9066657146083080009}
   ButtonNormal: {fileID: 21300000, guid: 589f2a8e7bf176a4ab97065ed74c8e3a, type: 3}
   ButtonPushed: {fileID: 21300000, guid: 50c889725eb9bc2488a798e2a946ba32, type: 3}
