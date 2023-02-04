@@ -123,9 +123,11 @@ public class AnteaterController : PlayerController
         //First, check if the tongue bridge is already out, if so, recall it
         if (tongueOut)
         {
-            despawnTongueBridge();
-
-            Uncrouch();
+            /* original
+            // despawnTongueBridge();
+            // Uncrouch();
+            */
+            RetractTongue();
         }
         else if (IsGrounded() && IsOnMovableSlope())//The tongue bridge is not currently deployed, so start aiming.
         {
@@ -167,7 +169,11 @@ public class AnteaterController : PlayerController
                 }
                 else
                 {
-                    Uncrouch();
+                    tongueEndPoint = aimingSprites.transform.up * tongueLength + tongueStartPointRef.position;
+                    TongueBridgeUnavailableAction();
+                    /* original
+                    // Uncrouch();
+                    */
                 }
 
                 aimingSprites.SetActive(false);
@@ -185,8 +191,6 @@ public class AnteaterController : PlayerController
 
     private void spawnTongueBridge()
     {
-        tongueOut = true;
-
         //Deal with movement lock
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
@@ -221,7 +225,6 @@ public class AnteaterController : PlayerController
         SpriteRenderer renderer = tongueBridge.AddComponent<SpriteRenderer>();
         renderer.sprite = sprite;
         renderer.color = Color.red;
-
     }
 
     private void despawnTongueBridge()
@@ -240,6 +243,27 @@ public class AnteaterController : PlayerController
         //Destroy tongue
         Destroy(tongueBridge);
         tongueBridge = null;
+    }
+
+    private void RetractTongue()
+    {
+        StartCoroutine(Degrow());
+    }
+
+    private IEnumerator RetractTongueCoroutine()
+    {
+        while (tongueOut == false)
+        {
+            yield return null;
+        }
+        StartCoroutine(Degrow());
+    }
+    
+    // bad name here
+    private void TongueBridgeUnavailableAction()
+    {
+        spawnTongueBridge();
+        StartCoroutine(RetractTongueCoroutine());
     }
 
     private void OnMovePointerStarted(InputAction.CallbackContext context)
@@ -406,6 +430,40 @@ public class AnteaterController : PlayerController
             
         }
         while (growthTimer <= modTongueShootTime);
+
+        tongueOut = true;
+    }
+
+    private IEnumerator Degrow()
+    {
+        growthTimer = 0f;
+        float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
+        //Calculates how long it will take to shoot tongue based on distance.
+        //Closer something is, less time it will take to shoot tongue.
+        float modTongueShootTime = baseTongueShootTime * (tongueLen / 10);
+
+        Vector3 startScale = tongueBridge.transform.localScale;
+        
+        Vector3 minScale = new Vector3(0, 0.1f, 1);
+
+        do
+        {
+            if (tongueBridge != null)
+            {
+                tongueBridge.transform.localScale = Vector3.Lerp(startScale , minScale, growthTimer / modTongueShootTime);
+                growthTimer += Time.deltaTime;
+                yield return null;
+            }
+            else
+            {
+                break;
+            }
+
+        }
+        while (growthTimer <= modTongueShootTime);
+
+        despawnTongueBridge();
+        Uncrouch();
     }
 
     public override void ResetCharacter()
