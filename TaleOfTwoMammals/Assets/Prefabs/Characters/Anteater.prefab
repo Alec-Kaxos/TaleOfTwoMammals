@@ -76,6 +76,7 @@ MonoBehaviour:
   tongueWidth: 0.1
   tongueTexture: {fileID: 2800000, guid: 3fc2bbd409bf34ab6af1637bab569da1, type: 3}
   baseTongueShootTime: 0.5
+  tongueEndPoint: {x: 0, y: 0}
 --- !u!212 &595786299185234546
 SpriteRenderer:
   m_ObjectHideFlags: 0
