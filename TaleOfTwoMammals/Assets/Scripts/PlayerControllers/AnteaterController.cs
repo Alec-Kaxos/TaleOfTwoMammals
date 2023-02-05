@@ -25,6 +25,8 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private Transform tongueStartPointRef;
 
+    private bool isInCoroutine = false;
+
 #region Aiming
 
     [Header("Aiming")]
@@ -120,6 +122,10 @@ public class AnteaterController : PlayerController
     private void OnShootTongue(InputAction.CallbackContext context)
     {
         CheckGround();
+        if (isInCoroutine)
+		{
+            return;
+		}
         //First, check if the tongue bridge is already out, if so, recall it
         if (tongueOut)
         {
@@ -406,6 +412,7 @@ public class AnteaterController : PlayerController
     
     private IEnumerator Grow()
     {
+        isInCoroutine = true;
         float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
         Debug.Log(tongueLen);
         //Calculates how long it will take to shoot tongue based on distance.
@@ -432,10 +439,12 @@ public class AnteaterController : PlayerController
         while (growthTimer <= modTongueShootTime);
 
         tongueOut = true;
+        isInCoroutine = false;
     }
 
     private IEnumerator Degrow()
     {
+        isInCoroutine = true;
         growthTimer = 0f;
         float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
         //Calculates how long it will take to shoot tongue based on distance.
@@ -464,6 +473,7 @@ public class AnteaterController : PlayerController
 
         despawnTongueBridge();
         Uncrouch();
+        isInCoroutine = false;
     }
 
     public override void ResetCharacter()
