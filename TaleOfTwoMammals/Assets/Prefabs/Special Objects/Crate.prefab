@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9068178613300282740}
   - component: {fileID: 9068178613300282741}
   - component: {fileID: 9068178613300282746}
+  - component: {fileID: 7169055061790100337}
+  - component: {fileID: 5726121728000074989}
   m_Layer: 10
   m_Name: Crate
   m_TagString: Untagged
@@ -133,3 +135,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!255 &7169055061790100337
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068178613300282747}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!114 &5726121728000074989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068178613300282747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165fd0046d3882c469fe3f59e1286b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

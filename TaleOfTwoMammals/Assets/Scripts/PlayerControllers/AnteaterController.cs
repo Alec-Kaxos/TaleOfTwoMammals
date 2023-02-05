@@ -55,7 +55,7 @@ public class AnteaterController : PlayerController
     //Used for the tongue growth
     [SerializeField]
     private float baseTongueShootTime = 0.5f;
-    private Vector2 tongueEndPoint;
+    public Vector2 tongueEndPoint;
     private float growthTimer = 0f;
 
 #endregion
