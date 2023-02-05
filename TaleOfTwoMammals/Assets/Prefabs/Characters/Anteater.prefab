@@ -72,7 +72,7 @@ MonoBehaviour:
   tongueLength: 7
   tongueLayers:
     serializedVersion: 2
-    m_Bits: 2880
+    m_Bits: 3904
   tongueWidth: 0.1
   tongueTexture: {fileID: 2800000, guid: 3fc2bbd409bf34ab6af1637bab569da1, type: 3}
   baseTongueShootTime: 0.5

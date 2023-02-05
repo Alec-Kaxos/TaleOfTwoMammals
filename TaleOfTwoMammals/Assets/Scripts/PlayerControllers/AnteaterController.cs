@@ -420,7 +420,7 @@ public class AnteaterController : PlayerController
         float modTongueShootTime = baseTongueShootTime * (tongueLen/10);
 
         Vector3 startScale = tongueBridge.transform.localScale;
-        Vector3 maxScale = new Vector3(tongueLen, tongueWidth, 1f);
+        Vector3 maxScale = new Vector3(tongueLen + 0.1f, tongueWidth, 1f);
 
         do
         {
