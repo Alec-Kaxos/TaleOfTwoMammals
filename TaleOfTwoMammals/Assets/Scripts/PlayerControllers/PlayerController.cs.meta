@@ -3,7 +3,11 @@ guid: 1cf85525f78e4a740acc5d2970c03a6d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - detectionCollider: {instanceID: 0}
+  - LM: {instanceID: 0}
+  - LandParticle: {fileID: 2964964506944882172, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

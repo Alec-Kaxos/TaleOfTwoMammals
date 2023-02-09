@@ -35,7 +35,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     protected float maxClimbAngle = 30f;
 
-#endregion
+    #endregion
+
+    #region Particle Effects
+    [SerializeField]
+    private GameObject LandParticle;
+    #endregion
 
     private Vector2 currentVector;
     private Vector2 smoothInputVelocity;
@@ -146,7 +151,12 @@ public class PlayerController : MonoBehaviour
     {
         CheckGround();
         if (IsGrounded() && IsOnMovableSlope() && context.started)
+        {
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
+
+            //Particles
+            ParticleMaster.SpawnParticle(LandParticle, transform.position - new Vector3(0, 1, 0));
+        }
     }
 
     protected virtual void OnJumpCanceled(InputAction.CallbackContext context)
