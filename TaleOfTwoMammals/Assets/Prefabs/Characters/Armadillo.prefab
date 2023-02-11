@@ -58,7 +58,8 @@ MonoBehaviour:
   movementVelocity: 4
   jumpVelocity: 11
   smoothInputSpeed: 0.01
-  maxClimbAngle: 30
+  maxClimbAngle: 15
+  LandParticle: {fileID: 0}
   spriteRenderer: {fileID: 2464515851302227829}
   speedMultiplier: 1.25
   tunnelLayerMask:

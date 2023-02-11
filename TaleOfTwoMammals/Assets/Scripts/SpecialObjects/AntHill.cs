@@ -8,7 +8,7 @@ public class AntHill : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Tongue"))
         {
-            DestroyImmediate(gameObject);
+            Destroy(gameObject);
         }
     }
 }

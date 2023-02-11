@@ -59,7 +59,8 @@ MonoBehaviour:
   movementVelocity: 4
   jumpVelocity: 11
   smoothInputSpeed: 0.01
-  maxClimbAngle: 30
+  maxClimbAngle: 15
+  LandParticle: {fileID: 0}
   spriteRenderer: {fileID: 595786299185234546}
   normalSprite: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
   crawlSprite: {fileID: 21300000, guid: ccdf9b3513953a94793ae8bab3dabef2, type: 3}

@@ -164,8 +164,10 @@ public class AnteaterController : PlayerController
                 RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
                 if (hit.collider != null)
                 {
+                    /*
                     Debug.Log(hit.collider.gameObject);
                     Debug.DrawRay(tongueStartPointRef.position, new Vector3(hit.point.x, hit.point.y, 0f) - tongueStartPointRef.position, Color.red, 5.0f);
+                    */
                     //Likely insert object type check here
 
                     //Saves where tongue will hit instead of sending it to spawnTongueBridge()
