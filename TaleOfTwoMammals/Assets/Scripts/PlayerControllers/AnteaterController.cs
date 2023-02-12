@@ -317,6 +317,7 @@ public class AnteaterController : PlayerController
         }
         normalCollider.offset = crouchCollider.offset;
         normalCollider.size = crouchCollider.size;
+        RB.mass = 10000;
     }
 
     private void Uncrouch()
@@ -327,6 +328,7 @@ public class AnteaterController : PlayerController
         //normalCollider.enabled = true;
         normalCollider.offset = normalColliderCopy.offset;
         normalCollider.size = normalColliderCopy.size;
+        RB.mass = 1;
     }
 
     private void HijackInputFromMovement()
