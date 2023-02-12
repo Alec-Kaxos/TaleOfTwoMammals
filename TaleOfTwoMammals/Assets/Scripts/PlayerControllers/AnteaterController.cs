@@ -25,7 +25,8 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private Transform tongueStartPointRef;
 
-    private bool isInCoroutine = false;
+    public bool isInCoroutine = false;
+    private bool hitSomething = false;
 
 #region Aiming
 
@@ -164,6 +165,7 @@ public class AnteaterController : PlayerController
                 RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
                 if (hit.collider != null)
                 {
+                    hitSomething = true;
                     /*
                     Debug.Log(hit.collider.gameObject);
                     Debug.DrawRay(tongueStartPointRef.position, new Vector3(hit.point.x, hit.point.y, 0f) - tongueStartPointRef.position, Color.red, 5.0f);
@@ -177,6 +179,7 @@ public class AnteaterController : PlayerController
                 }
                 else
                 {
+                    hitSomething = false;
                     tongueEndPoint = aimingSprites.transform.up * tongueLength + tongueStartPointRef.position;
                     TongueBridgeUnavailableAction();
                     /* original
@@ -220,10 +223,13 @@ public class AnteaterController : PlayerController
         tongueBridge.transform.Rotate(0, 0, 90);
         tongueBridge.transform.SetParent(tongueStartPointRef);
         tongueBridge.transform.localPosition = new Vector3(0f, tongueWidth/2, 0f);
-        BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
+        if (hitSomething == true)
+		{
+            BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();
+            tBoxC.offset = new Vector2(.5f, .5f);
+        }
         Rigidbody2D rigidbody = tongueBridge.AddComponent<Rigidbody2D>();
         rigidbody.isKinematic = true;
-        tBoxC.offset = new Vector2(.5f, .5f);
         tongueBridge.layer = LayerMask.NameToLayer("Ground");
         tongueBridge.tag = "Tongue";
 
@@ -251,6 +257,7 @@ public class AnteaterController : PlayerController
         //Destroy tongue
         Destroy(tongueBridge);
         tongueBridge = null;
+        hitSomething = false;
     }
 
     private void RetractTongue()
