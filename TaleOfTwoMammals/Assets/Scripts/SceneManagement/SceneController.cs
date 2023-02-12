@@ -144,15 +144,7 @@ public class SceneController : MonoBehaviour
     private Image ScreenCover;
 
     [SerializeField]
-    private Image BackgroundImage;
-    [SerializeField]
-    private Sprite[] WorldBackgrounds;
-    [SerializeField]
-    private float[] WorldBackgroundXOffset;
-    [SerializeField]
-    private float[] WorldBackgroundYOffset;
-    [SerializeField]
-    private float WorldBackgroundMoveFactor;
+    private Color[] BackgroundColorPerWorld;
 
     private bool AllLoaded = false;
     private bool CurrentLoaded = false;
@@ -243,26 +235,12 @@ public class SceneController : MonoBehaviour
         CurrentLevel = Level;
 
         //ADD THE BACKGROUND !!!! :)
-        TempColor = Color.white;
-        if (WorldBackgrounds.Length > CurrentWorld)
+        TempColor = Color.cyan;
+        if (BackgroundColorPerWorld.Length > CurrentWorld)
         {
-            BackgroundImage.sprite = WorldBackgrounds[CurrentWorld];
-            BackgroundImage.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(WorldBackgroundXOffset[CurrentWorld], WorldBackgroundYOffset[CurrentWorld]);
-            if (BackgroundImage.sprite != null)
-            {
-                TempColor.a = 1.0f;
-            }
-            else
-            {
-                TempColor.a = 0.0f;
-            }
+            TempColor = BackgroundColorPerWorld[CurrentWorld];
         }
-        else
-        {
-            BackgroundImage.sprite = null;
-            TempColor.a = 0.0f;
-        }
-        BackgroundImage.color = TempColor;
+        Camera.main.backgroundColor = TempColor;
 
         SpawnCharacters();
 
@@ -452,18 +430,6 @@ public class SceneController : MonoBehaviour
             Anteater.transform.position -= movement * timeDiff;
             Armadillo.transform.position -= movement * timeDiff;
 
-            //Change the background color
-            Color CurColor = BackgroundImage.color;
-            CurColor.r = Math.Max(0, CurColor.r - .03f * timeDiff);
-            CurColor.g = Math.Max(0, CurColor.g - .09f * timeDiff);
-            CurColor.b = Math.Max(0, CurColor.b - .20f * timeDiff);
-            BackgroundImage.color = CurColor;
-
-            //Move background
-            BackgroundImage.transform.parent.position -= movement * timeDiff * WorldBackgroundMoveFactor;
-            //BackgroundImage.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(WorldBackgroundXOffset[CurrentWorld], WorldBackgroundYOffset[CurrentWorld]);
-
-
             CurSeconds += Time.deltaTime;
 
             yield return null;
@@ -488,9 +454,6 @@ public class SceneController : MonoBehaviour
         //Move the players with the scenes
         Anteater.transform.position -= movement * timeDiff;
         Armadillo.transform.position -= movement * timeDiff;
-
-        //Move background
-        BackgroundImage.transform.parent.position -= movement * timeDiff * WorldBackgroundMoveFactor;
 
 
         yield return null;
@@ -599,13 +562,6 @@ public class SceneController : MonoBehaviour
             //Move the players with the scenes
             Anteater.transform.position -= movement * timeDiff;
             Armadillo.transform.position -= movement * timeDiff;
-
-            //Change the background color
-            Color CurColor = BackgroundImage.color;
-            CurColor.r = Math.Min(1f, CurColor.r + .03f * timeDiff);
-            CurColor.g = Math.Min(1f, CurColor.g + .09f * timeDiff);
-            CurColor.b = Math.Min(1f, CurColor.b + .20f * timeDiff);
-            BackgroundImage.color = CurColor;
 
             CurSeconds += Time.deltaTime;
 

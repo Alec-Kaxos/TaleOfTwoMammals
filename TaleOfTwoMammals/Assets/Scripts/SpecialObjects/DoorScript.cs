@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class DoorScript : ButtonUser
 {
     [Header("Door Options")]
     [SerializeField]
-    private float squishAmt = 10;
+    private SpriteRenderer Renderer;
+    [SerializeField]
+    private Sprite OpenSprite;
+    [SerializeField]
+    private Sprite ClosedSprite;
+    [SerializeField]
+    private BoxCollider2D OpenCollider;
+    [SerializeField]
+    private BoxCollider2D ClosedCollider;
+    //private float squishAmt = 10;
 
     #region Door Logic
 
@@ -15,9 +25,15 @@ public class DoorScript : ButtonUser
     /// </summary>
     protected virtual void open()
     {
+        //Set to open sprite and collider
+        Renderer.sprite = OpenSprite;
+        OpenCollider.enabled = true;
+        ClosedCollider.enabled = false;
+        
+
         //Currently Squishes the door
-        transform.localPosition += new Vector3( 0, (transform.localScale.y - transform.localScale.y / squishAmt) / 2, 0 );
-        transform.localScale += new Vector3(0,transform.localScale.y / squishAmt - transform.localScale.y ,0);
+        //transform.localPosition += new Vector3( 0, (transform.localScale.y - transform.localScale.y / squishAmt) / 2, 0 );
+        //transform.localScale += new Vector3(0,transform.localScale.y / squishAmt - transform.localScale.y ,0);
 
     }
 
@@ -26,9 +42,15 @@ public class DoorScript : ButtonUser
     /// </summary>
     protected virtual void close()
     {
+        //Set to closed sprite and collider
+        Renderer.sprite = ClosedSprite;
+        OpenCollider.enabled = false;
+        ClosedCollider.enabled = true;
+        
+
         //Currently Squishes the door
-        transform.localPosition += new Vector3(0, (transform.localScale.y - transform.localScale.y * squishAmt) / 2, 0);
-        transform.localScale += new Vector3(0, transform.localScale.y * squishAmt - transform.localScale.y, 0);
+        //transform.localPosition += new Vector3(0, (transform.localScale.y - transform.localScale.y * squishAmt) / 2, 0);
+        //transform.localScale += new Vector3(0, transform.localScale.y * squishAmt - transform.localScale.y, 0);
     }
 
     protected override void Activated()
