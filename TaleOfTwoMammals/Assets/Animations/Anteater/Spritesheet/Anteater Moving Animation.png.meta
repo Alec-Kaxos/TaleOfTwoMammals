@@ -105,106 +105,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Anteater Walking Animation_0
+      name: Anteater Moving Animation_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb92cbe2f2e7bc542a97d62e6beeb22a
-      internalID: -452040739
+      spriteID: da0279f464e3ec841acc700e79568acf
+      internalID: -988372243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Anteater Walking Animation_1
+      name: Anteater Moving Animation_1
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6df4effca8f32e348accc7450bc3f238
-      internalID: -12027828
+      spriteID: 996165c0863365b4e8216123bf784fc7
+      internalID: -1120979232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Anteater Walking Animation_2
+      name: Anteater Moving Animation_2
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eab9fc0e7d27b864aa62cf2419a97790
-      internalID: -1195019286
+      spriteID: 6a21742776f655f4db009a3928d6c03c
+      internalID: 1581437226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Anteater Walking Animation_3
+      name: Anteater Moving Animation_3
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e7fee63af964f44bae674759eaa1014
-      internalID: 1919198284
+      spriteID: d662a25d7e698a049a26c6760a6889b2
+      internalID: 2048823955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Anteater Walking Animation_4
+      name: Anteater Moving Animation_4
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01baafea0a2cf284e90d9f4a7e956fa1
-      internalID: -143051599
+      spriteID: dc3071c8e61188540a6731bc4f6febb1
+      internalID: 663576523
       vertices: []
       indices: 
       edges: []
@@ -220,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Anteater Walking Animation_3: 1919198284
-      Anteater Walking Animation_4: -143051599
-      Anteater Walking Animation_0: -452040739
-      Anteater Walking Animation_1: -12027828
-      Anteater Walking Animation_2: -1195019286
+      Anteater Moving Animation_1: -1120979232
+      Anteater Moving Animation_3: 2048823955
+      Anteater Moving Animation_2: 1581437226
+      Anteater Moving Animation_0: -988372243
+      Anteater Moving Animation_4: 663576523
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -67,6 +67,7 @@ MonoBehaviour:
   normalCollider: {fileID: 595786299185234548}
   crouchCollider: {fileID: 2029406867}
   tongueStartPointRef: {fileID: 496468066216579043}
+  isInCoroutine: 0
   aimingSprites: {fileID: 595786300240532883}
   crosshairSprite: {fileID: 6782229273065672061}
   aimingSpriteRotatingSpeed: 1.5
@@ -129,7 +130,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &595786299185234545
 Rigidbody2D:
   serializedVersion: 4
@@ -164,10 +165,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16642225, y: -0.7388091}
+  m_Offset: {x: -0.039093494, y: -0.7388091}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.6, y: 0.5}
     oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
@@ -175,7 +176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69906974, y: 1.0823901}
+  m_Size: {x: 0.63659286, y: 1.0823901}
   m_EdgeRadius: 0
 --- !u!61 &2029406867
 BoxCollider2D:
@@ -193,7 +194,7 @@ BoxCollider2D:
   m_Offset: {x: 0.050000012, y: -1.1753505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.6, y: 0.5}
     oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
