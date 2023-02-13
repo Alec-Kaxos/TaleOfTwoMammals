@@ -317,7 +317,7 @@ public class AnteaterController : PlayerController
         }
         normalCollider.offset = crouchCollider.offset;
         normalCollider.size = crouchCollider.size;
-        RB.mass = 10000;
+        RB.isKinematic = true;
     }
 
     private void Uncrouch()
@@ -328,7 +328,7 @@ public class AnteaterController : PlayerController
         //normalCollider.enabled = true;
         normalCollider.offset = normalColliderCopy.offset;
         normalCollider.size = normalColliderCopy.size;
-        RB.mass = 1;
+        RB.isKinematic = false;
     }
 
     private void HijackInputFromMovement()
@@ -357,13 +357,22 @@ public class AnteaterController : PlayerController
         playerInputs.Anteater.Move.canceled -= OnMovePointerCanceled;
     }
 
-    #endregion
+#endregion
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
 
 #region Rotating the Aiming Sprites along with the Anteater
+
+        if (isAiming == true || tongueOut == true)
+		{
+            CheckGround();
+            if (IsGrounded() == false)
+			{
+                ResetCharacter();
+			}
+		}
 
         Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
 
