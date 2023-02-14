@@ -363,8 +363,6 @@ public class AnteaterController : PlayerController
     {
         base.FixedUpdate();
 
-#region Rotating the Aiming Sprites along with the Anteater
-
         if (isAiming == true || tongueOut == true)
 		{
             CheckGround();
@@ -374,7 +372,8 @@ public class AnteaterController : PlayerController
 			}
 		}
 
-        Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
+#region Rotating the Aiming Sprites along with the Anteater
+        // Debug.DrawRay(transform.position, tongueLength* aimingSprites.transform.up );
 
         if (isAiming == true)
         {
@@ -434,7 +433,7 @@ public class AnteaterController : PlayerController
     {
         isInCoroutine = true;
         float tongueLen = (tongueEndPoint - new Vector2(tongueStartPointRef.position.x, tongueStartPointRef.position.y)).magnitude;
-        Debug.Log(tongueLen);
+        // Debug.Log(tongueLen);
         //Calculates how long it will take to shoot tongue based on distance.
         //Closer something is, less time it will take to shoot tongue.
         float modTongueShootTime = baseTongueShootTime * (tongueLen/10);

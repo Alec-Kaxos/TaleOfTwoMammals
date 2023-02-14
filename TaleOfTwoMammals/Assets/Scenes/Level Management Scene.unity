@@ -308,7 +308,7 @@ MonoBehaviour:
   RestartScenePlease: 0
   DevObjects:
   - {fileID: 95954039}
-  LevelsPerWorld: 0500000009000000
+  LevelsPerWorld: 050000000500000005000000
   CustomLevels:
   - TestTrans5
   - TestTrans6
