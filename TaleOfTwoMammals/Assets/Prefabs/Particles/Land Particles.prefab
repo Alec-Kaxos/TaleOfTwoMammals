@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2964964506944882175}
   - component: {fileID: 2964964506944882174}
   m_Layer: 0
-  m_Name: Test Particle
+  m_Name: Land Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
