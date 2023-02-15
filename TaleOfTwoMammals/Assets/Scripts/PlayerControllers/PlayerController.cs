@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void UpdateAnimation()
     {
-        if (RB.velocity.x > 2 || RB.velocity.x < -2)
+        if (RB.velocity.x > 2.5 || RB.velocity.x < -2.5)
         {
             animator.SetBool("Moving", true);
 
@@ -98,6 +98,25 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Moving", false);
             animator.SetBool("Pushing", false);
         }
+
+        if (!IsGrounded())
+        {
+            if(RB.velocity.y > 0.1)
+            {
+                animator.SetBool("Jumping", true);
+            }
+            else if(RB.velocity.y < -1)
+            {
+                animator.SetBool("Falling", true);
+            }
+        }
+
+        else
+        {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Falling", false);
+        }
+
     }
 
     protected virtual void LateUpdate()
