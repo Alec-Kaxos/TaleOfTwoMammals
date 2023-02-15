@@ -19,12 +19,15 @@ public class Pullable : MonoBehaviour
         }
     }
 
+    /*
 	private void OnCollisionExit2D(Collision2D collision)
 	{
         if (collision.gameObject.CompareTag("Tongue") && collision.gameObject.transform.parent.parent.GetComponent<AnteaterController>().isInCoroutine == true)
 		{
             FixedJoint2D fixedJoint = gameObject.GetComponent<FixedJoint2D>();
             fixedJoint.enabled = false;
+            // fixedJoint.connectedBody = null;
         }
     }
+    */
 }
