@@ -80,11 +80,11 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void UpdateAnimation()
     {
-        if (RB.velocity.x > 2.5 || RB.velocity.x < -2.5)
+        if (RB.velocity.x > (movementVelocity - 1.5) || RB.velocity.x < (-movementVelocity + 1.5))
         {
             animator.SetBool("Moving", true);
 
-            if (RB.velocity.x > 3.4 || RB.velocity.x < -3.4 )
+            if (RB.velocity.x > (movementVelocity - 0.6) || RB.velocity.x < (-movementVelocity + 0.6))
             {
                 animator.SetBool("Pushing", false);
             }
