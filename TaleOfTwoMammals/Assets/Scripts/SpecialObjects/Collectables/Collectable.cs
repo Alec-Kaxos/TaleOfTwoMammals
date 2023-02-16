@@ -5,10 +5,16 @@ public class Collectable : MonoBehaviour
     protected bool isCollected = false;
     [SerializeField] protected Animator animator;
     [SerializeField] protected Collider2D collider;
+    [SerializeField] protected string collectParticlesName = "Collect Collectable";
+    [SerializeField] protected Color collectableColor1 = Color.yellow;
+    //Gold color by default
+    [SerializeField] protected Color collectableColor2 = new Color(1f, 0.8431373f, 0f);
+    private GameObject collectParticles;
 
     private void Awake()
     {
         LoadData();
+        collectParticles = Resources.Load<GameObject>("Particles/" + collectParticlesName);
     }
 
     private void OnDestroy()
@@ -37,6 +43,9 @@ public class Collectable : MonoBehaviour
         isCollected = true;
 
         animator.SetBool("isCollected", true);
+
+        //Particles
+        ParticleMaster.SpawnParticle(collectParticles, transform.position, color1: collectableColor1, color2: collectableColor2);
 
         collider.enabled = false;
 

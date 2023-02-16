@@ -6,12 +6,16 @@ using UnityEngine.Tilemaps;
 public class Destructable : MonoBehaviour
 {
     [SerializeField] private bool destroyEntireBlock = false;
+    [SerializeField] private string destroyParticleName = "Break Block";
+    private GameObject destroyParticles;
     private Tilemap destructableTilemap;
     private ArmadilloController Armadillo;
 
     private void Start()
     {
         destructableTilemap = GetComponent<Tilemap>();
+        destroyParticles = Resources.Load<GameObject>("Particles/" + destroyParticleName);
+        Debug.Log(destroyParticles);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,6 +31,7 @@ public class Destructable : MonoBehaviour
                 {
                     hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
                     hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+                    ParticleMaster.SpawnParticle(destroyParticles, hit.point);
                     if (destroyEntireBlock == true)
                     {
                         Destroy(this.gameObject);
