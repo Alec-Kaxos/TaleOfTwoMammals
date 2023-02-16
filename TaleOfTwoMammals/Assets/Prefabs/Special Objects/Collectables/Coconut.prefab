@@ -169,5 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1796011953734958215}
   collider: {fileID: 8328255765307805812}
+  collectParticlesName: Collect Collectable
+  collectableColor1: {r: 0.9339623, g: 0.9237823, b: 0.8062033, a: 1}
+  collectableColor2: {r: 0.8018868, g: 0.746707, b: 0.4501157, a: 1}
   crackedSprite: {fileID: 21300000, guid: 39535cb27cf2d544786eb084799e13c5, type: 3}
   spriteRenderer: {fileID: 8682667274843241395}

@@ -12,7 +12,7 @@ public class ParticleMaster : MonoBehaviour
         if (particle)
         {
             GameObject newParticle = Instantiate(particle, position, particle.transform.rotation, null);
-            //newParticle.GetComponent<ParticleController>().Play();
+            newParticle.GetComponent<ParticleController>().Play();
         }
     }
     
@@ -21,7 +21,7 @@ public class ParticleMaster : MonoBehaviour
         if (particle)
         {
             GameObject newParticle = Instantiate(particle, position, particle.transform.rotation, parent);
-            //newParticle.GetComponent<ParticleController>().Play();
+            newParticle.GetComponent<ParticleController>().Play();
         }
     }
     
@@ -32,21 +32,22 @@ public class ParticleMaster : MonoBehaviour
         {
             GameObject newParticle = Instantiate(particle, position, particle.transform.rotation, parent);
             ParticleSystem particleSystem = newParticle.GetComponent<ParticleSystem>();
+            //particleSystem.startColor
             ParticleSystem.MainModule mainModule = particleSystem.main;
-            ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule = particleSystem.colorOverLifetime;
-            ParticleSystem.MinMaxGradient minMaxGradient = colorOverLifetimeModule.color;
-            Gradient gradient = minMaxGradient.gradient;
-            GradientColorKey[] colorKeys = gradient.colorKeys;
-            GradientAlphaKey[] alphaKeys = gradient.alphaKeys;
-            if (color1 != null)
-            {
-                colorKeys[0].color = color1;
-            }
-            if (color2 != null)
-            {
-                colorKeys[1].color = color2;
-            }
-            //newParticle.GetComponent<ParticleController>().Play();
+            //mainModule.startColor;
+            //ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule = particleSystem.colorOverLifetime;
+            //ParticleSystem.MinMaxGradient minMaxGradient = mainModule.startColor;
+            //Gradient gradient = minMaxGradient.gradient;
+            Gradient gradient = new Gradient();
+            //GradientColorKey[] colorKeys = gradient.colorKeys;
+            //GradientAlphaKey[] alphaKeys = gradient.alphaKeys;
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(color1, 0.0f), new GradientColorKey(color2, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
+            );
+            Debug.Log(gradient);
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(gradient);
+            newParticle.GetComponent<ParticleController>().Play();
         }
 
     }

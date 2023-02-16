@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5137214646971391541}
   collider: {fileID: 3185261708249051846}
+  collectParticlesName: Collect Collectable
+  collectableColor1: {r: 0.9803922, g: 0.89019614, b: 0.41960788, a: 1}
+  collectableColor2: {r: 0.6117647, g: 0.48627454, b: 0.24705884, a: 1}
 --- !u!61 &3185261708249051846
 BoxCollider2D:
   m_ObjectHideFlags: 0
