@@ -759,6 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyEntireBlock: 1
+  destroyParticleName: Break Block
 --- !u!19719996 &389574683
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -2000,6 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyEntireBlock: 1
+  destroyParticleName: Break Block
 --- !u!19719996 &1090487285
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -3511,7 +3513,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.43554342, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3522,7 +3524,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.12891316, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1770708779
 SpriteRenderer:
@@ -7265,7 +7267,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.44060796, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7276,7 +7278,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.1187841, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &2002170852
 SpriteRenderer:

@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyEntireBlock: 1
+  destroyParticleName: Break Block
 --- !u!19719996 &351276751
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1449,7 +1450,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 0, y: -3, z: 0}
@@ -1481,7 +1482,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: -2, z: 0}
@@ -2576,7 +2577,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.41201743, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2587,7 +2588,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.17596513, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1907315669
 SpriteRenderer:
