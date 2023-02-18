@@ -40,6 +40,8 @@ public class Collectable : MonoBehaviour
 
     protected virtual void Collect()
     {
+        IncrementCollectedAmount();
+
         isCollected = true;
 
         animator.SetBool("isCollected", true);
@@ -58,8 +60,14 @@ public class Collectable : MonoBehaviour
         {
             animator.Play("Collected", 0, 1);
             collider.enabled = false;
+            IncrementCollectedAmount();
         }
     }
+
+    private void IncrementCollectedAmount()
+	{
+        SaveSystem.Instance.IncrementCollectedAmount(1);
+	}
 
     private void SaveData()
     {

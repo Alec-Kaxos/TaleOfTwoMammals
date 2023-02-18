@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 654904715}
   - component: {fileID: 654904718}
   - component: {fileID: 654904717}
-  - component: {fileID: 654904716}
+  - component: {fileID: 654904719}
   m_Layer: 0
   m_Name: YOU WIN!!!
   m_TagString: Untagged
@@ -1389,20 +1389,6 @@ Transform:
   m_Father: {fileID: 1663914470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654904716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654904714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd2b02003d572374ea7fa1363f7d6411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LM: {fileID: 646980031}
-  Collider: {fileID: 654904717}
 --- !u!61 &654904717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1481,6 +1467,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &654904719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654904714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a975d736aa69e0f4f816fd11c0ddb12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LM: {fileID: 646980031}
+  Collider: {fileID: 654904717}
 --- !u!1001 &675522142
 PrefabInstance:
   m_ObjectHideFlags: 0

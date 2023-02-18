@@ -16,7 +16,7 @@ public class EndingFlag : MonoBehaviour
 
     private bool AnteaterOn = false, ArmadilloOn = false;
 
-    private void Finished()
+    protected virtual void Finished()
     {
         LM.LevelWon();
     }

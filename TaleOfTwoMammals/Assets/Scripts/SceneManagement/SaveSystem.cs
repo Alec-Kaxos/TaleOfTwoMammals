@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
+    [SerializeField]
+    private int collectabltAmount = 0;
+    private int collectableCollected = 0;
+
     public static SaveSystem Instance;
     private string SaveKeyLevelPrefix = "level";
     private string SaveKeyCollectiblePrefix = "collectible";
@@ -69,15 +73,13 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
         
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool CanUnlockSecretLevel()
+	{
+        return collectableCollected == collectabltAmount;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void IncrementCollectedAmount(int i)
+	{
+        collectableCollected += i;
+	}
 }
