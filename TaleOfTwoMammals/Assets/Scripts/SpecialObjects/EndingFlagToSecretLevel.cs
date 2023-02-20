@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EndingFlagForSecretLevel : EndingFlag
+public class EndingFlagToSecretLevel : EndingFlag
 {
 	protected override void Finished()
 	{
 		if (SaveSystem.Instance.CanUnlockSecretLevel())
 		{
-			base.Finished();
+			SceneManager.LoadScene("Secret Level");
 		}
 		else
 		{
-			// congrat screen?
+			base.Finished();
 		}
 	}
 }

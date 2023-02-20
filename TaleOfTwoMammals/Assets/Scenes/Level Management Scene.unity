@@ -308,7 +308,7 @@ MonoBehaviour:
   RestartScenePlease: 0
   DevObjects:
   - {fileID: 95954039}
-  LevelsPerWorld: 050000000500000005000000
+  LevelsPerWorld: 05000000050000000500000002000000
   CustomLevels:
   - TestTrans5
   - TestTrans6
@@ -317,6 +317,8 @@ MonoBehaviour:
   ScreenCover: {fileID: 809522000}
   BackgroundColorPerWorld:
   - {r: 0.5803922, g: 0.9725491, b: 1, a: 0}
+  - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
+  - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
   - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
   InitialLoadCoverWait: 1
   InitialLoadCoverFade: 2

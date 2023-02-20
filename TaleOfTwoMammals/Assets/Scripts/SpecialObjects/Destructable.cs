@@ -15,7 +15,7 @@ public class Destructable : MonoBehaviour
     {
         destructableTilemap = GetComponent<Tilemap>();
         destroyParticles = Resources.Load<GameObject>("Particles/" + destroyParticleName);
-        Debug.Log(destroyParticles);
+        // Debug.Log(destroyParticles);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
