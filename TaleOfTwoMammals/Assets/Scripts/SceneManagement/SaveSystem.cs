@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     [SerializeField]
-    private int collectabltAmount = 0;
+    private int collectableAmount = 0;
     private int collectableCollected = 0;
 
     public static SaveSystem Instance;
@@ -37,7 +37,7 @@ public class SaveSystem : MonoBehaviour
 
     public bool LoadLevelPassedState(string levelName)
     {
-        if (PlayerPrefs.GetInt(SaveKeyLevelPrefix + levelName) == 1)
+        if (PlayerPrefs.GetInt(SaveKeyLevelPrefix + levelName, 0) == 1)
         {
             return true;
         }
@@ -51,7 +51,7 @@ public class SaveSystem : MonoBehaviour
 
     public bool LoadCollectiblePassedState(string collectibleName)
     {
-        if (PlayerPrefs.GetInt(SaveKeyCollectiblePrefix + collectibleName) == 1)
+        if (PlayerPrefs.GetInt(SaveKeyCollectiblePrefix + collectibleName, 0) == 1)
         {
             return true;
         }
@@ -75,7 +75,7 @@ public class SaveSystem : MonoBehaviour
         
     public bool CanUnlockSecretLevel()
 	{
-        return collectableCollected == collectabltAmount;
+        return collectableCollected == collectableAmount;
 	}
 
     public void IncrementCollectedAmount(int i)
