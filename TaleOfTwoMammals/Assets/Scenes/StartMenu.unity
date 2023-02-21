@@ -2501,7 +2501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7523ec97d27624b8abebf9ac269b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectabltAmount: 6
+  collectableAmount: 0
 --- !u!4 &631931224
 Transform:
   m_ObjectHideFlags: 0
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1120ffd5866f04049981cd9b3371c563, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5da3f9ff13acfd0498be3cf394f8f9c3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
