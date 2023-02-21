@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EndingFlagToSecretLevel : EndingFlag
 {
+	[SerializeField]
+	private SpriteRenderer spriteRenderer;
+	[SerializeField]
+	private Sprite errorRoadSign;
+
 	protected override void Finished()
 	{
 		if (SaveSystem.Instance.CanUnlockSecretLevel())
@@ -14,6 +19,14 @@ public class EndingFlagToSecretLevel : EndingFlag
 		else
 		{
 			base.Finished();
+		}
+	}
+
+	private void Update()
+	{
+		if (SaveSystem.Instance.CanUnlockSecretLevel())
+		{
+			spriteRenderer.sprite = errorRoadSign;
 		}
 	}
 }

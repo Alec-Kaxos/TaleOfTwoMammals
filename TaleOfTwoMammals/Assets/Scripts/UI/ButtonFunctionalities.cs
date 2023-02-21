@@ -10,6 +10,8 @@ public class ButtonFunctionalities : MonoBehaviour
     [SerializeField]
     private Canvas settingsPage;
     [SerializeField]
+    private Canvas collectiblesPage;
+    [SerializeField]
     private Canvas mainPage;
 
     private string StartScene = "Level Management Scene";
@@ -40,10 +42,17 @@ public class ButtonFunctionalities : MonoBehaviour
         mainPage.gameObject.SetActive(false);
     }
 
-    public void OnReturnButtonInCreditsPagePressed()
+    public void OnCollectiblesButtonPressed()
+	{
+        collectiblesPage.gameObject.SetActive(true);
+        mainPage.gameObject.SetActive(false);
+	}
+
+    public void OnReturnButtonPressed()
     {
         creditsPage.gameObject.SetActive(false);
         settingsPage.gameObject.SetActive(false);
+        collectiblesPage.gameObject.SetActive(false);
         mainPage.gameObject.SetActive(true);
     }
 
