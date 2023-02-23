@@ -27,5 +27,3 @@ A Tale of Two Mammals is a Cooperative puzzle platformer where two mammals are c
  - Aaron Pierce Winter
  - Alec Nicholas Kaxon-Rupp
  - Boyuan Huang
- - Fan Ping
- - Justin Zhang
