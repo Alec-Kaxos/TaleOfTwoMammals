@@ -3857,7 +3857,7 @@ GameObject:
   - component: {fileID: 1240487478}
   - component: {fileID: 1240487477}
   m_Layer: 5
-  m_Name: 2-3
+  m_Name: 2-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3895,7 +3895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37aa3382cc049c94e9e143be63f2eb6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleLevel: 2-3
+  collectibleLevel: 2-4
   rawImage: {fileID: 1240487478}
 --- !u!114 &1240487478
 MonoBehaviour:
@@ -4402,7 +4402,7 @@ GameObject:
   - component: {fileID: 1450231776}
   - component: {fileID: 1450231775}
   m_Layer: 5
-  m_Name: 2-4
+  m_Name: 2-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4440,7 +4440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37aa3382cc049c94e9e143be63f2eb6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectibleLevel: 2-4
+  collectibleLevel: 2-5
   rawImage: {fileID: 1450231776}
 --- !u!114 &1450231776
 MonoBehaviour:
