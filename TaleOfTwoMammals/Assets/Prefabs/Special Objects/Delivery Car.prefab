@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4039287523261300613}
   - component: {fileID: 4039287523261300612}
   - component: {fileID: 4039287523261300665}
+  - component: {fileID: -6388172747444453349}
+  - component: {fileID: -5734204936325219305}
   m_Layer: 10
   m_Name: Delivery Car
   m_TagString: Untagged
@@ -169,3 +171,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RB: {fileID: 4039287523261300613}
   animator: {fileID: 4039287523261300612}
+--- !u!114 &-6388172747444453349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039287523261300615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165fd0046d3882c469fe3f59e1286b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!255 &-5734204936325219305
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039287523261300615}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
