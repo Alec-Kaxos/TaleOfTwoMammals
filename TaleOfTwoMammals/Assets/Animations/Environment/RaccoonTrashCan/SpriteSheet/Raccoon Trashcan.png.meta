@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e3ba1a8250557d479b31f171414ca77
+guid: f8efe6fb4514cb84a8450ce68b052568
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ALPGroundTiles2_0
+      name: Raccoon Trashcan_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10a9a10741dbb054ca3b0833e80a8345
-      internalID: 541424091
+      spriteID: f4dc383b054f0c449a7434daefb2088a
+      internalID: 345378296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_1
+      name: Raccoon Trashcan_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 922bddcba81361a4088c08ce23f5aad9
-      internalID: 266747077
+      spriteID: 5abd76a5d5391144e96223dff54080e9
+      internalID: -458131019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_2
+      name: Raccoon Trashcan_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 256
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e6ad47d5d2cec04598ea6b8d8ebb9da
-      internalID: 715995306
+      spriteID: d6b99a97780cbc9449b02e31e9a668ed
+      internalID: 1567904932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_3
+      name: Raccoon Trashcan_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 384
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f439c848c2d7dd48a664e66e42c77bf
-      internalID: -684390197
+      spriteID: c8a41ec9db6d22a4797b3c4b8f3d70e6
+      internalID: 1856010506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_4
+      name: Raccoon Trashcan_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 512
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,83 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94179b2af1e45cd48a77df1b9e360fe0
-      internalID: 788387819
+      spriteID: fc3aca06163a58b4ea0f82bf485aee89
+      internalID: 305587648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3591cad1fff4b4b44807b4d01744a36d
-      internalID: -724691635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 706fc6be9e9488440890090b47810712
-      internalID: -854843658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d8fc3a1a26c7b943b0f3a8b7579a43e
-      internalID: 1785185479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_8
+      name: Raccoon Trashcan_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12cece07487897d47a54416e2b3ff0c8
-      internalID: -192147272
+      spriteID: 5eb0b4e589d51a34cacc927fcdc8c08e
+      internalID: -410396951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_9
+      name: Raccoon Trashcan_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1fa43b3c9570ac4f989e1805aabe82b
-      internalID: -193544439
+      spriteID: 7eeace478b8f8654aafb8afdc15a6a8d
+      internalID: 867532725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_10
+      name: Raccoon Trashcan_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 610c660651c57da48a7161aa54073914
-      internalID: 2054836926
+      spriteID: efa862941ba93b740ad89a32b5955255
+      internalID: 353194772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_11
+      name: Raccoon Trashcan_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 384
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,8 +287,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89eb92ff94b5f444db5e2d8b5dbf10ed
-      internalID: 434622933
+      spriteID: d5c8db3fede64fa4c92d1001648ad65c
+      internalID: -3029827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb1ab82f9a0c0d428b55ff798e37e08
+      internalID: 1751062706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4434a27fa44c543ad464c365014352
+      internalID: -967531740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5608d7c140bc64a98b2bd1f809291c
+      internalID: 493009068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad13e8c58c7ba041919a24b3a55a294
+      internalID: -1771742981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015eca2c9eca1584089147d39ab4f9a6
+      internalID: -1168418680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54e0180ff248bb47bfae7c2851ce605
+      internalID: 958025470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce38346d97b29bd4db5ccbe8b6d497f2
+      internalID: 782579623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Trashcan_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8216423ef354b4449b15165ddbe048ab
+      internalID: -1018533897
       vertices: []
       indices: 
       edges: []
@@ -367,18 +472,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ALPGroundTiles2_3: -684390197
-      ALPGroundTiles2_7: 1785185479
-      ALPGroundTiles2_10: 2054836926
-      ALPGroundTiles2_5: -724691635
-      ALPGroundTiles2_2: 715995306
-      ALPGroundTiles2_4: 788387819
-      ALPGroundTiles2_11: 434622933
-      ALPGroundTiles2_1: 266747077
-      ALPGroundTiles2_9: -193544439
-      ALPGroundTiles2_0: 541424091
-      ALPGroundTiles2_8: -192147272
-      ALPGroundTiles2_6: -854843658
+      Raccoon Trashcan_7: 353194772
+      Raccoon Trashcan_11: 493009068
+      Raccoon Trashcan_15: 782579623
+      Raccoon Trashcan_2: 1567904932
+      Raccoon Trashcan_5: -410396951
+      Raccoon Trashcan_3: 1856010506
+      Raccoon Trashcan_0: 345378296
+      Raccoon Trashcan_8: -3029827
+      Raccoon Trashcan_14: 958025470
+      Raccoon Trashcan_9: 1751062706
+      Raccoon Trashcan_1: -458131019
+      Raccoon Trashcan_16: -1018533897
+      Raccoon Trashcan_10: -967531740
+      Raccoon Trashcan_12: -1771742981
+      Raccoon Trashcan_13: -1168418680
+      Raccoon Trashcan_6: 867532725
+      Raccoon Trashcan_4: 305587648
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e3ba1a8250557d479b31f171414ca77
+guid: c4fdea79ad667974ebfeae2a76fb0257
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ALPGroundTiles2_0
+      name: RingRoadTiles_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,41 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10a9a10741dbb054ca3b0833e80a8345
-      internalID: 541424091
+      spriteID: 06f31f0bb79fbbf4790eff78d34f4af8
+      internalID: -876036075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 922bddcba81361a4088c08ce23f5aad9
-      internalID: 266747077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_2
+      name: RingRoadTiles_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e6ad47d5d2cec04598ea6b8d8ebb9da
-      internalID: 715995306
+      spriteID: 601f14d3275038c48bbd9f4015fbd717
+      internalID: 364287349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_3
+      name: RingRoadTiles_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +161,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f439c848c2d7dd48a664e66e42c77bf
-      internalID: -684390197
+      spriteID: 7c08e1f7602927a4aba4caa9afb98c87
+      internalID: 111986333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_4
+      name: RingRoadTiles_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5465980f9e1e3e842853373d989987de
+      internalID: -1536189109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0067214ac8a72e34b807302760c163f3
+      internalID: -362062035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5356a5f633a49e4fb1c3e517b394f01
+      internalID: -2143216168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64969047015f505439dc49b8ddf6010a
+      internalID: 219858124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be51d34cfd433e4d900802515f1dbfe
+      internalID: 707716324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_8
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,41 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94179b2af1e45cd48a77df1b9e360fe0
-      internalID: 788387819
+      spriteID: e93b83dd055cd4049b899551a0d43471
+      internalID: -639603407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3591cad1fff4b4b44807b4d01744a36d
-      internalID: -724691635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_6
+      name: RingRoadTiles_9
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 706fc6be9e9488440890090b47810712
-      internalID: -854843658
+      spriteID: 5cd6cb07627efb24baceb4208172c189
+      internalID: -1761722360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_7
+      name: RingRoadTiles_10
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 64
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +329,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8fc3a1a26c7b943b0f3a8b7579a43e
-      internalID: 1785185479
+      spriteID: 3de7c8e1f139ae14f881e4d369047a60
+      internalID: -1780851251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALPGroundTiles2_8
+      name: RingRoadTiles_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd2757023e2f86449ed838b29d7b60c
+      internalID: 492806265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RingRoadTiles_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,71 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12cece07487897d47a54416e2b3ff0c8
-      internalID: -192147272
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1fa43b3c9570ac4f989e1805aabe82b
-      internalID: -193544439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 610c660651c57da48a7161aa54073914
-      internalID: 2054836926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALPGroundTiles2_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89eb92ff94b5f444db5e2d8b5dbf10ed
-      internalID: 434622933
+      spriteID: b9a9cdb9ed30d0e43a1e1ecd517950f3
+      internalID: -1884297533
       vertices: []
       indices: 
       edges: []
@@ -367,18 +388,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ALPGroundTiles2_3: -684390197
-      ALPGroundTiles2_7: 1785185479
-      ALPGroundTiles2_10: 2054836926
-      ALPGroundTiles2_5: -724691635
-      ALPGroundTiles2_2: 715995306
-      ALPGroundTiles2_4: 788387819
-      ALPGroundTiles2_11: 434622933
-      ALPGroundTiles2_1: 266747077
-      ALPGroundTiles2_9: -193544439
-      ALPGroundTiles2_0: 541424091
-      ALPGroundTiles2_8: -192147272
-      ALPGroundTiles2_6: -854843658
+      RingRoadTiles_5: -2143216168
+      RingRoadTiles_0: -876036075
+      RingRoadTiles_9: -1761722360
+      RingRoadTiles_10: -1780851251
+      RingRoadTiles_3: -1536189109
+      RingRoadTiles_1: 364287349
+      RingRoadTiles_6: 219858124
+      RingRoadTiles_11: 492806265
+      RingRoadTiles_12: -1884297533
+      RingRoadTiles_2: 111986333
+      RingRoadTiles_8: -639603407
+      RingRoadTiles_4: -362062035
+      RingRoadTiles_7: 707716324
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
