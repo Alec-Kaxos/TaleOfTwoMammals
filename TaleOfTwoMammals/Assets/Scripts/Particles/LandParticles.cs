@@ -32,7 +32,7 @@ public class LandParticles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastVelocityY < 0 && RB.velocity.y - lastVelocityY > VelocityThreshold)
+        if (lastVelocityY < -.01 && (RB.velocity.y - lastVelocityY > VelocityThreshold))
         {
             Landed(RB.velocity.y - lastVelocityY);
         }
