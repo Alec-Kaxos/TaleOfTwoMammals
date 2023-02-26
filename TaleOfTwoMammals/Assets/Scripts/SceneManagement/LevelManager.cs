@@ -17,6 +17,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject ArmadilloRespawn;
 
+    [SerializeField]
+    private AudioClip _winClip;
+    private AudioSource _audioSource;
+
     /// <summary>
     /// When it is NOT NULL, this level is active.
     /// </summary>
@@ -74,6 +78,7 @@ public class LevelManager : MonoBehaviour
     public void LevelWon()
     {
         Debug.Log("Level Won !!!!");
+        _audioSource.Play();
         if(SC != null)
         {
             //Do next level code
@@ -115,6 +120,7 @@ public class LevelManager : MonoBehaviour
     #region Unity Methods
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         //Instance = this;
     }
 
