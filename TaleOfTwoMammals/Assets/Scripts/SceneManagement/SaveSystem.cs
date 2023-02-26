@@ -19,10 +19,6 @@ public class SaveSystem : MonoBehaviour
         {
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnDestroy()

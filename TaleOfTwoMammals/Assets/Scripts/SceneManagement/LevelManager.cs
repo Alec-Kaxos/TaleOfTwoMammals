@@ -78,6 +78,7 @@ public class LevelManager : MonoBehaviour
     public void LevelWon()
     {
         Debug.Log("Level Won !!!!");
+        SaveSystem.Instance.SaveLevelPassedState(gameObject.scene.name, 1);
         if (_audioSource != null)
 		{
             _audioSource.Play();
