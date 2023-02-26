@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2464515851302227835}
   - component: {fileID: 2464515851302227831}
   - component: {fileID: 1178997695}
+  - component: {fileID: 1094119539}
   m_Layer: 7
   m_Name: Armadillo
   m_TagString: Player
@@ -55,11 +56,11 @@ MonoBehaviour:
   animator: {fileID: 1178997695}
   detectionCollider: {fileID: 0}
   LM: {fileID: 0}
+  AnteaterJumpSound: {fileID: 0}
   movementVelocity: 4
   jumpVelocity: 11
   smoothInputSpeed: 0.01
   maxClimbAngle: 15
-  LandParticle: {fileID: 0}
   spriteRenderer: {fileID: 2464515851302227829}
   speedMultiplier: 1.25
   tunnelLayerMask:
@@ -216,3 +217,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1094119539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464515851302227833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e027a3cf15dc24d9b78f7ce2ca225c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandParticle: {fileID: 2964964506944882172, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
+  LandParticleDisplacement: {x: 0, y: -1.5, z: 0}
+  VelocityThreshold: 5

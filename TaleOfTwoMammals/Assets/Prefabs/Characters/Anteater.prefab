@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2029406867}
   - component: {fileID: 595786300036011370}
   - component: {fileID: 7186817413747738157}
+  - component: {fileID: 1681834326}
   m_Layer: 7
   m_Name: Anteater
   m_TagString: Player
@@ -62,7 +63,6 @@ MonoBehaviour:
   jumpVelocity: 11
   smoothInputSpeed: 0.01
   maxClimbAngle: 15
-  LandParticle: {fileID: 0}
   spriteRenderer: {fileID: 595786299185234546}
   normalSprite: {fileID: 21300000, guid: 0573286e3a698c44dbb71029ce7afeb5, type: 3}
   crawlSprite: {fileID: 21300000, guid: ccdf9b3513953a94793ae8bab3dabef2, type: 3}
@@ -322,6 +322,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1681834326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595786299185234544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e027a3cf15dc24d9b78f7ce2ca225c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandParticle: {fileID: 2964964506944882172, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
+  LandParticleDisplacement: {x: 0, y: -1.5, z: 0}
+  VelocityThreshold: 5
 --- !u!1 &595786300081805367
 GameObject:
   m_ObjectHideFlags: 0

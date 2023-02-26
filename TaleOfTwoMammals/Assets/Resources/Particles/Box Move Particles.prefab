@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2964964506944882172, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
       propertyPath: m_Name
-      value: Box Move
+      value: Box Move Particles
       objectReference: {fileID: 0}
     - target: {fileID: 2964964506944882173, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
       propertyPath: m_RootOrder
@@ -68,6 +68,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
       propertyPath: CollisionModule.type
       value: 0
       objectReference: {fileID: 0}
@@ -85,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
