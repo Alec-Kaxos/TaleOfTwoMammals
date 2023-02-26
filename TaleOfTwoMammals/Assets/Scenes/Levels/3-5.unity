@@ -1338,6 +1338,7 @@ MonoBehaviour:
   Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
+  _winClip: {fileID: 0}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
