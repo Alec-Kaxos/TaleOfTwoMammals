@@ -833,7 +833,7 @@ MonoBehaviour:
   Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
-  _winClip: {fileID: 0}
+  _winClip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,7 +1572,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -3, z: 0}
