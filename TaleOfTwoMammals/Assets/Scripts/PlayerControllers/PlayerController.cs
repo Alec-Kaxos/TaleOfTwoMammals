@@ -40,11 +40,6 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region Particle Effects
-    [SerializeField]
-    private GameObject LandParticle;
-    #endregion
-
     private Vector2 currentVector;
     private Vector2 smoothInputVelocity;
 
@@ -187,8 +182,6 @@ public class PlayerController : MonoBehaviour
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
             AnteaterJumpSound.Play();
 
-            //Particles
-            ParticleMaster.SpawnParticle(LandParticle, transform.position - new Vector3(0, 1, 0));
         }
     }
 

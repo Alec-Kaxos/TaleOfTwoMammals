@@ -7,25 +7,31 @@ public class ParticleMaster : MonoBehaviour
 {
 
 
-    public static void SpawnParticle(GameObject particle, Vector3 position)
+    public static GameObject SpawnParticle(GameObject particle, Vector3 position)
     {
         if (particle)
         {
             GameObject newParticle = Instantiate(particle, position, particle.transform.rotation, null);
             newParticle.GetComponent<ParticleController>().Play();
+            return newParticle;
         }
+
+        return null;
     }
     
-    public static void SpawnParticle(GameObject particle, Vector3 position, Transform parent = null)
+    public static GameObject SpawnParticle(GameObject particle, Vector3 position, Transform parent = null)
     {
         if (particle)
         {
             GameObject newParticle = Instantiate(particle, position, particle.transform.rotation, parent);
             newParticle.GetComponent<ParticleController>().Play();
+            return newParticle;
         }
+
+        return null;
     }
     
-    public static void SpawnParticle(GameObject particle, Vector3 position, Transform parent = null, Color color1 = default, Color color2 = default)
+    public static GameObject SpawnParticle(GameObject particle, Vector3 position, Transform parent = null, Color color1 = default, Color color2 = default)
     {
 
         if (particle)
@@ -48,8 +54,11 @@ public class ParticleMaster : MonoBehaviour
             Debug.Log(gradient);
             mainModule.startColor = new ParticleSystem.MinMaxGradient(gradient);
             newParticle.GetComponent<ParticleController>().Play();
+
+            return newParticle;
         }
 
+        return null;
     }
     
     // Start is called before the first frame update
