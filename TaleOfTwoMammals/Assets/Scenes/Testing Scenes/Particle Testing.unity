@@ -2860,6 +2860,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964964506944882175, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1c5eb938a60e479e5d229dbe33a68, type: 3}
 --- !u!1001 &3737019030733179795

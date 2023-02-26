@@ -43,6 +43,22 @@ public class LandParticles : MonoBehaviour
     {
         Debug.Log(speed);
         //Instantiate(LandParticle, transform.position, Quaternion.identity);
-        ParticleMaster.SpawnParticle(LandParticle, transform.position + LandParticleDisplacement);
+        GameObject pGO = ParticleMaster.SpawnParticle(LandParticle, transform.position + LandParticleDisplacement, play: false);
+        ParticleSystem p = pGO.GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule main = p.main;
+
+        //Change size of particles based on speed, as a minmaxcurve from speed/10 to speed/5
+        main.startSize = new ParticleSystem.MinMaxCurve(speed / 100, speed / 50);
+
+        //Change speed of particles based on speed, as a minmaxcurve from speed/10 to speed/5
+        main.startSpeed = new ParticleSystem.MinMaxCurve(speed / 10, speed / 5);
+
+        //change max particles to be speed + 2
+        main.maxParticles = (int)speed + 2;
+        //change emission rate over time to be speed/2
+        ParticleSystem.EmissionModule emission = p.emission;
+        emission.rateOverTime = speed / 2;
+
+        p.Play();
     }
 }
