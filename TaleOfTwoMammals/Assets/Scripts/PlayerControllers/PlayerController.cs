@@ -180,8 +180,10 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded() && IsOnMovableSlope() && context.started)
         {
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
-            AnteaterJumpSound.Play();
-
+            if (AnteaterJumpSound != null)
+			{
+                AnteaterJumpSound.Play();
+			}
         }
     }
 

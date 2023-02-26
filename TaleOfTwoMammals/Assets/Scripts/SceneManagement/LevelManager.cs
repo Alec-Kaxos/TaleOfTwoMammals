@@ -78,7 +78,10 @@ public class LevelManager : MonoBehaviour
     public void LevelWon()
     {
         Debug.Log("Level Won !!!!");
-        _audioSource.Play();
+        if (_audioSource != null)
+		{
+            _audioSource.Play();
+		}
         if(SC != null)
         {
             //Do next level code
