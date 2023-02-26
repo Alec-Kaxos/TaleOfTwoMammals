@@ -267,8 +267,7 @@ public class SceneController : MonoBehaviour
 
         CurrentLoaded = true;
 
-        Anteater.gameObject.SetActive(true);
-        Armadillo.gameObject.SetActive(true);
+        //THIS WAS WHERE SETACTIVE TRUE WAS FOR CHARACTERS
 
         curS.DisableObject.SetActive(true);
 
@@ -318,6 +317,9 @@ public class SceneController : MonoBehaviour
             thisS.DisableObject.transform.position += displacement;
 
         }
+        
+        Anteater.gameObject.SetActive(true);
+        Armadillo.gameObject.SetActive(true);
 
         AllLoaded = true;
 
