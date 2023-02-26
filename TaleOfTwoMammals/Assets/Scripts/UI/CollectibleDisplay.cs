@@ -27,15 +27,8 @@ public class CollectibleDisplay : MonoBehaviour
 	// called when the reset button in the collecible page is pressed
 	public void Refresh()
 	{
-		if (SaveSystem.Instance.LoadCollectiblePassedState(collectibleLevel))
-		{
-			rawImage.color = Color.white;
-		}
-		else
-		{
-			Color newGrey = Color.grey;
-			newGrey.a = 0.3f;
-			rawImage.color = newGrey;
-		}
+		Color newGrey = Color.grey;
+		newGrey.a = 0.3f;
+		rawImage.color = newGrey;
 	}
 }

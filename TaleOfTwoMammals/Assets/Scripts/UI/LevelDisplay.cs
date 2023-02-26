@@ -46,20 +46,11 @@ public class LevelDisplay : MonoBehaviour
 	// called when the reset button in the collecible page is pressed
 	public void Refresh()
 	{
-		if (SaveSystem.Instance.LoadLevelPassedState(levelString))
-		{
-			rawImage.color = Color.white;
-			button.GetComponent<Image>().color = Color.white;
-			button.interactable = true;
-		}
-		else
-		{
-			Color newGrey = Color.grey;
-			newGrey.a = 0.3f;
-			rawImage.color = newGrey;
-			button.GetComponent<Image>().color = newGrey;
-			button.interactable = false;
-		}
+		Color newGrey = Color.grey;
+		newGrey.a = 0.3f;
+		rawImage.color = newGrey;
+		button.GetComponent<Image>().color = newGrey;
+		button.interactable = false;
 	}
 
 	private void TeleportToLevel()
