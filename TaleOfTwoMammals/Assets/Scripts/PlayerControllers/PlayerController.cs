@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     protected Vector2 slopeNormal = Vector2.zero;
 
+    [SerializeField]
+    protected AudioSource AnteaterJumpSound;
+
 #region Movement Variables
 
     [Header("Movement Variables")]
@@ -182,6 +185,7 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded() && IsOnMovableSlope() && context.started)
         {
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
+            AnteaterJumpSound.Play();
 
             //Particles
             ParticleMaster.SpawnParticle(LandParticle, transform.position - new Vector3(0, 1, 0));
