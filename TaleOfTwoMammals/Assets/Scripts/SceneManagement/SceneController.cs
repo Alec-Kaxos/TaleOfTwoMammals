@@ -137,6 +137,12 @@ public class SceneController : MonoBehaviour
     private int CurrentWorld;
     private int CurrentLevel;
 
+    [Header("World Music")]
+    [SerializeField]
+    private AudioClip[] WorldMusic;
+    [SerializeField, Tooltip("This is fully optional")]
+    private AudioClip[] WorldMusicStart;
+
 
     [Header("Images")]
 
@@ -243,6 +249,19 @@ public class SceneController : MonoBehaviour
             TempColor = BackgroundColorPerWorld[CurrentWorld];
         }
         Camera.main.backgroundColor = TempColor;
+
+        //START THE EPIC WORLD MUSIC !!!! :)
+        if (WorldMusic.Length > CurrentWorld && WorldMusic[CurrentWorld] != null)
+        {
+            if (WorldMusicStart.Length > CurrentWorld && WorldMusicStart[CurrentWorld] != null)
+            {
+                MusicController.GetMusicController().PlayMusic2(WorldMusicStart[CurrentWorld], WorldMusic[CurrentWorld]);
+            }
+            else
+            {
+                MusicController.GetMusicController().PlayMusic2(WorldMusic[CurrentWorld], fadeInTime: .5f);
+            }
+        }
 
         SpawnCharacters();
 

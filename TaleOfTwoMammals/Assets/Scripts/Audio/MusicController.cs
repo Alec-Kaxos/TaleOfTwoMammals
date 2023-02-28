@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicController : MonoBehaviour
@@ -34,7 +35,7 @@ public class MusicController : MonoBehaviour
         {
             myInstance = this;
             myAudioSource = GetComponent<AudioSource>();
-            StartCoroutine(PlayMusic(StartSong, LoopSong));
+            PlayStartMusic();
         }
         else
         {
@@ -54,20 +55,44 @@ public class MusicController : MonoBehaviour
         }
     }
 
-    public IEnumerator PlayMusic(AudioClip musicStart, AudioClip musicLoop = null, float fadeInTime = 0f, float fadeOutTime = .5f)
+    public void PlayStartMusic(float fadeInTime = 0f, float fadeOutTime = 1.5f)
     {
+        PlayMusic2(StartSong, LoopSong, fadeInTime, fadeOutTime);
+    }
+
+    public void PlayMusic2(AudioClip musicStart, AudioClip musicLoop = null, float fadeInTime = 0f, float fadeOutTime = 1.5f)
+    {
+        StartCoroutine(PlayMusic(musicStart, musicLoop, fadeInTime, fadeOutTime));
+    }
+
+    public void PlayMusicLoopFirst(AudioClip musicLoop, AudioClip musicStart = null, float fadeInTime = 0f, float fadeOutTime = 1.5f)
+    {
+        if (musicStart == null)
+            StartCoroutine(PlayMusic(musicLoop, musicStart, fadeInTime, fadeOutTime));
+        else
+            StartCoroutine(PlayMusic(musicStart, musicLoop, fadeInTime, fadeOutTime));
+    }
+
+    public IEnumerator PlayMusic(AudioClip musicStart, AudioClip musicLoop = null, float fadeInTime = 0f, float fadeOutTime = 1.5f)
+    {
+        if (musicStart == myAudioSource.clip)
+        {
+            yield break;
+        }
+
         if (myAudioSource.isPlaying)
         {
             yield return AudioFader.FadeOut(myAudioSource, fadeOutTime);
         }
-        
-        if(fadeInTime == 0f)
+
+        myAudioSource.clip = musicStart;
+        myAudioSource.Play();
+        if (fadeInTime == 0f)
         {
-            myAudioSource.clip = musicStart;
-            myAudioSource.Play();
         }
         else
         {
+            myAudioSource.Pause();
             yield return AudioFader.FadeIn(myAudioSource, fadeInTime);
         }
 

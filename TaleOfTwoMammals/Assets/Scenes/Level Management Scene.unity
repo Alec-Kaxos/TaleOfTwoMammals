@@ -315,6 +315,15 @@ MonoBehaviour:
   - TestTrans6
   FutureScenesLoaded: 2
   PreviousScenesLoaded: 2
+  WorldMusic:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 987129d5944976b48b2fa74047694b70, type: 3}
+  - {fileID: 8300000, guid: 133de739f8405f142b006bc6d8e65c50, type: 3}
+  - {fileID: 8300000, guid: 98b11c836b8a0c8419098562401a5b7c, type: 3}
+  WorldMusicStart:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 8d898edbdacad994dbdc2108ab8cd061, type: 3}
   ScreenCover: {fileID: 809522000}
   BackgroundColorPerWorld:
   - {r: 0.5803922, g: 0.9725491, b: 1, a: 0}

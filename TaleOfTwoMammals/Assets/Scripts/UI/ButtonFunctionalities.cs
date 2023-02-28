@@ -91,6 +91,9 @@ public class ButtonFunctionalities : MonoBehaviour
 
     public void OnHomeButtonPressed()
     {
+        //MUSIC !!!
+        MusicController.GetMusicController().PlayStartMusic();
+
         SceneManager.LoadScene("StartMenu");
     }
 
