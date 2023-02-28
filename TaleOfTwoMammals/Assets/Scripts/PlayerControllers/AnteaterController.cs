@@ -25,6 +25,9 @@ public class AnteaterController : PlayerController
     [SerializeField]
     private Transform tongueStartPointRef;
 
+    [SerializeField]
+    private AudioSource AntHillDestroyed;
+
     public bool isInCoroutine = false;
     private bool hitSomething = false;
 
@@ -162,10 +165,13 @@ public class AnteaterController : PlayerController
                 ReturnInputBackToMovement();
 
                 //CHANGE DISTANCE
+                AntHillDestroyed.GetComponent<AudioSource>();
+
                 RaycastHit2D hit = Physics2D.Raycast(tongueStartPointRef.position, aimingSprites.transform.up, tongueLength, tongueLayers);
                 if (hit.collider != null)
                 {
                     hitSomething = true;
+                    AntHillDestroyed.Play();
                     /*
                     Debug.Log(hit.collider.gameObject);
                     Debug.DrawRay(tongueStartPointRef.position, new Vector3(hit.point.x, hit.point.y, 0f) - tongueStartPointRef.position, Color.red, 5.0f);
