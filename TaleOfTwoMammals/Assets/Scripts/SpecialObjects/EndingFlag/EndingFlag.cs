@@ -21,7 +21,7 @@ public class EndingFlag : MonoBehaviour
         LM.LevelWon();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         AnteaterController AntC = collision.gameObject.GetComponent<AnteaterController>();
         if(AntC != null)
@@ -42,7 +42,7 @@ public class EndingFlag : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         AnteaterController AntC = collision.gameObject.GetComponent<AnteaterController>();
         if (AntC != null)
