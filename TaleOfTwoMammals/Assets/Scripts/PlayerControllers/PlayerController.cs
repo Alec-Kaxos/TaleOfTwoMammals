@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     protected AudioSource AnteaterJumpSound;
 
-#region Movement Variables
+    #region Movement Variables
 
     [Header("Movement Variables")]
 

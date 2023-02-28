@@ -18,8 +18,10 @@ public class ArmadilloController : PlayerController
 
     [SerializeField]
     private LayerMask tunnelLayerMask;
+    [SerializeField]
+    protected AudioSource GroundPounding;
 
-#region Normal Form Components
+    #region Normal Form Components
 
     [Header("Normal Form Components")]
     [Tooltip("This stands for the collider when the Armadillo is in its normal form. This should be set to be ACTIVE by default.")]
@@ -99,6 +101,7 @@ public class ArmadilloController : PlayerController
     {
         RB.velocity = PoundSpeed;
         Pounding = true;
+        GroundPounding.Play();
     }
 
     private void FinishedPounding()

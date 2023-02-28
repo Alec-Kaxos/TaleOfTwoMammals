@@ -10,6 +10,7 @@ public class Destructable : MonoBehaviour
     private GameObject destroyParticles;
     private Tilemap destructableTilemap;
     private ArmadilloController Armadillo;
+    
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class Destructable : MonoBehaviour
                     hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
                     ParticleMaster.SpawnParticle(destroyParticles, hit.point);
                     if (destroyEntireBlock == true)
-                    {
+                    {                       
                         Destroy(this.gameObject);
                     }
                     else
