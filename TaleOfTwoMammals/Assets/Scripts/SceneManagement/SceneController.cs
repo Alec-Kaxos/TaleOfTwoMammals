@@ -292,6 +292,7 @@ public class SceneController : MonoBehaviour
 
         curS.LevelManagerRef.LevelActive(this);
 
+        //MOVE THE CAMERA
         Camera.main.transform.position = curS.Cam.transform.position;
         Camera.main.orthographicSize = curS.Cam.orthographicSize;
 
