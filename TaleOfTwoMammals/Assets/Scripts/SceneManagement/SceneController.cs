@@ -11,7 +11,11 @@ public class SceneController : MonoBehaviour
     public static int FirstLoadWorld = 0;
     public static int FirstLoadLevel = 1;
     public static bool LoadOnStart = false;
+#if UNITY_EDITOR
     public static bool DEV = true;
+#else
+    public static bool DEV = false;
+#endif
 
     private struct SceneInfo
     {
@@ -137,6 +141,12 @@ public class SceneController : MonoBehaviour
     private int CurrentWorld;
     private int CurrentLevel;
 
+    [Header("World Music")]
+    [SerializeField]
+    private AudioClip[] WorldMusic;
+    [SerializeField, Tooltip("This is fully optional")]
+    private AudioClip[] WorldMusicStart;
+
 
     [Header("Images")]
 
@@ -176,7 +186,7 @@ public class SceneController : MonoBehaviour
     
 
 
-    #region Unity Methods
+#region Unity Methods
     // Start is called before the first frame update
     void Start()
     {
@@ -217,9 +227,9 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    #endregion
+#endregion
 
-    #region Level Loading
+#region Level Loading
 
     /// <summary>
     /// The first load of the levels, centered on LevelIndex. Will load into LevelIndex.
@@ -243,6 +253,19 @@ public class SceneController : MonoBehaviour
             TempColor = BackgroundColorPerWorld[CurrentWorld];
         }
         Camera.main.backgroundColor = TempColor;
+
+        //START THE EPIC WORLD MUSIC !!!! :)
+        if (WorldMusic.Length > CurrentWorld && WorldMusic[CurrentWorld] != null)
+        {
+            if (WorldMusicStart.Length > CurrentWorld && WorldMusicStart[CurrentWorld] != null)
+            {
+                MusicController.GetMusicController().PlayMusic2(WorldMusicStart[CurrentWorld], WorldMusic[CurrentWorld]);
+            }
+            else
+            {
+                MusicController.GetMusicController().PlayMusic2(WorldMusic[CurrentWorld], fadeInTime: .5f);
+            }
+        }
 
         SpawnCharacters();
 
@@ -273,6 +296,7 @@ public class SceneController : MonoBehaviour
 
         curS.LevelManagerRef.LevelActive(this);
 
+        //MOVE THE CAMERA
         Camera.main.transform.position = curS.Cam.transform.position;
         Camera.main.orthographicSize = curS.Cam.orthographicSize;
 
@@ -800,9 +824,9 @@ public class SceneController : MonoBehaviour
         return "" + World + "-" + Level;
     }
 
-    #endregion
+#endregion
 
-    #region Characters
+#region Characters
 
     private void SpawnCharacters()
     {
@@ -832,9 +856,9 @@ public class SceneController : MonoBehaviour
         Armadillo = null;
     }
 
-    #endregion
+#endregion
 
-    #region Public Methods
+#region Public Methods
 
 
     /// <summary>
@@ -890,10 +914,10 @@ public class SceneController : MonoBehaviour
         return true;
     }
 
-    #endregion
+#endregion
 
     /*
-    #region Testing
+#region Testing
     private IEnumerator LoadScene()
     {
         //1. Load Scene (In the background)
@@ -941,6 +965,6 @@ public class SceneController : MonoBehaviour
 
     }
 
-    #endregion
+#endregion
     */
 }

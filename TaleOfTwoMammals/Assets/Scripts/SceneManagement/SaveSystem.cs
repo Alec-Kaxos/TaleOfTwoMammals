@@ -28,6 +28,18 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveLevelPassedState(string levelName, int passedState)
     {
+        string[] WorldAndLevel = levelName.Split("-");
+        int level = int.Parse(WorldAndLevel[1]);
+       if (level == 1)
+        {
+            PlayerPrefs.SetInt(SaveKeyLevelPrefix + levelName, passedState);
+        }
+        level = level + 1;
+        WorldAndLevel[1] = level.ToString();
+
+        levelName = WorldAndLevel[0] +"-"+ WorldAndLevel[1];
+        Debug.Log(levelName);
+
         PlayerPrefs.SetInt(SaveKeyLevelPrefix + levelName, passedState);
     }
 

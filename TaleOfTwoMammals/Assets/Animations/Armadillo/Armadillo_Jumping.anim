@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Anteater_Fall
+  m_Name: Armadillo_Jumping
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1652442232, guid: b484bf42cf9c55f499a91fbf6ff70595, type: 3}
+      value: {fileID: 1021922290, guid: 4c18e37bf2df5504d9f521351efdbec4, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1652442232, guid: b484bf42cf9c55f499a91fbf6ff70595, type: 3}
+    - {fileID: 1021922290, guid: 4c18e37bf2df5504d9f521351efdbec4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
