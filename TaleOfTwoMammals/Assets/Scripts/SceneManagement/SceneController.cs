@@ -11,7 +11,11 @@ public class SceneController : MonoBehaviour
     public static int FirstLoadWorld = 0;
     public static int FirstLoadLevel = 1;
     public static bool LoadOnStart = false;
+#if UNITY_EDITOR
     public static bool DEV = true;
+#else
+    public static bool DEV = false;
+#endif
 
     private struct SceneInfo
     {
@@ -182,7 +186,7 @@ public class SceneController : MonoBehaviour
     
 
 
-    #region Unity Methods
+#region Unity Methods
     // Start is called before the first frame update
     void Start()
     {
@@ -223,9 +227,9 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    #endregion
+#endregion
 
-    #region Level Loading
+#region Level Loading
 
     /// <summary>
     /// The first load of the levels, centered on LevelIndex. Will load into LevelIndex.
@@ -820,9 +824,9 @@ public class SceneController : MonoBehaviour
         return "" + World + "-" + Level;
     }
 
-    #endregion
+#endregion
 
-    #region Characters
+#region Characters
 
     private void SpawnCharacters()
     {
@@ -852,9 +856,9 @@ public class SceneController : MonoBehaviour
         Armadillo = null;
     }
 
-    #endregion
+#endregion
 
-    #region Public Methods
+#region Public Methods
 
 
     /// <summary>
@@ -910,10 +914,10 @@ public class SceneController : MonoBehaviour
         return true;
     }
 
-    #endregion
+#endregion
 
     /*
-    #region Testing
+#region Testing
     private IEnumerator LoadScene()
     {
         //1. Load Scene (In the background)
@@ -961,6 +965,6 @@ public class SceneController : MonoBehaviour
 
     }
 
-    #endregion
+#endregion
     */
 }
