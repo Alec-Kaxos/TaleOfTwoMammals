@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class SaveSystem : MonoBehaviour
     private string SaveKeyLevelPrefix = "level";
     private string SaveKeyCollectiblePrefix = "collectible";
 
+    [SerializeField]
+    private string[] AudioParamaters;
+    [SerializeField] 
+    private AudioMixer myMixer;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -19,6 +25,11 @@ public class SaveSystem : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        DoAudioVolume();
     }
 
     private void OnDestroy()
@@ -90,4 +101,13 @@ public class SaveSystem : MonoBehaviour
 	{
         collectableCollected += i;
 	}
+
+    private void DoAudioVolume()
+    {
+        foreach (string parameter in AudioParamaters)
+        {
+            Debug.Log(parameter + SaveSystem.Instance.LoadMusicSettings(parameter));
+            myMixer.SetFloat(parameter, SaveSystem.Instance.LoadMusicSettings(parameter));
+        }
+    }
 }

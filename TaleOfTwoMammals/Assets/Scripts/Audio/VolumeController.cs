@@ -15,9 +15,9 @@ public class VolumeController : MonoBehaviour
 
     void Awake()
     {
+        myMixer.SetFloat(volumeParameter, SaveSystem.Instance.LoadMusicSettings(volumeParameter));
         updateSlider();
         mySlider.onValueChanged.AddListener(volumeChange);
-        myMixer.SetFloat(volumeParameter, SaveSystem.Instance.LoadMusicSettings(volumeParameter));
     }
     
     //Change the volume to a volume btwn 0-1
