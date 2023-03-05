@@ -811,7 +811,6 @@ MonoBehaviour:
   Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
-  _winClip: {fileID: 0}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
@@ -1020,7 +1019,7 @@ PlatformEffector2D:
     m_Bits: 4294967295
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
+  m_UseOneWayGrouping: 1
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
@@ -2399,7 +2398,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2934,12 +2933,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 1227788087, guid: 875a58f85b8a7c446bfeadc9c683ddd1, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: -876036075, guid: c4fdea79ad667974ebfeae2a76fb0257, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: -876036075, guid: c4fdea79ad667974ebfeae2a76fb0257, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1227788087, guid: 875a58f85b8a7c446bfeadc9c683ddd1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1684809732, guid: 875a58f85b8a7c446bfeadc9c683ddd1, type: 3}
   - m_RefCount: 3
