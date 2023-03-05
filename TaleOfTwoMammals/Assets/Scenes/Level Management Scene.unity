@@ -329,6 +329,7 @@ MonoBehaviour:
   - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
   - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
   - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
+  WinAudioSource: {fileID: 85752382}
   InitialLoadCoverWait: 1
   InitialLoadCoverFade: 2
   NextLevelTransitionTime: 2.5
@@ -344,18 +345,18 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85752378}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -703325620999700150, guid: 40168d8d83be6bd4fb7577374c9607c0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.758
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 127
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

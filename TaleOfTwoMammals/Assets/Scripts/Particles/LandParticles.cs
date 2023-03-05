@@ -41,7 +41,7 @@ public class LandParticles : MonoBehaviour
 
     private void Landed(float speed)
     {
-        Debug.Log(speed);
+        //Debug.Log(speed);
         //Instantiate(LandParticle, transform.position, Quaternion.identity);
         GameObject pGO = ParticleMaster.SpawnParticle(LandParticle, transform.position + LandParticleDisplacement, play: false);
         ParticleSystem p = pGO.GetComponent<ParticleSystem>();

@@ -106,7 +106,7 @@ public class SaveSystem : MonoBehaviour
     {
         foreach (string parameter in AudioParamaters)
         {
-            Debug.Log(parameter + SaveSystem.Instance.LoadMusicSettings(parameter));
+            //Debug.Log(parameter + SaveSystem.Instance.LoadMusicSettings(parameter));
             myMixer.SetFloat(parameter, SaveSystem.Instance.LoadMusicSettings(parameter));
         }
     }

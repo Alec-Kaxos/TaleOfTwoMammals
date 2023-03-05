@@ -159,6 +159,10 @@ public class SceneController : MonoBehaviour
     private bool AllLoaded = false;
     private bool CurrentLoaded = false;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioSource WinAudioSource;
+
     [Header("Transition Timings")]
     [SerializeField]
     private float InitialLoadCoverWait = 1.0f;
@@ -868,6 +872,9 @@ public class SceneController : MonoBehaviour
     public bool LevelCompleted()
     {
         if (!AllLoaded) return false;
+
+        //Play Win Audio Source
+        if (WinAudioSource) WinAudioSource.Play();
 
         StartCoroutine(ToNextLevel());
 
