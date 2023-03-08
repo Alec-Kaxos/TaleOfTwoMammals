@@ -309,7 +309,7 @@ MonoBehaviour:
   RestartScenePlease: 0
   DevObjects:
   - {fileID: 95954039}
-  LevelsPerWorld: 0100000005000000050000000500000002000000
+  LevelsPerWorld: 0200000005000000050000000500000002000000
   CustomLevels: []
   FutureScenesLoaded: 2
   PreviousScenesLoaded: 2
@@ -324,11 +324,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8d898edbdacad994dbdc2108ab8cd061, type: 3}
   ScreenCover: {fileID: 809522000}
   BackgroundColorPerWorld:
-  - {r: 0.5803922, g: 0.9725491, b: 1, a: 0}
-  - {r: 0.5803922, g: 0.9725491, b: 1, a: 0}
-  - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
-  - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
-  - {r: 0.98823535, g: 0.93725497, b: 0.83921576, a: 0}
+  - {r: 0.47450984, g: 0.9686275, b: 1, a: 0}
+  - {r: 0.47450984, g: 0.9686275, b: 1, a: 0}
+  - {r: 0.8352942, g: 0.98823535, b: 1, a: 0}
+  - {r: 0.9921569, g: 0.93725497, b: 0.83921576, a: 0}
+  - {r: 0.12941177, g: 0.3647059, b: 0.64705884, a: 0}
   WinAudioSource: {fileID: 85752382}
   InitialLoadCoverWait: 1
   InitialLoadCoverFade: 2
