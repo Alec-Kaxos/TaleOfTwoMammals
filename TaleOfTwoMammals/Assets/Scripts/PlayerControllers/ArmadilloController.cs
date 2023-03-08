@@ -215,6 +215,11 @@ public class ArmadilloController : PlayerController
         return false;
     }
 
+    public void SetPounding(bool isPounding)
+    {
+        Pounding = isPounding;
+    }
+
     public override void OnDeath()
     {
         base.OnDeath();
