@@ -87,6 +87,12 @@ public class SaveSystem : MonoBehaviour
         return PlayerPrefs.GetFloat(parameterName);
     }
 
+
+    public float LoadMusicSettings(string parameterName, float defaultVal)
+    {
+        return PlayerPrefs.GetFloat(parameterName, defaultVal);
+    }
+
     public void DeleteAllSaves()
     {
         PlayerPrefs.DeleteAll();
@@ -107,7 +113,7 @@ public class SaveSystem : MonoBehaviour
         foreach (string parameter in AudioParamaters)
         {
             //Debug.Log(parameter + SaveSystem.Instance.LoadMusicSettings(parameter));
-            myMixer.SetFloat(parameter, SaveSystem.Instance.LoadMusicSettings(parameter));
+            myMixer.SetFloat(parameter, SaveSystem.Instance.LoadMusicSettings(parameter, -10f));
         }
     }
 }
