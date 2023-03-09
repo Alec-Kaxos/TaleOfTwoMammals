@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     protected Vector2 slopeNormal = Vector2.zero;
 
     [SerializeField]
-    protected AudioSource AnteaterJumpSound;
+    protected AudioSource AnteaterJumpSound, DeathAudio;
 
     #region Movement Variables
 
@@ -195,9 +195,10 @@ public class PlayerController : MonoBehaviour
 
     public virtual void OnDeath()
     {
-        StopCharacter();
+        StopCharacter();      
         Unsubscribe();
         animator.SetTrigger("Die");
+        DeathAudio.Play();
     }
 
     public virtual void OnRespawn()
