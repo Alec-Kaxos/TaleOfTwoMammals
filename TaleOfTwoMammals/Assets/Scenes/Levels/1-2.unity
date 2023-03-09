@@ -168,7 +168,7 @@ PrefabInstance:
       value: 'The Armadillo has the ability to break cracked ground!!!
 
         While
-        high in the air, enter the Ball Form to perform a ground pound.
+        high in the air, enter your Ball Form to perform a ground pound.
 
         This
         will break the cracked ground bellow you!'
@@ -1468,7 +1468,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -3, y: -4, z: 0}
@@ -1564,7 +1564,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -3, y: -3, z: 0}
@@ -1676,7 +1676,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -2, z: 0}
@@ -2615,7 +2615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: Anteater's tongue can be used as a bridge. Press "E" again to retract
+      value: The Anteater's tongue can be used as a bridge. Press "E" again to retract
         your tongue.
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}

@@ -162,7 +162,7 @@ public class AnteaterController : PlayerController
             }
             else
             {
-                ReturnInputBackToMovement();
+                // ReturnInputBackToMovement();
 
                 //CHANGE DISTANCE
                 AntHillDestroyed.GetComponent<AudioSource>();
@@ -335,6 +335,7 @@ public class AnteaterController : PlayerController
         normalCollider.offset = normalColliderCopy.offset;
         normalCollider.size = normalColliderCopy.size;
         RB.isKinematic = false;
+        ReturnInputBackToMovement();
     }
 
     private void HijackInputFromMovement()
