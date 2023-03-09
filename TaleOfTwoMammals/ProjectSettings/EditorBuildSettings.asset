@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Management Scene.unity
     guid: 94fef320629c88b4c9cee9b71681a890
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Scenes/TestTrans5.unity
     guid: 4e2c7e005840ab54bbcdf84d017a3b33
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Scenes/TestTrans6.unity
     guid: 9c024c00394fcfe4fa94dc6aef345e10
   - enabled: 1
