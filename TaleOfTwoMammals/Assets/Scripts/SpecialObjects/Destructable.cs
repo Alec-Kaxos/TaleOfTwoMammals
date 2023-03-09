@@ -36,12 +36,14 @@ public class Destructable : MonoBehaviour
                     if (destroyEntireBlock == true)
                     {                       
                         Destroy(this.gameObject);
+                        break;
                     }
                     else
                     {
                         destructableTilemap.SetTile(destructableTilemap.WorldToCell(hitPosition), null);
                     }
                 }
+                Armadillo.SetPounding(false);
 
             }
             
