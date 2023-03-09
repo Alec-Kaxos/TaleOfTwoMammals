@@ -1061,8 +1061,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: As the Armadillo, you can use UP,DOWN,LEFT,RIGHT arrow keys to move
-        your character around.
+      value: As the Armadillo, you can use the UP, DOWN, LEFT, and RIGHT arrow keys
+        to move your character around.
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_fontSize
@@ -1184,7 +1184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: Both Anteater and Armadillo need to stand in the prompt in order to
+      value: Both the Anteater and Armadillo need to stand in the sign in order to
         beat the level!
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
@@ -3122,7 +3122,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: As the Anteater, you can use WASD keys to move your character around.
+      value: As the Anteater, you can use the WASD keys to move your character around.
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_fontSize

@@ -464,8 +464,8 @@ PrefabInstance:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
       value: As the Armadillo, you can press the "DOWN" arrow key to transform into
-        a ball. When you are in ball form, you can fit through tight spaces and move
-        faster. Press the "UP" key or "DOWN" key again to return back to normal.
+        a ball. When you are in the ball form, you can fit through tight spaces and
+        move faster. Press the "UP" key or "DOWN" key again to return back to normal.
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_fontSize
@@ -2040,8 +2040,8 @@ PrefabInstance:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
       value: As the Anteater, press the "E" key to enter aiming mode. While in aiming
-        mode, press "A" or "D" to aim. Press "E" again to shoot your tongue. Anteater's
-        tongue can destroy the Ant Hill.
+        mode, press the "A" or "D" keys to aim. Press "E" again to shoot your tongue.
+        The Anteater's tongue can destroy Ant Hills.
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_fontSize

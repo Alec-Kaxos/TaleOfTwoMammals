@@ -680,7 +680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480730396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.2, y: -2.4, z: 0}
+  m_LocalPosition: {x: 13.3, y: -1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1235,9 +1235,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: Character can serve as a platform to help another character to reach
-        higher areas. Simply jump onto another character, and you will find that
-        you are standing higher :)
+      value: Characters can serve as a platform to help your friend reach higher
+        areas. Simply jump onto the other player, and you will find that you are
+        standing higher :)
       objectReference: {fileID: 0}
     - target: {fileID: 8113810803245259846, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_Pivot.x
@@ -2266,7 +2266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790752501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.18, y: -2.37, z: 0}
+  m_LocalPosition: {x: -14.47, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

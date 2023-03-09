@@ -1727,12 +1727,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_text
-      value: 'Anteater can use its tongue to pull movable objects like crate.
+      value: 'The Anteater can use its tongue to pull movable objects like crates.
 
         NOTE:
-        Anteater better leave some space in front of it before pulling, or the object
-        might fall into pit :) And you can always press the restart button on the
-        top right to restart the level.'
+        The Anteater better leave some space in front of it before pulling, or the
+        object might fall into pit :) Also, you can always press the restart button
+        on the top right to restart the level.'
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
       propertyPath: m_fontSize

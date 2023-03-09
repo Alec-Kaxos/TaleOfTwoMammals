@@ -878,7 +878,6 @@ MonoBehaviour:
   Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
-  _winClip: {fileID: 0}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
@@ -1036,7 +1035,7 @@ PrefabInstance:
         And congratulations
         on finding the secret level !!!
 
-        Here are just stuffs we put here,
+        Here is just some stuff we put here,
         enjoy!'
       objectReference: {fileID: 0}
     - target: {fileID: 847654288558154118, guid: b99711b4e9eae66419bd1ccfc3bec1cc, type: 3}
