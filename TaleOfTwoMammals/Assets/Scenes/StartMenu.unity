@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1446,7 +1446,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 380238290}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1773,6 +1773,10 @@ PrefabInstance:
       propertyPath: world
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -1960,7 +1964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2344,6 +2348,10 @@ PrefabInstance:
       propertyPath: world
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -2481,6 +2489,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -2750,7 +2762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2874,9 +2886,9 @@ RectTransform:
   m_Children:
   - {fileID: 1044051652}
   - {fileID: 7487760}
-  - {fileID: 1768115889}
   - {fileID: 253591818}
   - {fileID: 1152969554}
+  - {fileID: 1768115889}
   - {fileID: 123747273}
   m_Father: {fileID: 1923428810}
   m_RootOrder: 1
@@ -3163,6 +3175,10 @@ PrefabInstance:
       propertyPath: world
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -3311,6 +3327,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -4384,7 +4404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4765,7 +4785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4968,6 +4988,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -5417,7 +5441,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 380238290}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5437,7 +5461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5640,6 +5664,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -6384,6 +6412,10 @@ PrefabInstance:
       propertyPath: world
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -6532,6 +6564,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -7060,6 +7096,10 @@ PrefabInstance:
       propertyPath: world
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -7272,6 +7312,10 @@ PrefabInstance:
       propertyPath: world
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -7420,6 +7464,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -7608,6 +7656,10 @@ PrefabInstance:
     - target: {fileID: 4000569568683762622, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: world
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
@@ -8031,6 +8083,10 @@ PrefabInstance:
       propertyPath: world
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -8321,7 +8377,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 380238290}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8341,7 +8397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8819,6 +8875,10 @@ PrefabInstance:
       propertyPath: world
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4640170305734514467, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6827271968342554360, guid: ca49d970af31a0f4db0b35a6c049c3cf, type: 3}
       propertyPath: m_Texture
       value: 
@@ -9227,7 +9287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9481,7 +9541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
