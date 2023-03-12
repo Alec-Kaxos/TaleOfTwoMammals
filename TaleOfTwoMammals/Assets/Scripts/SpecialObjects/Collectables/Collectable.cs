@@ -11,6 +11,8 @@ public class Collectable : MonoBehaviour
     [SerializeField] protected Color collectableColor2 = new Color(1f, 0.8431373f, 0f);
     private GameObject collectParticles;
 
+    [SerializeField] protected AudioSource CollectingAudio;
+
     private void Awake()
     {
         LoadData();
@@ -43,6 +45,8 @@ public class Collectable : MonoBehaviour
         IncrementCollectedAmount();
 
         isCollected = true;
+
+        CollectingAudio.Play();
 
         animator.SetBool("isCollected", true);
 

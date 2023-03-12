@@ -6,6 +6,7 @@ public class Durian : Collectable
 {
     [SerializeField] Sprite crackedSprite;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] protected AudioSource CollectingSound;
 
     private bool hasBeenCracked = false;
 
@@ -30,6 +31,7 @@ public class Durian : Collectable
             }
             else
             {
+                CollectingSound.Play();
                 Collect();
             }
         }
@@ -56,6 +58,7 @@ public class Durian : Collectable
             }
             else
             {
+                CollectingSound.Play();
                 Collect();
             }
         }
