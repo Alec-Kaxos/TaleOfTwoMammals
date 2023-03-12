@@ -228,7 +228,7 @@ public class AnteaterController : PlayerController
         tongueBridge.transform.rotation = aimingSprites.transform.rotation;
         tongueBridge.transform.Rotate(0, 0, 90);
         tongueBridge.transform.SetParent(tongueStartPointRef);
-        tongueBridge.transform.localPosition = new Vector3(0f, tongueWidth/2, 0f);
+        tongueBridge.transform.localPosition = new Vector3(0f, 0f, 0f);
         if (hitSomething == true)
 		{
             BoxCollider2D tBoxC = tongueBridge.AddComponent<BoxCollider2D>();

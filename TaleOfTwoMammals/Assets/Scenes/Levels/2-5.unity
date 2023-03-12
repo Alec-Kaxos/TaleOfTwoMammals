@@ -302,6 +302,68 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &69205925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1289162986}
+    m_Modifications:
+    - target: {fileID: 7552785872616153510, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_Name
+      value: Ant Hill (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35559858b84309f459242123fde72a52, type: 3}
+--- !u!4 &69205926 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+  m_PrefabInstance: {fileID: 69205925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &111018677
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +726,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6095914489666571130, guid: 6d40ed3f7b96e3b458ac4c56a40cb840, type: 3}
   m_PrefabInstance: {fileID: 380753732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &466822954
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1289162986}
+    m_Modifications:
+    - target: {fileID: 7552785872616153510, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_Name
+      value: Ant Hill (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35559858b84309f459242123fde72a52, type: 3}
+--- !u!4 &466822955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7552785872616153514, guid: 35559858b84309f459242123fde72a52, type: 3}
+  m_PrefabInstance: {fileID: 466822954}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &480730396
 GameObject:
@@ -2464,6 +2588,8 @@ Transform:
   - {fileID: 1561743166}
   - {fileID: 1260157362}
   - {fileID: 1722560227}
+  - {fileID: 69205926}
+  - {fileID: 466822955}
   m_Father: {fileID: 934789943}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

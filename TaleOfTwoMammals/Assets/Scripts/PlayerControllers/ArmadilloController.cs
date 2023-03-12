@@ -17,6 +17,9 @@ public class ArmadilloController : PlayerController
     private float speedMultiplier = 1.25f;
 
     [SerializeField]
+    private float GroundPoundDistance = 2f;
+
+    [SerializeField]
     private LayerMask tunnelLayerMask;
     [SerializeField]
     protected AudioSource GroundPounding;
@@ -135,7 +138,7 @@ public class ArmadilloController : PlayerController
                     RaycastHit2D hit = Physics2D.Raycast(RB.position, -RB.transform.up, 20f, PoundLayers);
                     float DistanceFromGround = RB.position.y - hit.point.y;
                     Debug.Log(DistanceFromGround);
-                    if (DistanceFromGround > 3.5f)
+                    if (DistanceFromGround > GroundPoundDistance)
                     {
                         GroundPound();
                     }
