@@ -1656,7 +1656,7 @@ Tilemap:
       - {fileID: 1728080674, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: 1353403489, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
       - {fileID: -995527980, guid: 47e4487a98544ad49bced1f6b259dd62, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -4, y: -2, z: 0}
@@ -2270,7 +2270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc61e60164b22ec46a7c6bcdbd95d12b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6947d569e31a9048b549b7aff99294f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
