@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1681834326}
   - component: {fileID: 7536728385635589871}
   - component: {fileID: 6012949451030013733}
+  - component: {fileID: 5355653985408842962}
   m_Layer: 7
   m_Name: Anteater
   m_TagString: Player
@@ -533,6 +534,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5355653985408842962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595786299185234544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca327f50a8885204fb5e2dd5fa8d5797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &595786300081805367
 GameObject:
   m_ObjectHideFlags: 0

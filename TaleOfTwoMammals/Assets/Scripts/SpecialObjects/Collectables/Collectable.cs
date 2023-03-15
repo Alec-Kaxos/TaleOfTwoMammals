@@ -58,9 +58,10 @@ public class Collectable : MonoBehaviour
     {
         if (isCollected == true)
         {
-            animator.Play("Collected", 0, 1);
+			animator.Play("Collected", 0, 1);
             collider.enabled = false;
-            IncrementCollectedAmount();
+			animator.SetBool("isCollected", true);
+			IncrementCollectedAmount();
         }
     }
 
