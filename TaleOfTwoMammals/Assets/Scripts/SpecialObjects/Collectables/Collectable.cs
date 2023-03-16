@@ -46,7 +46,7 @@ public class Collectable : MonoBehaviour
 
         isCollected = true;
 
-        CollectingAudio.Play();
+        if(CollectingAudio) CollectingAudio.Play();
 
         animator.SetBool("isCollected", true);
 
