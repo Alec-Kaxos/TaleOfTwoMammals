@@ -218,7 +218,16 @@ public class AnteaterController : PlayerController
 
         //Set tongue dimensions
         tongueBridge = new GameObject("Tongue Bridge");
-        tongueBridge.transform.localScale = new Vector3(0f, tongueWidth, 1f);
+
+        if(this.transform.rotation.y < 0f)
+        {
+            tongueBridge.transform.localScale = new Vector3(0f, tongueWidth, 1f);
+        }
+        else
+        {
+            tongueBridge.transform.localScale = new Vector3(0f, -tongueWidth, 1f);
+        }
+        
 
         //Makes the tongue look like its shooting out
         //sorta
@@ -446,7 +455,18 @@ public class AnteaterController : PlayerController
         float modTongueShootTime = baseTongueShootTime * (tongueLen/10);
 
         Vector3 startScale = tongueBridge.transform.localScale;
-        Vector3 maxScale = new Vector3(tongueLen, tongueWidth, 1f);
+        Vector3 maxScale;
+
+        //checks player orientation to adjust tongue location correctly. Sets scale accordingly.
+        if (this.transform.rotation.y <0)
+        {
+            maxScale = new Vector3(tongueLen, tongueWidth, 1f);
+        }
+        else
+        {
+            maxScale = new Vector3(tongueLen, -tongueWidth, 1f);
+        }
+        
 
         do
         {
@@ -480,8 +500,17 @@ public class AnteaterController : PlayerController
         float modTongueShootTime = baseTongueShootTime * (tongueLen / 10);
 
         Vector3 startScale = tongueBridge.transform.localScale;
-        
-        Vector3 minScale = new Vector3(0, 0.1f, 1);
+        Vector3 minScale;
+
+        //checks player orientation to adjust tongue location correctly. Sets scale accordingly.
+        if (this.transform.rotation.y < 0)
+        {
+            minScale = new Vector3(0, 0.1f, 1);
+        }
+        else
+        {
+            minScale = new Vector3(0, -0.1f, 1);
+        }
 
         do
         {

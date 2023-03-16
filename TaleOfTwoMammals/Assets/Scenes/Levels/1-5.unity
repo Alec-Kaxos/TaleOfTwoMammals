@@ -1476,7 +1476,6 @@ MonoBehaviour:
   Armadillo: {fileID: 0}
   AnteaterRespawn: {fileID: 1336431851}
   ArmadilloRespawn: {fileID: 579393831}
-  _winClip: {fileID: 0}
 --- !u!4 &646980032
 Transform:
   m_ObjectHideFlags: 0
@@ -4588,7 +4587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ecbed20eb978be44842b51ee119122c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e809516d3416cc46a63eaee22929a4f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3676703256441301992}
-  - component: {fileID: 3676703256441301993}
   - component: {fileID: 3185261708249051846}
   - component: {fileID: 2871252818698918145}
   - component: {fileID: 5137214646971391541}
   - component: {fileID: -6355237996559248202}
+  - component: {fileID: -6324741930878546213}
   m_Layer: 0
   m_Name: Starving People
   m_TagString: Untagged
@@ -36,23 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3676703256441301993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676703256441301996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ab024579283f94fb05e550d401050e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5137214646971391541}
-  collider: {fileID: 3185261708249051846}
-  collectParticlesName: Collect Collectable
-  collectableColor1: {r: 0, g: 0, b: 0, a: 1}
-  collectableColor2: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &3185261708249051846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +155,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6324741930878546213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676703256441301996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c58bea028242934ab9e50a5e9e90bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5137214646971391541}
+  collider: {fileID: 3185261708249051846}
+  collectParticlesName: Collect Collectable
+  collectableColor1: {r: 1, g: 1, b: 1, a: 1}
+  collectableColor2: {r: 0, g: 0, b: 0, a: 1}
