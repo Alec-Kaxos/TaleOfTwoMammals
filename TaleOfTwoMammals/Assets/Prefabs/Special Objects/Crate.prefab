@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2181881200feb43b3ba93e22214527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveParticle: {fileID: 0}
+  MoveParticle: {fileID: 1943624849024402010, guid: eaad8e69a0b4c7542879a01dea1346ad, type: 3}
   MoveParticleDisplacement: {x: 0, y: -0.5, z: 0}
   VelocityThreshold: 1
 --- !u!114 &427533813
