@@ -13,10 +13,10 @@ A Tale of Two Mammals is a Cooperative puzzle platformer where two mammals are c
  - D Key: Move right
  - W Key: Jump
  - E Key: 
-  - Press Once to Activate Aiming (A & D to rotate the aiming reticle)
-  - Press a Second Time to Shoot the Tongue 
-  - Press a Third Time to retract the tongue/pull objects
-  - NOTE: Even though you can pull up objects that are below you, it is not intended by the developers. So, you are probably thinking in the wrong way if you are thinking to pull up something that is below you to pass the level
+   - Press Once to Activate Aiming (A & D to rotate the aiming reticle)
+   - Press a Second Time to Shoot the Tongue 
+   - Press a Third Time to retract the tongue/pull objects
+     - NOTE: Even though you can pull up objects that are below you, it is not intended by the developers. So, you are probably thinking in the wrong way if you are thinking to pull up something that is below you to pass the level
 
 ### Armadillo:
  - Left Arrow Key: Move left
