@@ -59,7 +59,7 @@ MonoBehaviour:
   animator: {fileID: 1178997695}
   detectionCollider: {fileID: 0}
   LM: {fileID: 0}
-  AnteaterJumpSound: {fileID: 3142365477410983778}
+  JumpSound: {fileID: 3142365477410983778}
   DeathAudio: {fileID: 9108869557702088801}
   movementVelocity: 4
   jumpVelocity: 11
@@ -344,9 +344,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -703325620999700150, guid: 40168d8d83be6bd4fb7577374c9607c0, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a42777dc09066ef4082d8b1e7b8c3957, type: 3}
+  m_audioClip: {fileID: 8300000, guid: df34c830e5589704188647bd106241ca, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.286
   m_Pitch: 1
   Loop: 0
   Mute: 0
