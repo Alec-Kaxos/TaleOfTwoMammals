@@ -67,6 +67,7 @@ MonoBehaviour:
   maxClimbAngle: 15
   spriteRenderer: {fileID: 2464515851302227829}
   speedMultiplier: 1.25
+  GroundPoundDistance: 2
   tunnelLayerMask:
     serializedVersion: 2
     m_Bits: 320
@@ -247,9 +248,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -703325620999700150, guid: 40168d8d83be6bd4fb7577374c9607c0, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9410ed351bcb43c479c7175bbb05f52c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: df7682d3a72d61a42b69a9975aa4659a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.347
+  m_Volume: 0.565
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -439,9 +440,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -703325620999700150, guid: 40168d8d83be6bd4fb7577374c9607c0, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 852ba43fd26cc1b4a987011ba090216f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d128c621e25a55a46a7e6cce33d09c99, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.678
   m_Pitch: 1
   Loop: 0
   Mute: 0
