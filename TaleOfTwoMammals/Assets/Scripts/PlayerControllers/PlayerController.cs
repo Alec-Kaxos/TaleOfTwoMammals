@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     protected Vector2 slopeNormal = Vector2.zero;
 
     [SerializeField]
-    protected AudioSource AnteaterJumpSound, DeathAudio;
+    protected AudioSource JumpSound, DeathAudio;
 
     #region Movement Variables
 
@@ -179,11 +179,11 @@ public class PlayerController : MonoBehaviour
         CheckGround();
         if (IsGrounded() && IsOnMovableSlope() && context.started)
         {
+            if (JumpSound != null)
+            {
+                JumpSound.Play();
+            }
             RB.velocity = new Vector2(RB.velocity.x, jumpVelocity);
-            if (AnteaterJumpSound != null)
-			{
-                AnteaterJumpSound.Play();
-			}
         }
     }
 
