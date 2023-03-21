@@ -33,6 +33,8 @@ public class ButtonScript : MonoBehaviour
     private Sprite ButtonNormal;
     [SerializeField]
     private Sprite ButtonPushed;
+    [SerializeField]
+    private AudioSource ButtonClickSound;
 
 
     #region Press/Release
@@ -48,6 +50,7 @@ public class ButtonScript : MonoBehaviour
 
             isPressed = true;
             onPress();
+            ButtonClickSound.Play();
 
             //Debug.Log("Pressed " + gameObject);
         }
