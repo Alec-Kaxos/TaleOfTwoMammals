@@ -29,4 +29,4 @@ A Tale of Two Mammals is a Cooperative puzzle platformer where two mammals are c
  - Aaron Pierce Winter
  - Alec Nicholas Kaxon-Rupp
  - Boyuan Huang
- - Music By: Ben Cohen
+ - Music and SFX by Ben Cohen
