@@ -30,3 +30,7 @@ A Tale of Two Mammals is a Cooperative puzzle platformer where two mammals are c
  - Alec Nicholas Kaxon-Rupp
  - Boyuan Huang
  - Music and SFX by Ben Cohen
+
+
+## Hint:
+The delivery car/starship is used to deliver takeout food within the UCI campus.
